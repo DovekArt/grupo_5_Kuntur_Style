@@ -1,0 +1,254 @@
+footer {
+  padding: 5em 0;
+}
+
+.footer {
+  background-color: #131719;
+}
+
+.footer .footer-heading {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.footer .footer-heading .logo {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: #bba387;
+}
+
+.footer p {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer .copyright {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+}
+
+.footer .list-unstyled li a {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer .list-unstyled li a:hover {
+  color: #fff;
+}
+
+.footer .list-unstyled a {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer .list-unstyled a:hover {
+  color: #fff;
+}
+
+.footer .subscribe {
+  position: absolute;
+  top: -72px;
+  right: auto;
+}
+
+.footer .subscribe-form {
+  border-radius: 40px;
+  background: #fff;
+  padding: 3px;
+  -webkit-box-shadow: 0px -12px 21px -15px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px -12px 21px -15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -12px 21px -15px rgba(0, 0, 0, 0.1);
+}
+
+.footer .subscribe-form .form-group {
+  position: relative;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.footer .subscribe-form .form-group input {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: rgba(0, 0, 0, 0.3) !important;
+  font-size: 16px;
+  height: 56px;
+  border-radius: 0;
+}
+
+.footer .subscribe-form .form-group input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer .subscribe-form .form-group input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer .subscribe-form .form-group input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer .subscribe-form .form-group input:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.footer .subscribe-form .form-group input:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.footer .subscribe-form .form-group .submit {
+  color: #fff !important;
+  display: block;
+  width: 150px;
+  height: 56px;
+  font-size: 14px;
+  background: #bfa88e !important;
+  border: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 40px;
+}
+
+.footer .subscribe-form .form-group .submit:hover,
+.footer .subscribe-form .form-group .submit:focus {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.footer .partner-wrap {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1em 0;
+}
+
+.footer .partner-wrap h3 {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer .partner-wrap .partner-name a {
+  margin-right: 10px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer .partner-wrap .partner-name a span {
+  color: white;
+}
+
+.footer .partner-wrap .btn-custom {
+  font-size: 14px;
+}
+
+.footer .border-left {
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+@media (max-width: 1199.98px) {
+  .footer .border-left {
+    border: none;
+  }
+}
+
+
+
+.contenedor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido {
+  width: 360px;
+  height: 40px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, .2);
+  border-radius: 60px;
+  overflow: hidden;
+}
+
+.suscripcion {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.suscripcion .add-correo{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 20px;
+}
+
+.suscripcion .submit-correo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: calc(100% - 2px);
+  width: 100px;
+  border: none;
+  border-radius: 60px;
+  outline: none;
+  margin: 1px;
+  padding: 0 20px;
+  cursor: pointer;
+  background: #4ABEBB;
+  color: #FFFFFF;
+  transition: width .35s ease-in-out,
+    background .35s ease-in-out;
+}
+
+.suscripcion.done .submit-correo {
+  width: calc(100% - 2px);
+  background: #C0E02E;
+}
+
+.suscripcion .submit-correo .before-submit,
+.suscripcion .submit-correo .after-submit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 38px;
+  transition: visibility .35s ease-in-out,
+    opacity .35s ease-in-out;
+}
+
+.suscripcion.done .submit-correo .before-submit,
+.suscripcion:not(.done) .submit-correo .after-submit {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.suscripcion .submit-correo .after-submit {
+  transition-delay: .35s;
+}
+
+.suscripcion:not(.done) .submit-correo .before-submit,
+.suscripcion.done .submit-correo .after-submit {
+  visibility: visible;
+  opacity: 1;
+  background-color: orange;
+}
+
+.col-md-8.col-lg-7 {
+  text-align: center;
+}
