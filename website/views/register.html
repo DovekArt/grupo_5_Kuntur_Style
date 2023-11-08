@@ -215,6 +215,10 @@
             width: calc(50% - 11px);
             padding: 15px;
         }
+
+        #mensaje-login{
+         display: none; 
+        }
         
         @media (min-width: 768px) {
             input[class="form-input"] {
@@ -223,6 +227,9 @@
           .login-card-footer-text {
             margin-bottom: 60px;
           }
+          #mensaje-login{
+              display: block; 
+            }
         }
         
         .login-card-footer-nav a {
@@ -342,6 +349,7 @@
           cursor: not-allowed;
           outline: 0;
         }
+
         
         @media (min-width: 427px) {
           .login-card .card-body {
@@ -1053,7 +1061,8 @@
                               <img src="/img/modelos/modelo6.jpg" alt="login" class="login-card-img">
                               <p
                                   class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small"
-                                  style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                                  style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;"
+                                  id="mensaje-login">
                                   Crea una cuenta en <a href="/" target="_blank" class="text-white">
                                       KunturStyle</a> para poder realizar pedidos
                               </p>
@@ -1067,7 +1076,7 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-10 col-lg-6">
-              <div class="contenido subscribe mb-5">
+              <!-- <div class="contenido subscribe mb-5">
                 <form class="suscripcion">
                   <input class="add-correo" type="email" placeholder="subscribe@me.now">
                   <button class="submit-correo" type="button">
@@ -1075,7 +1084,7 @@
                     <span class="after-submit">Thank you for subscribing!</span>
                   </button>
                 </form>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="row">
