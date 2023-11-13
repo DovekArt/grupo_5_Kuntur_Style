@@ -18,6 +18,10 @@ app.get('/account/register', (req, res) => {
     res.sendFile(path.join(views, 'register.html'));
 })
 
+app.get('/prueba', (req, res) => {
+    res.sendFile(path.join(views, 'prueba2.html'));
+});
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(views, '404.html'));
 })

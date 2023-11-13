@@ -1,6 +1,8 @@
 // Generar productos de forma dinámica
 const sectionFeatured = document.querySelector('section[data-store="products-home-featured"]');
 const featuredProducts = document.querySelector("#featured-products");
+const prevBtns = document.querySelectorAll('#prevBtn');
+const nextBtns = document.querySelectorAll('#nextBtn');
 // Crear objetos para tus productos
 const products = [
   {
@@ -12,7 +14,7 @@ const products = [
       detalle: "Bermuda de playa floreada, comoda y ligera.",
       color: "Azul y rojo",
       material: "Poliéster",
-      talle: "L",
+      talle: ['L'],
     },
   },
   {
@@ -24,7 +26,7 @@ const products = [
       detalle: "Gorra ligera.",
       color: "Negro",
       material: "Poliéster",
-      talle: "M",
+      talle: ['M'],
     },
   },
   {
@@ -36,7 +38,7 @@ const products = [
       detalle: "Remera con diseño de arte abstracto.",
       color: "Negro",
       material: "Algodón",
-      talle: "M/L",
+      talle: ['M', 'L'],
     },
   },
   {
@@ -48,7 +50,7 @@ const products = [
       detalle: "Bermuda de jean con detalles de rasgaduras.",
       color: "Azul claro",
       material: "Mezclilla",
-      talle: "M/L",
+      talle: ['M', 'L'],
     },
   },
   {
@@ -60,7 +62,7 @@ const products = [
       detalle: "Gorra de algodón, ligera, comoda y fresca.",
       color: "Beige",
       material: "Algodón",
-      talle: "Único",
+      talle: ['Único'],
     },
   },
   {
@@ -72,7 +74,7 @@ const products = [
       detalle: "Remera para mujer con detalles en las mangas.",
       color: "Blanca",
       material: "Algodón",
-      talle: "S/M/L",
+      talle: ['S', 'M', 'L'],
     },
   },
   {
@@ -84,7 +86,7 @@ const products = [
       detalle: "Remera ligera con estampado abstracto.",
       color: "Blanca",
       material: "Algodón",
-      talle: "L/XL",
+      talle: ['L', 'XL'],
     },
   },
   {
@@ -96,7 +98,7 @@ const products = [
       detalle: "Jeans cortos con diseño floreado.",
       color: "Celeste",
       material: "Mezclilla",
-      talle: "M/L",
+      talle: ['M', 'L'],
     },
   },
   {
@@ -108,7 +110,7 @@ const products = [
       detalle: "Remera con estampado fabuloso.",
       color: "Negra",
       material: "Algodón",
-      talle: "M/L",
+      talle: ['M', 'L'],
     },
   },
   {
@@ -120,28 +122,27 @@ const products = [
       detalle: "Bermuda de playa con diseño de flores, comoda y ligera.",
       color: "Azul",
       material: "Poliéster",
-      talle: "L",
+      talle: ['L'],
     },
   },
 ];
 
-var currentPosition = 0;
+let productsCantidad = 0;
 
 // Función para obtener los productos
 function getFeaturedProducts() {
   featuredProducts.innerHTML = "";
-  for (let i = currentPosition; i < currentPosition + 4; i++) {
+  for (let i = productsCantidad; i < productsCantidad + products.length; i++) {
     const product = products[i];
     const precio = product.precio;
-    const precioFormateado = precio.toLocaleString("es-ES");
-    const precioCuotas6 = precio / 6;
-    const cuotas6 = precioCuotas6.toLocaleString("es-ES");
+    const precioFormateado = precio.toLocaleString();
+    const precioCuotas3 = precio / 3;
+    const cuotas3 = precioCuotas3.toLocaleString();
     const productHTML = `
-            <div class="swiper-slide js-swiper-slide-visible swiper-slide-active" data-swiper-slide-index="${i + 1}"
-                style="width: 266.25px; margin-right: 15px;" data-transition="fade-in-up">
+            <div class="product-card-dv swiper-slide js-swiper-slide-visible swiper-slide-active" data-swiper-slide-index="${i + 1}">
                 <div class="js-item-product js-item-slide p-0 item item-product grid-item" data-product-type="list"
                     data-product-id="${i + 1}" data-store="product-item-${i + 1}" data-component="product-list-item"
-                    data-component-value="${i + 1}">
+                    data-component-value="${i + 1}" data-transition="fade-in-up">
                     <div class="js-product-container js-quickshop-container js-quickshop-has-variants position-relative"
                         data-quickshop-id="quick${i + 1}">
                         <div class=" item-image">
@@ -149,10 +150,10 @@ function getFeaturedProducts() {
                                 data-store="product-item-image-${i + 1}">
                                 <a href="/productos/${product.codigo}/" title="${product.nombre}" aria-label="${product.nombre}">
                                     <img alt="${product.nombre}" data-expand="-10"
-                                        src="img/productos/${product.imagen}"
+                                        src="/img/productos/${product.imagen}"
                                         class="js-item-image lazyautosizes img-absolute img-absolute-centered fade-in ls-is-cached lazyloaded"
                                         width="1024" height="1284" sizes="(max-width: 768px) 50vw, (min-width: 769px) 25vw"
-                                        srcset="img/productos/${product.imagen} 240w, img/productos/${product.imagen} 320w, img/productos/${product.imagen} 480w, img/productos/${product.imagen} 640w, img/productos/${product.imagen} 1024w">
+                                        srcset="/img/productos/${product.imagen} 240w, /img/productos/${product.imagen} 320w, /img/productos/${product.imagen} 480w, /img/productos/${product.imagen} 640w, /img/productos/${product.imagen} 1024w">
                                     <div class="placeholder-fade">
                                     </div>
                                 </a>
@@ -162,55 +163,50 @@ function getFeaturedProducts() {
                             </div>
                             <span class="hidden" data-store="stock-product-${i + 1}-15"></span>
                             <div class="item-buy">
-                                <div class="js-item-variants item-buy-variants hidden">
+                                <div id="descripcion" class="js-item-variants item-buy-variants hidden">
                                     <form class="js-product-form" method="post" action="/comprar/">
                                         <input type="hidden" name="add_to_cart" value="${i + 1}">
                                         <div class="js-product-variants js-product-quickshop-variants mb-1  form-row">
-                                            <div class="js-product-variants-group  col-12 " data-variation-id="0">
-                                                <div class="form-group form-group-small mb-2 d-none">
-                                                    <label class="form-label mb-1" for="variation_1">TALLE</label>
-                                                    <select id="variation_1"
-                                                        class="form-select js-variation-option js-refresh-installment-data form-control-small "
-                                                        name="variation[0]">
-                                                        <option value="Unico" selected="selected">Unico</option>
-                                                    </select>
-                                                    <div class="form-select-icon">
-                                                        <svg class="icon-inline icon-w-14 icon-lg"
-                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                            <path
-                                                                d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
-                                                            </path>
-                                                        </svg>
-                                                    </div>
+                                            <div class="js-product-variants-group  col-12 " data-variation-id="${i + 1}">
+                                              <div class="form-group form-group-small mb-2 d-none">
+                                                <label class="form-label mb-1" for="variation_1">TALLE</label>
+                                                <div product-tallesmall-id="${i + 1}">
+                                                  <!-- Aqui irian los talles -->
                                                 </div>
-                                                <div class="col px-0">
-                                                    <div class="quickshop-custom-label mt-2 mb-2">
-                                                        <div class="row ml-0 pl-0">
-                                                            <label for="variation_1" class="form-label d-inline-block">TALLE
-                                                            </label>
-                                                        </div>
-                                                        <a href="#" class="d-xs-none d-sm-none d-lg-block row js-item-buy-close">
-                                                            <svg class="icon-inline icon-lg svg-circle svg-icon-text"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path
-                                                                    d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
-                                                                </path>
-                                                            </svg> </a>
-                                                    </div>
-                                                    <div class="row ml-0 pl-0 justify-content-sm-start no-gutters">
-                                                        <a data-option="Unico" class="js-insta-variant btn btn-variant selected"
-                                                            data-variation-id="0">
-                                                            <span class="btn-variant-content" data-name="Unico">Unico</span>
-                                                        </a>
-                                                    </div>
+                                                <div class="form-select-icon">
+                                                  <svg class="icon-inline icon-w-14 icon-lg"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path
+                                                      d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
+                                                    </path>
+                                                  </svg>
                                                 </div>
+                                              </div>
+                                              <div class="col px-0">
+                                                <div class="quickshop-custom-label mt-2 mb-2">
+                                                  <div class="row ml-0 pl-0">
+                                                      <label for="variation_1" class="form-label d-inline-block">TALLE
+                                                      </label>
+                                                  </div>
+                                                  <a href="#" class="d-xs-none d-sm-none d-lg-block row js-item-buy-close">
+                                                      <svg class="icon-inline icon-lg svg-circle svg-icon-text"
+                                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                          <path
+                                                              d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
+                                                          </path>
+                                                      </svg> </a>
+                                                </div>
+                                                <div class="row ml-0 pl-0 justify-content-sm-start no-gutters" product-talle-id="${i + 1}">
+                                                  <!-- Aqui irian los talles -->
+                                                </div>
+                                              </div>
                                             </div>
                                         </div>
                                         <input type="submit"
                                             class="js-addtocart js-prod-submit-form btn btn-primary btn-small w-100 mb-2 cart"
-                                            value="Agregar al carrito">
+                                            value="Agregar al carrito" add-product-cart-id="${i + 1}">
                                         <div class="js-addtocart js-addtocart-placeholder btn btn-primary btn-small btn-block btn-transition mb-2 disabled"
-                                            style="display: none;">
+                                            style="display: none;" animation-product-cart-id="${i + 1}">
                                             <div class="d-inline-block">
                                                 <span class="js-addtocart-text">Agregar al carrito</span>
                                                 <span class="js-addtocart-success transition-container">
@@ -237,8 +233,6 @@ function getFeaturedProducts() {
                                         $ ${precioFormateado}
                                     </span>
                                 </div>
-                                <div class="js-color-variant-available-1 " data-value="variation_1" data-option="0">
-                                </div>
                                 <span
                                     class="js-max-installments-container js-max-installments  text-bold text-accent-buy item-installments">
                                     <svg class="icon-inline icon-w svg-icon-text text-accent-buy mr-1" width="512" height="512"
@@ -248,8 +242,8 @@ function getFeaturedProducts() {
                                             fill="black"></path>
                                     </svg>
                                     <span class="js-max-installments">
-                                        <span class="js-installment-amount installment-amount">6</span> cuotas sin interés de <span
-                                            class="js-installment-price installment-price">$${cuotas6}</span>
+                                        <span class="js-installment-amount installment-amount">3</span> cuotas sin interés de <span
+                                            class="js-installment-price installment-price">$${cuotas3}</span>
                                     </span>
                                 </span>
                             </a>
@@ -261,7 +255,7 @@ function getFeaturedProducts() {
                                     data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop"
                                     data-component="product-list-item.add-to-cart" data-component-value="${i + 1}">Comprar</a>
                                 <div class="d-xs-none d-sm-none d-md-block col-8 col-md-6 pl-0 pr-1">
-                                    <a href="#" class="js-item-buy-open item-buy-open d-flex btn btn-primary btn-small"
+                                    <a href="#" class="js-item-buy-open item-buy-open d-flex btn btn-primary btn-small" data-buy-id="${i + 1}"
                                         title="Compra rápida de ${product.nombre}" aria-label="Compra rápida de ${product.nombre}">Comprar</a>
                                 </div>
                                 <div class=" col-4 col-md-6 pl-1">
@@ -278,43 +272,146 @@ function getFeaturedProducts() {
                             </div>
                         </div>
                     </div>
-                    <script type="application/ld+json">
-                        {
-                            "@context": "https://schema.org/",
-                            "@type": "Product",
-                            "mainEntityOfPage": {
-                                "@type": "WebPage",
-                                "@id": "/productos/${product.codigo}/"
-                            },
-                            "name": "${product.nombre}",
-                            "image": "img/productos/${product.imagen}",
-                            "description": "${product.descripcion.detalle}. &nbsp; Color: ${product.descripcion.color} Material: ${product.descripcion.material} &nbsp; Talle ${product.descripcion.talle}.",
-                                    "sku": "-_-UNI",
-                                            "weight": {
-                                    "@type": "QuantitativeValue",
-                                    "unitCode": "KGM",
-                                    "value": "1.0000"
-                                },
-                                "offers": {
-                                "@type": "Offer",
-                                "url": "/productos/${product.codigo}/",
-                                "priceCurrency": "ARS",
-                                "price": "${product.precio}",
-                                            "availability": "http://schema.org/InStock",
-                                    "inventoryLevel": {
-                                        "@type": "QuantitativeValue",
-                                        "value": "15"
-                                    },
-                                        "seller": {
-                                    "@type": "Organization",
-                                    "name": "KunturStyle"
-                                }
-                            }
-                        }
-                    </script>
                 </div>
             </div>
             `;
     featuredProducts.innerHTML += productHTML;
   }
+}
+
+// Llamar a la función para obtener los productos
+getFeaturedProducts();
+
+const divsTallesSmall = document.querySelectorAll('[product-tallesmall-id]');
+function getTallesSmall() {
+  divsTallesSmall.forEach((divTalleSmall) => {
+    divTalleSmall.innerHTML = "";
+  });
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
+    const cantidadTalles = product.descripcion.talle.length;
+    let isFirstSelected = true;
+    for (let j = 0; j < product.descripcion.talle.length; j++) {
+      const isSelected = isFirstSelected ? 'selected="selected"' : '';
+      const descripcionSmallHTML = `
+        <select id="variation_1" class="form-select js-variation-option js-refresh-installment-data form-control-small" name="variation[0]">
+          <option value="${product.descripcion.talle[j]}" ${isSelected}>${product.descripcion.talle[j]}</option>
+        </select>
+      `;
+      divsTallesSmall[i].innerHTML += descripcionSmallHTML;
+      isFirstSelected = false;
+    }
+  }
+}
+
+const divsTalles = document.querySelectorAll('[product-talle-id]');
+function getTalles() {
+  divsTalles.forEach((divTalle) => {
+    divTalle.innerHTML = "";
+  });
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
+    const cantidadTalles = product.descripcion.talle.length;
+    let isFirstSelected = true; // Variable para controlar el primer enlace seleccionado
+    for (let j = 0; j < cantidadTalles; j++) {
+      const talle = product.descripcion.talle[j];
+      const isSelected = isFirstSelected ? 'selected' : ''; // Agrega la clase 'selected' solo al primer enlace generado
+      const descripcionHTML = `
+        <a data-option="${talle}" class="js-insta-variant btn btn-variant ${isSelected}" product-id="${i + 1}" data-product-talla-id="${i + 1}">
+          <span class="btn-variant-content" data-name="${talle}">${talle}</span>
+        </a>
+      `;
+      divsTalles[i].innerHTML += descripcionHTML;
+      isFirstSelected = false; // Desactiva la variable isFirstSelected después de generar el primer enlace seleccionado
+    }
+  }
+}
+
+// Llamar a la función para obtener los talles en pequeño
+getTallesSmall();
+// Llamar a la función para obtener los talles
+getTalles();
+
+const divModalMobile = document.getElementById('quickmodal-body');
+
+function getDescriptionMobile(producto) {
+  const j = producto - 1;
+  const product = products[j];
+  divModalMobile.innerHTML = "";
+  const descripcionHTML = `
+      <div class="js-item-product js-swiper-slide-visible js-item-slide" data-quickshop-product-id="${producto}">
+        <div class="js-product-container js-quickshop-container js-quickshop-modal js-quickshop-modal-shell"
+          data-quickshop-id="quick${producto}">
+          <div class="js-item-variants">
+            <div class="js-item-name h4 mb-2 pr-4" data-store="product-item-name-">${product.nombre}</div>
+            <div class="item-price-container mb-3" data-store="product-item-price-">
+              <span class="js-compare-price-display price-compare" style="display:none;">
+                $0
+              </span>
+              <span class="js-price-display">
+                ${product.precio}
+              </span>
+            </div>
+            <img
+              srcset="/img/productos/${product.imagen} 1024w"
+              class="js-quickshop-img js-item-image">
+            <div id="quickshop-form">
+              <form class="js-product-form" method="post" action="/comprar/">
+                <input type="hidden" name="add_to_cart" value="${producto}">
+                <div class="js-product-variants js-product-quickshop-variants mb-1  form-row">
+                  <div class="js-product-variants-group  col-12 " data-variation-id="0">
+                    <div class="form-group form-group-small mb-2 d-none">
+                      <label class="form-label mb-1" for="variation_1">TALLE</label>
+                      <div quickmodal-tallesmall-id="${producto}">
+                        <!-- Aqui irian los talles -->
+                      </div>
+                      <div class="form-select-icon">
+                        <svg class="icon-inline icon-w-14 icon-lg" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512">
+                          <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="col px-0">
+                      <div class="quickshop-custom-label mt-2 mb-2">
+                        <div class="row ml-0 pl-0">
+                          <label for="variation_1" class="form-label d-inline-block">TALLE
+                          </label>
+                        </div>
+                        <a href="#" class="d-xs-none d-sm-none d-lg-block row js-item-buy-close">
+                          <svg class="icon-inline icon-lg svg-circle svg-icon-text" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512">
+                            <path
+                              d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
+                            </path>
+                          </svg> </a>
+                      </div>
+                      <div class="row ml-0 pl-0 justify-content-sm-start no-gutters" quickmodal-talle-id="${producto}">
+                        <!-- Aqui irian los talles -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <input type="submit" class="js-addtocart js-prod-submit-form btn btn-primary btn-small w-100 mb-2 cart"
+                  value="Agregar al carrito" add-product-cart-id="quick-${producto}">
+                <div
+                  class="js-addtocart js-addtocart-placeholder btn btn-primary btn-small btn-block btn-transition mb-2 disabled"
+                  style="display: none;" animation-product-cart-id="quick-${producto}">
+                  <div class="d-inline-block">
+                    <span class="js-addtocart-text">Agregar al carrito</span>
+                    <span class="js-addtocart-success transition-container">
+                      ¡Listo!
+                    </span>
+                    <div class="js-addtocart-adding transition-container">
+                      Agregando...
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  divModalMobile.innerHTML += descripcionHTML;
 }

@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tienda Online de KunturStyle</title>
     <meta name="description" content="KunturStyle es una tienda de ropa urbana que ofrece una amplia variedad de productos para hombres, mujeres y niños. Nuestra misión es conectar a las personas con su estilo urbano, ofreciéndoles prendas de calidad a precios asequibles.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-colors.css">
-    <link rel="stylesheet" href="style-async.css">
-    <link href="logo.ico" rel="icon" type="image/x-icon">
-    <link href="logo.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-colors.css">
+    <link rel="stylesheet" href="/css/style-async.css">
+    <link href="/img/design/logo.ico" rel="icon" type="image/x-icon">
+    <link href="/img/design/logo.ico" rel="shortcut icon" type="image/x-icon">
     <style>
       .product-card-dv {
         width: 266.25px;
@@ -77,10 +79,9 @@
       .button {
         appearance: none;
         cursor: pointer;
-        display: inline-block;
       }
 
-      header .details-modal {
+      #detailsElementModal .details-modal {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         max-width: 90%;
         top: 0px;
@@ -89,7 +90,7 @@
         z-index: 3;
       }
 
-      header .details-modal-overlay {
+      #detailsElementModal .details-modal-overlay {
         transition: opacity 0.2s ease-out;
         pointer-events: none;
         background: rgba(15, 23, 42, 0.8);
@@ -101,24 +102,29 @@
         top: 0;
       }
 
-      header .details-modal-overlay.open {
+      #detailsElementModal .details-modal-overlay.open {
         pointer-events: all;
         opacity: 0.5;
         z-index: 2;
         height: 100vh;
       }
 
-      ul.nav-desktop-list .details-modal {
+      #acordionElement .details-modal {
+        width: 100%;
+        z-index: 3;
+      }
+
+      header #acordionElement .details-modal {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         max-width: 90%;
         position: absolute;
         top: 350%;
         transform: translate(-50%, -50%);
         width: 30em;
-        z-index: 3;
+        z-index: 4;
       }
 
-      ul.nav-desktop-list .details-modal-overlay {
+      #acordionElement .acordion-modal-overlay {
         transition: opacity 0.2s ease-out;
         pointer-events: none;
         background: rgba(15, 23, 42, 0.8);
@@ -130,7 +136,7 @@
         top: 0;
       }
 
-      ul.nav-desktop-list .details-modal-overlay.open {
+      #acordionElement .acordion-modal-overlay.open {
         pointer-events: all;
         opacity: 0;
         z-index: 2;
@@ -229,33 +235,34 @@
         <div class="row no-gutters align-items-center custom-nav-logo">
           <div class="col-auto d-md-none row align-items-center no-gutters order-sm-1 text-left"
             style="justify-content: flex-end;">
-            <div class="col-auto col-utility order-first order-md-last d-md-none">
-              <span class="utilities-container">
-                <a href="#" id="open-menu" class="mobilebuttonsize js-modal-open utilities-link utilities-item"
-                  data-toggle="#nav-hamburger" aria-label="Menú" data-component="menu-button">
-                  <svg class="icon-inline utilities-icon" viewBox="0 0 512 512">
+            <details id="detailsElementModal" data-modal="modal-menu" class="col-auto col-utility order-first order-md-last d-md-none">
+              <summary>
+                <div class="button">
+                  <a class="mobilebuttonsize js-modal-open utilities-link utilities-item">
+                    <svg class="icon-inline utilities-icon" viewBox="0 0 512 512">
                     <path d="M486.4,102.45H25.6V76.85H486.4Zm0,179.2H25.6v-25.6H486.4Zm0,179.2H25.6v-25.6H486.4Z"></path>
                   </svg>
-                </a>
-              </span>
-            </div>
-            <div class="col-auto col-utility d-md-none">
-              <span class="utilities-container">
-                <a href="#" id="open-search"
-                  class="mobilebuttonsize js-modal-open js-search-button  utilities-link utilities-item"
-                  data-toggle="#nav-search" aria-label="Buscador">
-                  <svg class="icon-inline utilities-icon" viewBox="0 0 512 512">
-                    <path
-                      d="M389.68,359.13A204,204,0,0,0,435.2,230.4c0-113.11-91.69-204.8-204.8-204.8S25.6,117.29,25.6,230.4s91.69,204.8,204.8,204.8a204.13,204.13,0,0,0,142-57.19L486.69,492.34l18.1-18.1ZM230.4,409.6A179.2,179.2,0,1,1,409.6,230.4,179.2,179.2,0,0,1,230.4,409.6Z">
+                    </a>
+                </div>
+                <div class="details-modal-overlay js-modal-overlay modal-overlay"></div>
+              </summary>
+            </details>
+            <details id="detailsElementModal" data-modal="modal-search" class="col-auto col-utility d-md-none">
+              <summary>
+                <div class="button">
+                  <a class="mobilebuttonsize js-modal-open js-search-button  utilities-link utilities-item">
+                    <svg class="icon-inline utilities-icon" viewBox="0 0 512 512">
+                    <path d="M389.68,359.13A204,204,0,0,0,435.2,230.4c0-113.11-91.69-204.8-204.8-204.8S25.6,117.29,25.6,230.4s91.69,204.8,204.8,204.8a204.13,204.13,0,0,0,142-57.19L486.69,492.34l18.1-18.1ZM230.4,409.6A179.2,179.2,0,1,1,409.6,230.4,179.2,179.2,0,0,1,230.4,409.6Z">
                     </path>
                   </svg>
-                </a>
-              </span>
-            </div>
+                    </a>
+                </div>
+                <div class="details-modal-overlay js-modal-overlay modal-overlay"></div>
+              </summary>
+            </details>
           </div>
           <div class="col-auto col-md-auto row align-items-center no-gutters order-sm-3 order-md-2 order-lg-3 text-right"
             style="justify-content: flex-end;">
-            
             <div class="d-none d-md-flex d-lg-flex mr-3 ml-2 col-utility">
               <span class="d-none d-md-block">
                 <form class="js-search-container js-search-form search-container mr-md-3" action="/search/" method="get">
@@ -276,7 +283,7 @@
             </div>
             <div class="col-auto col-utility">
               <span class="utilities-container">
-                <a class="mobilebuttonsize" href="/account/login/">
+                <a class="mobilebuttonsize" href="/account/login">
                   <svg class="icon-inline utilities-icon " viewBox="0 0 512 512">
                     <path
                       d="M384,281.6H128A102.41,102.41,0,0,0,25.6,384V512H486.4V384A102.41,102.41,0,0,0,384,281.6Zm76.8,204.8H51.2V384A76.79,76.79,0,0,1,128,307.2H384A76.79,76.79,0,0,1,460.8,384ZM256,256A128,128,0,1,0,128,128,128,128,0,0,0,256,256Zm0-230.4A102.4,102.4,0,1,1,153.6,128,102.41,102.41,0,0,1,256,25.6Z">
@@ -285,37 +292,36 @@
                 </a>
               </span>
             </div>
-            <div class="col-auto col-utility">
-              <span class="utilities-container">
-                <div id="ajax-cart" class="cart-summary" data-component="cart-button">
-                  <a href="#" id="open-cart" class="mobilebuttonsize js-modal-open js-fullscreen-modal-open"
-                    data-toggle="#modal-cart" data-modal-url="modal-fullscreen-cart">
-                    <svg class="icon-inline utilities-icon " viewBox="0 0 512 512">
+            <details id="detailsElementModal" data-modal="modal-cart">
+              <summary>
+                <div class="button">
+                  <a class=" nav-list-link position-relative ">
+                    <svg class="icon-inline utilities-icon" viewBox="0 0 512 512">
                       <path
                         d="M371.2 128v-14.2C371.2 50.87 319.43.2 256 .2S140.8 50.87 140.8 113.8V128H51.2v281.6c0 56.55 45.85 102.4 102.4 102.4h204.8c56.55 0 102.4-45.85 102.4-102.4V128h-89.6Zm-204.8-14.2c0-48.41 39.92-88 89.6-88s89.6 39.59 89.6 88V128H166.4v-14.2Zm268.8 295.8c0 42.42-34.39 76.8-76.8 76.8H153.6c-42.42 0-76.8-34.38-76.8-76.8v-256h64v89.8h25.6v-89.8h179.2v89.8h25.6v-89.8h64v256Z">
                       </path>
                     </svg>
-                    <span class="js-cart-widget-amount badge badge-amount">0</span>
-                  </a>
+                    <span class="js-cart-widget-amount badge badge-amount">0</span></a>
                 </div>
-              </span>
-            </div>
+                <div class="details-modal-overlay js-modal-overlay modal-overlay"></div>
+              </summary>
+            </details>
           </div>
           <div
             class="col-auto col-md-auto align-items-center no-gutters order-sm-2 order-md-1 order-lg-1 text-center text-md-left">
-            <h1 class="h3 m-0">
+            <div class="h3 m-0">
               <div id="logo" class="logo-img-container position-relative">
-                <a href="#" title>
-                  <img src="logo-large.png" alt="King of the Kongo" class="logo-img transition-soft lg-desktop" width="500"
+                <a href="/" title>
+                  <img src="/img/design/logo-large.png" alt="KunturStyle" class="logo-img transition-soft lg-desktop" width="500"
                     height="239">
-                  <img src="logo.png" alt="King of the Kongo" class="logo-img transition-soft lg-mobile" width="500"
+                  <img src="/img/design/logo.png" alt="KunturStyle" class="logo-img transition-soft lg-mobile" width="500"
                     height="239">
                 </a>
               </div>
               <div id="no-logo" class="logo-text-container hidden">
-                <a href="#" class="logo-text h3">King of the Kongo</a>
+                <h1><a href="/" class="logo-text h3">KunturStyle</a></h1>
               </div>
-            </h1>
+            </div>
           </div>
           <div class="col-auto col-md-auto flex-grow-2 custom-nav-align d-none d-md-inline-block order-md-3 order-lg-2">
             <div class="nav-desktop">
@@ -328,7 +334,7 @@
                 </li>
                 <li class="js-item-subitems-desktop nav-item-desktop nav-main-item nav-item item-with-subitems"
                 data-component="menu.item">
-                  <details id="detailsElement">
+                  <details id="acordionElement">
                     <summary>
                       <div class="button"><a class=" nav-list-link position-relative ">SHOP
                           <span class="nav-list-arrow ml-1">
@@ -337,7 +343,7 @@
                             </svg>
                           </span>
                         </a></div>
-                      <div class="details-modal-overlay"></div>
+                      <div class="acordion-modal-overlay"></div>
                     </summary>
                     <div class="details-modal" style="max-height: 512.016px; top: 470%;">
                       <ul class="desktop-list-subitems  list-subitems">
@@ -374,37 +380,37 @@
                         </li>
                         <li class="nav-item item-with-subitems">
                           <div class="nav-item-container js-nav-list-toggle-accordion">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/">ACCESORIOS</a>
+                            <a class="nav-list-link " href="/shop/accesorios/">ACCESORIOS</a>
                           </div>
                           <ul class="js-pages-accordion list-subitems nav-list-accordion">
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/cap/">GORRA</a>
+                              <a class="nav-list-link " href="/shop/accesorios/cap/">GORRA</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/beanies/">GORROS</a>
+                              <a class="nav-list-link " href="/shop/accesorios/beanies/">GORROS</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/boxers/">BOXERS</a>
+                              <a class="nav-list-link " href="/shop/accesorios/boxers/">BOXERS</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/medias/">MEDIAS</a>
+                              <a class="nav-list-link " href="/shop/accesorios/medias/">MEDIAS</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/bags/">MOCHILAS</a>
+                              <a class="nav-list-link " href="/shop/accesorios/bags/">MOCHILAS</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/stickers/">STICKERS</a>
+                              <a class="nav-list-link " href="/shop/accesorios/stickers/">STICKERS</a>
                             </li>
                           </ul>
                         </li>
                         <li class="nav-item ">
-                          <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/men/">HOMBRES</a>
+                          <a class="nav-list-link " href="/shop/men/">HOMBRES</a>
                         </li>
                         <li class="nav-item ">
-                          <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/women/">MUJER</a>
+                          <a class="nav-list-link " href="/shop/women/">MUJER</a>
                         </li>
                         <li class="nav-item ">
-                          <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/kids/">NIÑOS</a>
+                          <a class="nav-list-link " href="/shop/kids/">NIÑOS</a>
                         </li>
                       </ul>
                     </div>
@@ -414,11 +420,11 @@
                   <a class="nav-list-link " href="/shop/kids/">NIÑOS</a>
                 </li>
                 <li class="nav-item nav-item-desktop nav-main-item" data-component="menu.item">
-                  <a class="nav-list-link " href="https://kingofthekongo.com.ar/sale/">OFERTAS</a>
+                  <a class="nav-list-link " href="/sale/">OFERTAS</a>
                 </li>
                 <li class="js-item-subitems-desktop nav-item-desktop nav-main-item nav-item item-with-subitems"
                 data-component="menu.item">
-                  <details id="detailsElement">
+                  <details id="acordionElement">
                     <summary>
                       <div class="button"><a class=" nav-list-link position-relative ">AYUDA
                           <span class="nav-list-arrow ml-1">
@@ -427,7 +433,7 @@
                             </svg>
                           </span>
                         </a></div>
-                      <div class="details-modal-overlay"></div>
+                      <div class="acordion-modal-overlay"></div>
                     </summary>
                     <div class="details-modal" style="max-height: 512.016px; top: 350%;">
                       <ul class="desktop-list-subitems  list-subitems">
@@ -437,15 +443,15 @@
                           </div>
                           <ul class="js-pages-accordion list-subitems nav-list-accordion">
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/preguntas-frecuentes/">PREGUNTAS
+                              <a class="nav-list-link " href="/preguntas-frecuentes/">PREGUNTAS
                                 FRECUENTES</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/politica-de-cambios/">CAMBIOS Y
+                              <a class="nav-list-link " href="/politica-de-cambios/">CAMBIOS Y
                                 DEVOLUCIONES</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/cuidado-de-prendas/">CUIDADO DE
+                              <a class="nav-list-link " href="/cuidado-de-prendas/">CUIDADO DE
                                 PRENDAS</a>
                             </li>
                           </ul>
@@ -456,11 +462,11 @@
                           </div>
                           <ul class="js-pages-accordion list-subitems nav-list-accordion">
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/recursos-humanos/">TRABAJÁ CON
+                              <a class="nav-list-link " href="/recursos-humanos/">TRABAJÁ CON
                                 NOSOTROS</a>
                             </li>
                             <li class="nav-item ">
-                              <a class="nav-list-link " href="https://kingofthekongo.com.ar/venta-mayorista/">VENTA
+                              <a class="nav-list-link " href="/venta-mayorista/">VENTA
                                 MAYORISTA</a>
                             </li>
                           </ul>
@@ -496,16 +502,13 @@
         </div>
       </div>
     </header>
-    <nav id="hamburguer" class="main-navbar-cel">
-      <div id="nav-hamburguer-modal" class="js-modal-overlay modal-overlay" data-modal-id="#nav-hamburger"
-        style="display: block;" data-prev-visibility="block"></div>
-      <div id="nav-hamburger"
-        class="js-modal modal modal-nav-hamburger js-tabnav-modal tabnav-modal pb-0 modal-left modal-right-md transition-slide modal-modal-docked-small transition-soft modal-show"
-        style="display: block;" data-prev-visibility="block">
-        <div class="modal-with-fixed-footer">
+    <div id="modal-menu"
+      class="js-modal modal modal-nav-hamburger js-tabnav-modal tabnav-modal pb-0 modal-left modal-right-md transition-slide modal-modal-docked-small transition-soft"
+      data-prev-visibility="block">
+      <div class="modal-with-fixed-footer">
           <div class="modalcustomhead">
           </div>
-          <div id="close-menu" class="js-modal-close   modal-header  text-right   border-none    ">
+          <div id="close-modal" class="js-modal-close   modal-header  text-right   border-none    ">
             <span class="js-modal-close  modal-close ml-1 no-header ">
               <svg class="icon-inline icon-lg svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
@@ -522,158 +525,169 @@
                     <a class="nav-list-link selected" href="/">INICIO</a>
                   </li>
                   <li class="nav-item " data-component="menu.item">
-                    <a class="nav-list-link " href="https://www.kingofthekongo.com.ar/new/">NUEVO</a>
+                    <a class="nav-list-link " href="/new/">NUEVO</a>
                   </li>
                   <li class="nav-item item-with-subitems" data-component="menu.item">
-                    <div id="open-acord-shop" class="nav-item-container js-nav-list-toggle-accordion">
-                      <a class="js-toggle-page-accordion nav-list-link position-relative ">SHOP
-                        <span class="nav-list-arrow ml-1">
-                          <svg class="icon-inline icon-sm svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
-                            </path>
-                          </svg> </span>
-                      </a>
-                    </div>
-                    <ul id="shop" class=" js-pages-accordion  list-subitems nav-list-accordion   list-subitems"
-                      style="display:none;">
-                      <li class="nav-item">
-                        <a class="nav-list-link position-relative " href="https://kingofthekongo.com.ar/shop/">
-                          Ver todo en SHOP
+                    <details id="acordionElement">
+                    <summary>
+                      <div class="nav-item-container js-nav-list-toggle-accordion button">
+                        <a class="js-toggle-page-accordion nav-list-link position-relative ">SHOP
+                          <span class="nav-list-arrow ml-1">
+                            <svg class="icon-inline icon-sm svg-icon-text" xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 512 512">
+                              <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
+                              </path>
+                            </svg>
+                          </span>
                         </a>
-                      </li>
-                      <li class="nav-item item-with-subitems">
-                        <div class="nav-item-container js-nav-list-toggle-accordion">
-                          <a class="nav-list-link " href="/shop/prendas/">PRENDAS</a>
-                        </div>
-                        <ul class="js-pages-accordion list-subitems nav-list-accordion">
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="/shop/prendas/buzos/">BUZOS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="/shop/prendas/remerones/">REMERONES</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="/shop/prendas/camisas/">CAMISAS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="/shop/prendas/camperas/">CAMPERAS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="/shop/prendas/sudaderas/">SUDADERAS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="/shop/prendas/bermudas/">BERMUDAS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="/shop/prendas/pantalones/">PANTALONES</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="/shop/prendas/top/">TOP</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item item-with-subitems">
-                        <div class="nav-item-container js-nav-list-toggle-accordion">
-                          <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/">ACCESORIOS</a>
-                        </div>
-                        <ul class="js-pages-accordion list-subitems nav-list-accordion">
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/accesorios/cap/">GORRA</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="https://kingofthekongo.com.ar/shop/accesorios/beanies/">GORROS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="https://kingofthekongo.com.ar/shop/accesorios/boxers/">BOXERS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="https://kingofthekongo.com.ar/shop/accesorios/medias/">MEDIAS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="https://kingofthekongo.com.ar/shop/accesorios/bags/">MOCHILAS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link "
-                              href="https://kingofthekongo.com.ar/shop/accesorios/stickers/">STICKERS</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/men/">HOMBRES</a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/women/">MUJER</a>
-                      </li>
-                      <li class="nav-item ">
-                        <a class="nav-list-link " href="https://kingofthekongo.com.ar/shop/kids/">NIÑOS</a>
-                      </li>
-                    </ul>
+                      </div>
+                    </summary>
+                    <div class="details-modal">
+                      <ul class="js-pages-accordion list-subitems nav-list-accordion list-subitems">
+                        <li class="nav-item">
+                          <a class="nav-list-link position-relative " href="/shop/">
+                            Ver todo en SHOP
+                          </a>
+                        </li>
+                        <li class="nav-item item-with-subitems">
+                          <div class="nav-item-container js-nav-list-toggle-accordion">
+                            <a class="nav-list-link " href="/shop/prendas/">PRENDAS</a>
+                          </div>
+                          <ul class="js-pages-accordion list-subitems nav-list-accordion">
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/shop/prendas/buzos/">BUZOS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/prendas/remerones/">REMERONES</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/prendas/camisas/">CAMISAS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/prendas/camperas/">CAMPERAS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/prendas/sudaderas/">SUDADERAS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/prendas/bermudas/">BERMUDAS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/prendas/pantalones/">PANTALONES</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/shop/prendas/top/">TOP</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="nav-item item-with-subitems">
+                          <div class="nav-item-container js-nav-list-toggle-accordion">
+                            <a class="nav-list-link " href="/shop/accesorios/">ACCESORIOS</a>
+                          </div>
+                          <ul class="js-pages-accordion list-subitems nav-list-accordion">
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/shop/accesorios/cap/">GORRA</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/accesorios/beanies/">GORROS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/accesorios/boxers/">BOXERS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/accesorios/medias/">MEDIAS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/accesorios/bags/">MOCHILAS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link "
+                                href="/shop/accesorios/stickers/">STICKERS</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-list-link " href="/shop/men/">HOMBRES</a>
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-list-link " href="/shop/women/">MUJER</a>
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-list-link " href="/shop/kids/">NIÑOS</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </details>
                   </li>
                   <li class="nav-item " data-component="menu.item">
-                    <a class="nav-list-link " href="https://www.kingofthekongo.com.ar/shop/kids/">NIÑOS</a>
+                    <a class="nav-list-link " href="/shop/kids/">NIÑOS</a>
                   </li>
                   <li class="nav-item " data-component="menu.item">
-                    <a class="nav-list-link " href="https://www.kingofthekongo.com.ar/sale/">OFERTAS</a>
+                    <a class="nav-list-link " href="/sale/">OFERTAS</a>
                   </li>
                   <li class="nav-item item-with-subitems" data-component="menu.item">
-                    <div id="open-acord-help" class="nav-item-container js-nav-list-toggle-accordion">
-                      <a class="js-toggle-page-accordion nav-list-link position-relative ">AYUDA
-                        <span class="nav-list-arrow ml-1">
-                          <svg class="icon-inline icon-sm svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
-                            </path>
-                          </svg> </span>
-                      </a>
+                    <details id="acordionElement">
+                    <summary>
+                      <div class="nav-item-container js-nav-list-toggle-accordion button">
+                        <a class="js-toggle-page-accordion nav-list-link position-relative ">AYUDA
+                          <span class="nav-list-arrow ml-1">
+                            <svg class="icon-inline icon-sm svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
+                              </path>
+                            </svg> 
+                          </span>
+                        </a>
+                      </div>
+                    </summary>
+                    <div class="details-modal">
+                      <ul class=" js-pages-accordion  list-subitems nav-list-accordion   list-subitems">
+                        <li class="nav-item item-with-subitems">
+                          <div class="nav-item-container js-nav-list-toggle-accordion">
+                            <a class="nav-list-link " href="" previewlistener="true">¿NECESITÁS AYUDA?</a>
+                          </div>
+                          <ul class="js-pages-accordion list-subitems nav-list-accordion">
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/preguntas-frecuentes/" previewlistener="true">PREGUNTAS
+                                FRECUENTES</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/politica-de-cambios/" previewlistener="true">CAMBIOS Y
+                                DEVOLUCIONES</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/cuidado-de-prendas/" previewlistener="true">CUIDADO DE
+                                PRENDAS</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="nav-item item-with-subitems">
+                          <div class="nav-item-container js-nav-list-toggle-accordion">
+                            <a class="nav-list-link " href="" previewlistener="true">OTROS</a>
+                          </div>
+                          <ul class="js-pages-accordion list-subitems nav-list-accordion">
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/recursos-humanos/" previewlistener="true">TRABAJÁ CON
+                                NOSOTROS</a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-list-link " href="/venta-mayorista/" previewlistener="true">VENTA
+                                MAYORISTA</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
                     </div>
-                    <ul id="help" class=" js-pages-accordion  list-subitems nav-list-accordion   list-subitems"
-                      style="display:none;">
-                      <li class="nav-item item-with-subitems">
-                        <div class="nav-item-container js-nav-list-toggle-accordion">
-                          <a class="nav-list-link " href="">¿NECESITÁS AYUDA?</a>
-                        </div>
-                        <ul class="js-pages-accordion list-subitems nav-list-accordion">
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/preguntas-frecuentes/">PREGUNTAS
-                              FRECUENTES</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/politica-de-cambios/">CAMBIOS Y
-                              DEVOLUCIONES</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/cuidado-de-prendas/">CUIDADO DE
-                              PRENDAS</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item item-with-subitems">
-                        <div class="nav-item-container js-nav-list-toggle-accordion">
-                          <a class="nav-list-link " href="">OTROS</a>
-                        </div>
-                        <ul class="js-pages-accordion list-subitems nav-list-accordion">
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/recursos-humanos/">TRABAJÁ CON
-                              NOSOTROS</a>
-                          </li>
-                          <li class="nav-item ">
-                            <a class="nav-list-link " href="https://kingofthekongo.com.ar/venta-mayorista/">VENTA
-                              MAYORISTA</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+                  </details>
                   </li>
                 </ul>
               </div>
@@ -681,82 +695,70 @@
           </div>
           <div class="modal-footer text-right  pb-0">
           </div>
+      </div>
+    </div>
+    <div id="modal-search" class="js-modal modal modal-nav-search js-tabnav-modal tabnav-modal modal-left modal-right-md transition-slide modal-modal-docked-small transition-soft">
+      <div class="modalcustomhead">
+      </div>
+      <div id="close-modal" class="js-modal-close modal-header text-right">
+        <span class="js-modal-close  modal-close ml-1 no-header ">
+          <svg class="icon-inline icon-lg svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
+            </path>
+          </svg> </span>
+      </div>
+      <div class="modal-body ">
+        <form class="js-search-container js-search-form  search-container  mr-md-3" action="/search/" method="get">
+          <div class="form-group m-0">
+            <input class="js-search-input form-control search-input" autocomplete="off" type="search" name="q" placeholder="Buscar" aria-label="Buscar">
+            <button type="submit" class="btn search-input-submit" value="Buscar" aria-label="Buscar">
+              <svg class="icon-inline icon-lg svg-icon-text" viewBox="0 0 512 512">
+                <path d="M389.68,359.13A204,204,0,0,0,435.2,230.4c0-113.11-91.69-204.8-204.8-204.8S25.6,117.29,25.6,230.4s91.69,204.8,204.8,204.8a204.13,204.13,0,0,0,142-57.19L486.69,492.34l18.1-18.1ZM230.4,409.6A179.2,179.2,0,1,1,409.6,230.4,179.2,179.2,0,0,1,230.4,409.6Z">
+                </path>
+              </svg> </button>
+          </div>
+        </form>
+        <div class="js-search-suggest search-suggest mr-md-3">
+        </div>
+        <div class="most-searched">
+          <div class="h6">Lo más buscado</div>
+          <ul>
+            <li class="most-searched-item">
+              <a href="/search/?q=Buzo" class="most-searched-link" previewlistener="true">
+                Buzo
+              </a>
+            </li>
+            <li class="most-searched-item">
+              <a href="/search/?q=Pantalon" class="most-searched-link" previewlistener="true">
+                Pantalon
+              </a>
+            </li>
+            <li class="most-searched-item">
+              <a href="/search/?q=Remeron" class="most-searched-link" previewlistener="true">
+                Remeron
+              </a>
+            </li>
+            <li class="most-searched-item">
+              <a href="/search/?q=Bermuda" class="most-searched-link" previewlistener="true">
+                Bermuda
+              </a>
+            </li>
+            <li class="most-searched-item">
+              <a href="/search/?q=Campera" class="most-searched-link" previewlistener="true">
+                Campera
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </nav>
-    <nav id="search" class="main-navbar-cel">
-      <div id="nav-search"
-        class="js-modal   modal modal-nav-search js-tabnav-modal tabnav-modal modal-left modal-right-md transition-slide modal-modal-docked-small transition-soft modal-show"
-        style="display: block;">
-        <div class="modalcustomhead">
-        </div>
-        <div id="close-search" class="js-modal-close   modal-header  text-right     ">
-          <span class="js-modal-close  modal-close ml-1 no-header ">
-            <svg class="icon-inline icon-lg svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-              <path
-                d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
-              </path>
-            </svg> </span>
-        </div>
-        <div class="modal-body ">
-          <form class="js-search-container js-search-form  search-container  mr-md-3" action="/search/" method="get">
-            <div class="form-group m-0">
-              <input class="js-search-input form-control search-input" autocomplete="off" type="search" name="q"
-                placeholder="Buscar" aria-label="Buscar">
-              <button type="submit" class="btn search-input-submit" value="Buscar" aria-label="Buscar">
-                <svg class="icon-inline icon-lg svg-icon-text" viewBox="0 0 512 512">
-                  <path
-                    d="M389.68,359.13A204,204,0,0,0,435.2,230.4c0-113.11-91.69-204.8-204.8-204.8S25.6,117.29,25.6,230.4s91.69,204.8,204.8,204.8a204.13,204.13,0,0,0,142-57.19L486.69,492.34l18.1-18.1ZM230.4,409.6A179.2,179.2,0,1,1,409.6,230.4,179.2,179.2,0,0,1,230.4,409.6Z">
-                  </path>
-                </svg> </button>
-            </div>
-          </form>
-          <div class="js-search-suggest search-suggest mr-md-3">
-          </div>
-          <div class="most-searched">
-            <div class="h6">Lo más buscado</div>
-            <ul>
-              <li class="most-searched-item">
-                <a href="/search/?q=Buzo" class="most-searched-link">
-                  Buzo
-                </a>
-              </li>
-              <li class="most-searched-item">
-                <a href="/search/?q=Pantalon" class="most-searched-link">
-                  Pantalon
-                </a>
-              </li>
-              <li class="most-searched-item">
-                <a href="/search/?q=Remeron" class="most-searched-link">
-                  Remeron
-                </a>
-              </li>
-              <li class="most-searched-item">
-                <a href="/search/?q=Bermuda" class="most-searched-link">
-                  Bermuda
-                </a>
-              </li>
-              <li class="most-searched-item">
-                <a href="/search/?q=Campera" class="most-searched-link">
-                  Campera
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="js-modal-overlay modal-overlay " data-modal-id="#nav-search" style="display: block;"></div>
-    </nav>
-    <nav id="cart" class="main-navbar-cel">
-      <div class="js-modal-overlay modal-overlay " data-modal-id="#modal-cart" style="display: block;"
-        data-prev-visibility="block"></div>
-      <div id="modal-cart"
-        class="js-modal js-fullscreen-modal modal modal-cart js-tabnav-modal tabnav-modal modal-right modal-right-md transition-slide modal-docked-md transition-soft modal-show"
-        style="display: block;" data-component="cart" data-prev-visibility="block">
+    </div>
+    <div id="modal-cart"
+        class="js-modal js-fullscreen-modal modal modal-cart js-tabnav-modal tabnav-modal modal-right modal-right-md transition-slide modal-docked-md transition-soft"
+        data-component="cart" data-prev-visibility="block">
         <form action="/comprar/" method="post" class="js-ajax-cart-panel " data-store="cart-form">
           <div class="modalcustomhead">
           </div>
-          <div id="close-cart" class="js-modal-close js-fullscreen-modal-close  modal-header     modal-headercolored  ">
+          <div id="close-modal" class="js-modal-close js-fullscreen-modal-close  modal-header modal-headercolored  ">
             <div class="row">
               <div class="col offset-2 text-center">
                 Carrito de Compras </div>
@@ -790,99 +792,7 @@
             </div>
           </div>
         </form>
-    
-      </div>
-    </nav>
-    <script>
-      // Navs
-      // nav-hamburguer
-      // Abrir
-      const openmenu = document.getElementById('open-menu')
-      const hamburguer = document.getElementById('hamburguer')
-      const openHamburguer = () => {hamburguer.classList.add('show')};
-      openmenu.addEventListener('click', () => {
-        openHamburguer();
-      });
-      // Cerrar
-      const menuClose = document.getElementById('close-menu')
-      menuClose.addEventListener('click', function () {
-        hamburguer.classList.remove('show');
-        search.classList.remove('show');
-      });
-
-      // nav-search
-      // Abrir
-      const opensearch = document.getElementById('open-search')
-      const search = document.getElementById('search')
-      const openSearch = () => {search.classList.add('show')};
-      opensearch.addEventListener('click', () => {
-        openSearch();
-      });
-      // Cerrar
-      const searchClose = document.getElementById('close-search')
-      searchClose.addEventListener('click', function () {
-        search.classList.remove('show');
-      });
-
-      // nav-cart
-      // Abrir
-      const opencart = document.getElementById('open-cart')
-      const cart = document.getElementById('cart')
-
-      const openCart = () => {cart.classList.add('show')};
-
-      opencart.addEventListener('click', () => {
-        openCart();
-      });
-      // Cerrar
-      const cartClose = document.getElementById('close-cart')
-      cartClose.addEventListener('click', function () {
-        cart.classList.remove('show');
-      });
-
-      // Acordion
-      // acordion-shop
-      const openshop = document.getElementById('open-acord-shop')
-      const listshop = document.getElementById('shop')
-      openshop.addEventListener('click', () => {
-        if (listshop.style.display === 'none') {
-          listshop.style.display = 'block';
-        } else {
-          listshop.style.display = 'none';
-        }
-      });
-
-      // acordion-help
-      const openhelp = document.getElementById('open-acord-help')
-      const listhelp = document.getElementById('help')
-      openhelp.addEventListener('click', () => {
-        if (listhelp.style.display === 'none') {
-          listhelp.style.display = 'block';
-        } else {
-          listhelp.style.display = 'none';
-        }
-      });
-
-      // Acordions
-      const detailsElements = document.querySelectorAll('#detailsElement');
-
-      detailsElements.forEach((detailsElement) => {
-        const overlayElement = detailsElement.querySelector('.details-modal-overlay');
-        const closeBtn = detailsElement.querySelector('#close-modal');
-
-        closeBtn.addEventListener('click', () => {
-          detailsElement.open = false;
-        });
-
-        detailsElement.addEventListener('toggle', () => {
-          if (detailsElement.open) {
-            overlayElement.classList.add('open');
-          } else {
-            overlayElement.classList.remove('open');
-          }
-        });
-      });
-    </script>
+    </div>
     <section id="banner" data-store="slider-main">
       <div class="js-home-main-slider-container" data-transition="fade-in-up">
         <div class="js-home-main-slider-visibility d-none d-md-block">
@@ -893,10 +803,10 @@
                   class="js-home-slider nube-slider-home swiper-container swiper-container-horizontal swiper-container-initialized">
                   <div class="swiper-wrapper">
                     <div id="banner-large" class="swiper-slide slide-container swiper-slide-active">
-                      <a href="https://kingofthekongo.com.ar/new/" aria-label="Carrusel 1">
+                      <a href="/new/" aria-label="Carrusel 1">
                         <div class="slider-slide">
                           <img width="1920" height="1080" class="slider-image swiper-lazy fade-in swiper-lazy-loaded"
-                            alt="Carrusel 1" sizes="auto" src="banner-large.jpg">
+                            alt="Carrusel 1" sizes="auto" src="/img/design/banner-large.jpg">
                           <div class="placeholder-fade"></div>
                         </div>
                       </a>
@@ -916,9 +826,9 @@
                 class="js-home-slider-mobile nube-slider-home swiper-container swiper-container-horizontal swiper-container-initialized">
                 <div class="swiper-wrapper" style="transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
                   <div class="swiper-slide slide-container swiper-slide-active">
-                    <a href="https://kingofthekongo.com.ar/new/" aria-label="Carrusel 1">
+                    <a href="/new/" aria-label="Carrusel 1">
                       <div class="slider-slide">
-                        <img width="1080" height="1350" src="banner-mobile.jpg" class="slider-image  " alt="Carrusel 1">
+                        <img width="1080" height="1350" src="/img/design/banner-mobile.jpg" class="slider-image  " alt="Carrusel 1">
                         <div class="placeholder-fade"></div>
                       </div>
                     </a>
@@ -1093,9 +1003,9 @@
                 <div class="textbanner">
                   <a href="/shop/prendas/remerones/" class="textbanner-link" aria-label="Carrusel 1">
                     <div class="textbanner-image p-0 overlay">
-                      <img width="480" height="600" src="img/categorias/remerones.jpg" data-sizes="auto" data-expand="-10"
+                      <img width="480" height="600" src="/img/categorias/remerones.jpg" data-sizes="auto" data-expand="-10"
                         class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="remerones" sizes="274px"
-                        srcset="img/categorias/remerones.jpg 480w, img/categorias/remerones.jpg 640w, img/categorias/remerones.jpg 1024w, img/categorias/remerones.jpg 1920w">
+                        srcset="/img/categorias/remerones.jpg 480w, /img/categorias/remerones.jpg 640w, /img/categorias/remerones.jpg 1024w, /img/categorias/remerones.jpg 1920w">
                       <div class="placeholder-fade"></div>
                       <div class="textbanner-text over-image  pl-5 pr-5">
                         <div class="h3">REMERONES</div>
@@ -1108,9 +1018,9 @@
                 <div class="textbanner">
                   <a href="/shop/prendas/camperas/" class="textbanner-link" aria-label="Carrusel 1">
                     <div class="textbanner-image p-0 overlay">
-                      <img width="480" height="600" src="img/categorias/camperas.jpg" data-sizes="auto" data-expand="-10"
+                      <img width="480" height="600" src="/img/categorias/camperas.jpg" data-sizes="auto" data-expand="-10"
                         class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="camperas" sizes="274px"
-                        srcset="img/categorias/camperas.jpg 480w, img/categorias/camperas.jpg 640w, img/categorias/camperas.jpg 1024w, img/categorias/camperas.jpg 1920w">
+                        srcset="/img/categorias/camperas.jpg 480w, /img/categorias/camperas.jpg 640w, /img/categorias/camperas.jpg 1024w, /img/categorias/camperas.jpg 1920w">
                       <div class="placeholder-fade"></div>
                       <div class="textbanner-text over-image  pl-5 pr-5">
                         <div class="h3">CAMPERAS</div>
@@ -1123,9 +1033,9 @@
                 <div class="textbanner">
                   <a href="/shop/prendas/buzos/" class="textbanner-link" aria-label="Carrusel 1">
                     <div class="textbanner-image p-0 overlay">
-                      <img width="480" height="600" src="img/categorias/buzos.jpg" data-sizes="auto" data-expand="-10"
+                      <img width="480" height="600" src="/img/categorias/buzos.jpg" data-sizes="auto" data-expand="-10"
                         class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="buzos" sizes="274px"
-                        srcset="img/categorias/buzos.jpg 480w, img/categorias/buzos.jpg 640w, img/categorias/buzos.jpg 1024w, img/categorias/buzos.jpg 1920w">
+                        srcset="/img/categorias/buzos.jpg 480w, /img/categorias/buzos.jpg 640w, /img/categorias/buzos.jpg 1024w, /img/categorias/buzos.jpg 1920w">
                       <div class="placeholder-fade"></div>
                       <div class="textbanner-text over-image  pl-5 pr-5">
                         <div class="h3">BUZOS</div>
@@ -1138,9 +1048,9 @@
                 <div class="textbanner">
                   <a href="/shop/prendas/pantalones/" class="textbanner-link" aria-label="Carrusel 1">
                     <div class="textbanner-image p-0 overlay">
-                      <img width="480" height="600" src="img/categorias/pantalones.jpg" data-sizes="auto" data-expand="-10"
+                      <img width="480" height="600" src="/img/categorias/pantalones.jpg" data-sizes="auto" data-expand="-10"
                         class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="pantalones" sizes="274px"
-                        srcset="img/categorias/pantalones.jpg 480w, img/categorias/pantalones.jpg 640w, img/categorias/pantalones.jpg 1024w, img/categorias/pantalones.jpg 1920w">
+                        srcset="/img/categorias/pantalones.jpg 480w, /img/categorias/pantalones.jpg 640w, /img/categorias/pantalones.jpg 1024w, /img/categorias/pantalones.jpg 1920w">
                       <div class="placeholder-fade"></div>
                       <div class="textbanner-text over-image  pl-5 pr-5">
                         <div class="h3">PANTALONES</div>
@@ -1154,1164 +1064,91 @@
         </div>
       </div>
     </section>
-    <script>
-      // Obtener el header que tiene el atributo data-store="head"
-      const banner = document.querySelector('#banner-large');
-      // Función para ajustar el ancho del header según el ancho de la pantalla
-      function ajustarAnchoBanner() {
-        // Obtener el ancho de la pantalla
-        const anchoPantalla = window.innerWidth - 15;
-        // Establecer el ancho del header en función del ancho de la pantalla
-        banner.style.width = anchoPantalla + 'px';
-      }
-      // Llamar a la función una vez al cargar la página
-      ajustarAnchoBanner();
-      // Agregar el evento resize para que la función se llame cada vez que se cambie el tamaño de la ventana del navegador
-      window.addEventListener('resize', ajustarAnchoBanner);
-
-      const body = document.querySelector('body');
-      const header = document.querySelector('header');
-      // Función para ajustar el ancho del header según el ancho de la pantalla
-      function ajustarPaddingTop() {
-        // Obtener la altura del header
-        const headerHeight = header.offsetHeight;
-        const anchoPantalla = window.innerWidth;
-        if (anchoPantalla >= 768) {
-          // Establecer el padding-top del body igual a la altura del header
-          body.style.paddingTop = headerHeight + 'px';
-        } else {
-          // Establecer el padding-top del body igual a 0
-          body.style.paddingTop = '0';
-        }
-      }
-      // Llamar a la función una vez al cargar la página
-      ajustarPaddingTop();
-      // Agregar el evento resize para que la función se llame cada vez que se cambie el tamaño de la ventana del navegador
-      window.addEventListener('resize', ajustarPaddingTop);
-    </script>
-    <script>
-      // Generar productos de forma dinámica
-      const sectionFeatured = document.querySelector('section[data-store="products-home-featured"]');
-      const featuredProducts = document.querySelector("#featured-products");
-      const prevBtns = document.querySelectorAll('#prevBtn');
-      const nextBtns = document.querySelectorAll('#nextBtn');
-      // Crear objetos para tus productos
-      const products = [
-        {
-          nombre: "Bermuda Floreada",
-          precio: 9000,
-          imagen: "bermuda-1.jpg",
-          codigo: "bermuda-1",
-          descripcion: {
-            detalle: "Bermuda de playa floreada, comoda y ligera.",
-            color: "Azul y rojo",
-            material: "Poliéster",
-            talle: ['L'],
-          },
-        },
-        {
-          nombre: "Gorra negra",
-          precio: 2500,
-          imagen: "gorra-1.jpg",
-          codigo: "gorra-1",
-          descripcion: {
-            detalle: "Gorra ligera.",
-            color: "Negro",
-            material: "Poliéster",
-            talle: ['M'],
-          },
-        },
-        {
-          nombre: "Remera negra con diseño",
-          precio: 4000,
-          imagen: "remera-4.jpg",
-          codigo: "remera-4",
-          descripcion: {
-            detalle: "Remera con diseño de arte abstracto.",
-            color: "Negro",
-            material: "Algodón",
-            talle: ['M', 'L'],
-          },
-        },
-        {
-          nombre: "Bermuda Jean",
-          precio: 8000,
-          imagen: "jeanshort-3.jpg",
-          codigo: "jeanshort-3",
-          descripcion: {
-            detalle: "Bermuda de jean con detalles de rasgaduras.",
-            color: "Azul claro",
-            material: "Mezclilla",
-            talle: ['M', 'L'],
-          },
-        },
-        {
-          nombre: "Gorra Beige",
-          precio: 3000,
-          imagen: "gorra-2.jpg",
-          codigo: "gorra-2",
-          descripcion: {
-            detalle: "Gorra de algodón, ligera, comoda y fresca.",
-            color: "Beige",
-            material: "Algodón",
-            talle: ['Único'],
-          },
-        },
-        {
-          nombre: "Remera blanca para mujer",
-          precio: 3500,
-          imagen: "remera-girl-1.jpg",
-          codigo: "remera-girl-1",
-          descripcion: {
-            detalle: "Remera para mujer con detalles en las mangas.",
-            color: "Blanca",
-            material: "Algodón",
-            talle: ['S', 'M', 'L'],
-          },
-        },
-        {
-          nombre: "Remera blanca con diseño",
-          precio: 4500,
-          imagen: "remera-3.jpg",
-          codigo: "remera-3",
-          descripcion: {
-            detalle: "Remera ligera con estampado abstracto.",
-            color: "Blanca",
-            material: "Algodón",
-            talle: ['L', 'XL'],
-          },
-        },
-        {
-          nombre: "Jeans cortos floreados",
-          precio: 7500,
-          imagen: "jeanshort-1.jpg",
-          codigo: "jeanshort-1",
-          descripcion: {
-            detalle: "Jeans cortos con diseño floreado.",
-            color: "Celeste",
-            material: "Mezclilla",
-            talle: ['M', 'L'],
-          },
-        },
-        {
-          nombre: "Remera negra con diseño",
-          precio: 3800,
-          imagen: "remera-2.jpg",
-          codigo: "remera-2",
-          descripcion: {
-            detalle: "Remera con estampado fabuloso.",
-            color: "Negra",
-            material: "Algodón",
-            talle: ['M', 'L'],
-          },
-        },
-        {
-          nombre: "Bermuda Azul",
-          precio: 8500,
-          imagen: "bermuda-2.jpg",
-          codigo: "bermuda-2",
-          descripcion: {
-            detalle: "Bermuda de playa con diseño de flores, comoda y ligera.",
-            color: "Azul",
-            material: "Poliéster",
-            talle: ['L'],
-          },
-        },
-      ];
-    
-      let productsCantidad = 0;
-    
-      // Función para obtener los productos
-      function getFeaturedProducts() {
-        featuredProducts.innerHTML = "";
-        for (let i = productsCantidad; i < productsCantidad + products.length; i++) {
-          const product = products[i];
-          const precio = product.precio;
-          const precioFormateado = precio.toLocaleString();
-          const precioCuotas3 = precio / 3;
-          const cuotas3 = precioCuotas3.toLocaleString();
-          const productHTML = `
-                  <div class="product-card-dv swiper-slide js-swiper-slide-visible swiper-slide-active" data-swiper-slide-index="${i + 1}">
-                      <div class="js-item-product js-item-slide p-0 item item-product grid-item" data-product-type="list"
-                          data-product-id="${i + 1}" data-store="product-item-${i + 1}" data-component="product-list-item"
-                          data-component-value="${i + 1}" data-transition="fade-in-up">
-                          <div class="js-product-container js-quickshop-container js-quickshop-has-variants position-relative"
-                              data-quickshop-id="quick${i + 1}">
-                              <div class=" item-image">
-                                  <div style="padding-bottom: 125.390625%;" class="position-relative"
-                                      data-store="product-item-image-${i + 1}">
-                                      <a href="/productos/${product.codigo}/" title="${product.nombre}" aria-label="${product.nombre}">
-                                          <img alt="${product.nombre}" data-expand="-10"
-                                              src="img/productos/${product.imagen}"
-                                              class="js-item-image lazyautosizes img-absolute img-absolute-centered fade-in ls-is-cached lazyloaded"
-                                              width="1024" height="1284" sizes="(max-width: 768px) 50vw, (min-width: 769px) 25vw"
-                                              srcset="img/productos/${product.imagen} 240w, img/productos/${product.imagen} 320w, img/productos/${product.imagen} 480w, img/productos/${product.imagen} 640w, img/productos/${product.imagen} 1024w">
-                                          <div class="placeholder-fade">
-                                          </div>
-                                      </a>
-                                  </div>
-                                  <div class=" labels " data-store="product-item-labels">
-                                      <div class="js-stock-label label label-default" style="display:none;">Sin stock</div>
-                                  </div>
-                                  <span class="hidden" data-store="stock-product-${i + 1}-15"></span>
-                                  <div class="item-buy">
-                                      <div id="descripcion" class="js-item-variants item-buy-variants hidden">
-                                          <form class="js-product-form" method="post" action="/comprar/">
-                                              <input type="hidden" name="add_to_cart" value="${i + 1}">
-                                              <div class="js-product-variants js-product-quickshop-variants mb-1  form-row">
-                                                  <div class="js-product-variants-group  col-12 " data-variation-id="${i + 1}">
-                                                    <div class="form-group form-group-small mb-2 d-none">
-                                                      <label class="form-label mb-1" for="variation_1">TALLE</label>
-                                                      <div product-tallesmall-id="${i + 1}">
-                                                        <!-- Aqui irian los talles -->
-                                                      </div>
-                                                      <div class="form-select-icon">
-                                                        <svg class="icon-inline icon-w-14 icon-lg"
-                                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                          <path
-                                                            d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z">
-                                                          </path>
-                                                        </svg>
-                                                      </div>
-                                                    </div>
-                                                    <div class="col px-0">
-                                                      <div class="quickshop-custom-label mt-2 mb-2">
-                                                        <div class="row ml-0 pl-0">
-                                                            <label for="variation_1" class="form-label d-inline-block">TALLE
-                                                            </label>
-                                                        </div>
-                                                        <a href="#" class="d-xs-none d-sm-none d-lg-block row js-item-buy-close">
-                                                            <svg class="icon-inline icon-lg svg-circle svg-icon-text"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                                <path
-                                                                    d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
-                                                                </path>
-                                                            </svg> </a>
-                                                      </div>
-                                                      <div class="row ml-0 pl-0 justify-content-sm-start no-gutters" product-talle-id="${i + 1}">
-                                                        <!-- Aqui irian los talles -->
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                              </div>
-                                              <input type="submit"
-                                                  class="js-addtocart js-prod-submit-form btn btn-primary btn-small w-100 mb-2 cart"
-                                                  value="Agregar al carrito" add-product-cart-id="${i + 1}">
-                                              <div class="js-addtocart js-addtocart-placeholder btn btn-primary btn-small btn-block btn-transition mb-2 disabled"
-                                                  style="display: none;" animation-product-cart-id="${i + 1}">
-                                                  <div class="d-inline-block">
-                                                      <span class="js-addtocart-text">Agregar al carrito</span>
-                                                      <span class="js-addtocart-success transition-container">
-                                                          ¡Listo!
-                                                      </span>
-                                                      <div class="js-addtocart-adding transition-container">
-                                                          Agregando...
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </form>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="item-description" data-store="product-item-info-${i + 1}">
-                                  <a href="/productos/${product.codigo}/" title="${product.nombre}" aria-label="${product.nombre}"
-                                      class="item-link">
-                                      <div class="js-item-name item-name mb-2 " data-store="product-item-name-${i + 1}">${product.nombre}</div>
-                                      <div class="item-price-container mb-2" data-store="product-item-price-${i + 1}">
-                                          <span class="js-compare-price-display price-compare " style="display:none;">
-                                              $0
-                                          </span>
-                                          <span class="js-price-display item-price">
-                                              $ ${precioFormateado}
-                                          </span>
-                                      </div>
-                                      <span
-                                          class="js-max-installments-container js-max-installments  text-bold text-accent-buy item-installments">
-                                          <svg class="icon-inline icon-w svg-icon-text text-accent-buy mr-1" width="512" height="512"
-                                              viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                                  d="M170.667 84.6667C167.661 84.6667 164.778 85.8607 162.653 87.9861C160.527 90.1115 159.333 92.9942 159.333 96V138.667C159.333 144.19 154.856 148.667 149.333 148.667C143.81 148.667 139.333 144.19 139.333 138.667V96C139.333 87.6899 142.634 79.7201 148.511 73.844C154.387 67.9678 162.356 64.6667 170.667 64.6667H448C456.31 64.6667 464.28 67.9678 470.156 73.844C476.032 79.7201 479.333 87.6899 479.333 96V288C479.333 296.31 476.032 304.28 470.156 310.156C464.28 316.032 456.31 319.333 448 319.333H426.667C421.144 319.333 416.667 314.856 416.667 309.333C416.667 303.81 421.144 299.333 426.667 299.333H448C451.006 299.333 453.888 298.139 456.014 296.014C458.139 293.888 459.333 291.006 459.333 288V96C459.333 92.9942 458.139 90.1115 456.014 87.9861C453.888 85.8607 451.006 84.6667 448 84.6667H170.667ZM64 212.667C57.7407 212.667 52.6666 217.741 52.6666 224V245.333V288.667H352.667V245.333V224C352.667 217.741 347.593 212.667 341.333 212.667H64ZM372.667 245.333V373.333V416C372.667 433.305 358.638 447.333 341.333 447.333H64C46.695 447.333 32.6666 433.305 32.6666 416V373.333V245.333V224C32.6666 206.695 46.695 192.667 64 192.667H341.333C358.638 192.667 372.667 206.695 372.667 224V245.333ZM52.6666 373.333V416C52.6666 422.259 57.7407 427.333 64 427.333H341.333C347.593 427.333 352.667 422.259 352.667 416V373.333V308.667H52.6666V373.333ZM117.333 352.667C111.81 352.667 107.333 357.144 107.333 362.667C107.333 368.189 111.81 372.667 117.333 372.667H202.667C208.189 372.667 212.667 368.189 212.667 362.667C212.667 357.144 208.189 352.667 202.667 352.667H117.333ZM266.667 352.667C261.144 352.667 256.667 357.144 256.667 362.667C256.667 368.189 261.144 372.667 266.667 372.667H288C293.523 372.667 298 368.189 298 362.667C298 357.144 293.523 352.667 288 352.667H266.667Z"
-                                                  fill="black"></path>
-                                          </svg>
-                                          <span class="js-max-installments">
-                                              <span class="js-installment-amount installment-amount">3</span> cuotas sin interés de <span
-                                                  class="js-installment-price installment-price">$${cuotas3}</span>
-                                          </span>
-                                      </span>
-                                  </a>
-                                  <div class="item-actions mt-3 row ">
-                                      <a href="#"
-                                          class="d-md-none col-8 col-md-6 
-                                              js-quickshop-modal-open js-quickshop-slide js-modal-open js-fullscreen-modal-open btn btn-primary btn-small"
-                                          title="Compra rápida de ${product.nombre}" aria-label="Compra rápida de ${product.nombre}"
-                                          data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop"
-                                          data-component="product-list-item.add-to-cart" data-component-value="${i + 1}">Comprar</a>
-                                      <div class="d-xs-none d-sm-none d-md-block col-8 col-md-6 pl-0 pr-1">
-                                          <a href="#" class="js-item-buy-open item-buy-open d-flex btn btn-primary btn-small" data-buy-id="${i + 1}"
-                                              title="Compra rápida de ${product.nombre}" aria-label="Compra rápida de ${product.nombre}">Comprar</a>
-                                      </div>
-                                      <div class=" col-4 col-md-6 pl-1">
-                                          <a href="/productos/${product.codigo}/" title="${product.nombre}" aria-label="${product.nombre}"
-                                              class="d-flex btn btn-secondary btn-small"><svg class="icon-inline svg-icon-primary"
-                                                  width="512" height="512" viewBox="0 0 512 512" fill="none"
-                                                  xmlns="http://www.w3.org/2000/svg">
-                                                  <path fill-rule="evenodd" clip-rule="evenodd"
-                                                      d="M256 408.421C169.356 408.421 95.1954 359.575 33.8824 256C95.1954 152.425 169.356 103.579 256 103.579C342.644 103.579 416.805 152.425 478.118 256C416.805 359.575 342.644 408.421 256 408.421ZM256 75C153.654 75 70.0956 135.05 4.88702 248.91C2.37099 253.303 2.37099 258.697 4.88702 263.09C70.0956 376.95 153.654 437 256 437C358.346 437 441.904 376.95 507.113 263.09C509.629 258.697 509.629 253.303 507.113 248.91C441.904 135.05 358.346 75 256 75ZM222.584 256.001C222.584 237.586 237.544 222.658 255.999 222.658C274.453 222.658 289.414 237.586 289.414 256.001C289.414 274.415 274.453 289.343 255.999 289.343C237.544 289.343 222.584 274.415 222.584 256.001ZM255.999 194.08C221.726 194.08 193.942 221.803 193.942 256.001C193.942 290.199 221.726 317.922 255.999 317.922C290.272 317.922 318.055 290.199 318.055 256.001C318.055 221.803 290.272 194.08 255.999 194.08Z"
-                                                      fill="black"></path>
-                                              </svg>
-                                              <span class="d-none d-md-inline-block">Ver</span></a>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  `;
-          featuredProducts.innerHTML += productHTML;
-        }
-      }
-    
-      // Llamar a la función para obtener los productos
-      getFeaturedProducts();
-    
-      const divsTallesSmall = document.querySelectorAll('[product-tallesmall-id]');
-      function getTallesSmall() {
-        divsTallesSmall.forEach((divTalleSmall) => {
-          divTalleSmall.innerHTML = "";
-        });
-        for (let i = 0; i < products.length; i++) {
-          const product = products[i];
-          const cantidadTalles = product.descripcion.talle.length;
-          let isFirstSelected = true;
-          for (let j = 0; j < product.descripcion.talle.length; j++) {
-            const isSelected = isFirstSelected ? 'selected="selected"' : '';
-            const descripcionSmallHTML = `
-              <select id="variation_1" class="form-select js-variation-option js-refresh-installment-data form-control-small" name="variation[0]">
-                <option value="${product.descripcion.talle[j]}" ${isSelected}>${product.descripcion.talle[j]}</option>
-              </select>
-            `;
-            divsTallesSmall[i].innerHTML += descripcionSmallHTML;
-            isFirstSelected = false;
-          }
-        }
-      }
-    
-      const divsTalles = document.querySelectorAll('[product-talle-id]');
-      function getTalles() {
-        divsTalles.forEach((divTalle) => {
-          divTalle.innerHTML = "";
-        });
-        for (let i = 0; i < products.length; i++) {
-          const product = products[i];
-          const cantidadTalles = product.descripcion.talle.length;
-          let isFirstSelected = true; // Variable para controlar el primer enlace seleccionado
-          for (let j = 0; j < cantidadTalles; j++) {
-            const talle = product.descripcion.talle[j];
-            const isSelected = isFirstSelected ? 'selected' : ''; // Agrega la clase 'selected' solo al primer enlace generado
-            const descripcionHTML = `
-              <a data-option="${talle}" class="js-insta-variant btn btn-variant ${isSelected}" product-id="${i + 1}" data-product-talla-id="${i + 1}">
-                <span class="btn-variant-content" data-name="${talle}">${talle}</span>
-              </a>
-            `;
-            divsTalles[i].innerHTML += descripcionHTML;
-            isFirstSelected = false; // Desactiva la variable isFirstSelected después de generar el primer enlace seleccionado
-          }
-        }
-      }
-    
-      // Llamar a la función para obtener los talles en pequeño
-      getTallesSmall();
-      // Llamar a la función para obtener los talles
-      getTalles();
-    
-      const divModalMobile = document.getElementById('quickmodal-body');
-      
-      function getDescriptionMobile(producto) {
-        const j = producto - 1;
-        const product = products[j];
-        divModalMobile.innerHTML = "";
-        const descripcionHTML = `
-            <div class="js-item-product js-swiper-slide-visible js-item-slide" data-quickshop-product-id="${producto}">
-              <div class="js-product-container js-quickshop-container js-quickshop-modal js-quickshop-modal-shell"
-                data-quickshop-id="quick${producto}">
-                <div class="js-item-variants">
-                  <div class="js-item-name h4 mb-2 pr-4" data-store="product-item-name-">${product.nombre}</div>
-                  <div class="item-price-container mb-3" data-store="product-item-price-">
-                    <span class="js-compare-price-display price-compare" style="display:none;">
-                      $0
-                    </span>
-                    <span class="js-price-display">
-                      ${product.precio}
-                    </span>
-                  </div>
-                  <img
-                    srcset="img/productos/${product.imagen} 1024w"
-                    class="js-quickshop-img js-item-image">
-                  <div id="quickshop-form">
-                    <form class="js-product-form" method="post" action="/comprar/">
-                      <input type="hidden" name="add_to_cart" value="${producto}">
-                      <div class="js-product-variants js-product-quickshop-variants mb-1  form-row">
-                        <div class="js-product-variants-group  col-12 " data-variation-id="0">
-                          <div class="form-group form-group-small mb-2 d-none">
-                            <label class="form-label mb-1" for="variation_1">TALLE</label>
-                            <div quickmodal-tallesmall-id="${producto}">
-                              <!-- Aqui irian los talles -->
-                            </div>
-                            <div class="form-select-icon">
-                              <svg class="icon-inline icon-w-14 icon-lg" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512">
-                                <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z"></path>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="col px-0">
-                            <div class="quickshop-custom-label mt-2 mb-2">
-                              <div class="row ml-0 pl-0">
-                                <label for="variation_1" class="form-label d-inline-block">TALLE
-                                </label>
-                              </div>
-                              <a href="#" class="d-xs-none d-sm-none d-lg-block row js-item-buy-close">
-                                <svg class="icon-inline icon-lg svg-circle svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 512 512">
-                                  <path
-                                    d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
-                                  </path>
-                                </svg> </a>
-                            </div>
-                            <div class="row ml-0 pl-0 justify-content-sm-start no-gutters" quickmodal-talle-id="${producto}">
-                              <!-- Aqui irian los talles -->
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <input type="submit" class="js-addtocart js-prod-submit-form btn btn-primary btn-small w-100 mb-2 cart"
-                        value="Agregar al carrito" add-product-cart-id="quick-${producto}">
-                      <div
-                        class="js-addtocart js-addtocart-placeholder btn btn-primary btn-small btn-block btn-transition mb-2 disabled"
-                        style="display: none;" animation-product-cart-id="quick-${producto}">
-                        <div class="d-inline-block">
-                          <span class="js-addtocart-text">Agregar al carrito</span>
-                          <span class="js-addtocart-success transition-container">
-                            ¡Listo!
-                          </span>
-                          <div class="js-addtocart-adding transition-container">
-                            Agregando...
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-        divModalMobile.innerHTML += descripcionHTML;
-      }
-    </script>
-    <script>
-      // Obtener todos los elementos con el atributo data-transition="fade-in-up"
-      let fadeElements = document.querySelectorAll('[data-transition="fade-in-up"]');
-      // Crear una instancia de Intersection Observer
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          // Verificar si el elemento está visible en la pantalla
-          if (entry.isIntersecting) {
-            // Agregar la clase "is-inViewport" al elemento
-            entry.target.classList.add('is-inViewport');
-          } else {
-            entry.target.classList.remove('is-inViewport');
-          }
-        });
-      });
-      // Observar cada elemento con el atributo data-transition="fade-in-up"
-      fadeElements.forEach((element) => {
-        observer.observe(element);
-      });
-    
-      //////////////////////////////////////// Carousel-Variables
-    
-      let currentPosition = (products.length / 2) - 1;
-      let multiplicadorFinal = products.length - 4;
-      let posicionCarousel = 0;
-      let carouselPosition = 0;
-    
-      const productsCard = document.querySelectorAll('.product-card-dv');
-      const containerCards = document.querySelector('#featured-products.swiper-wrapper');
-      let modoPantalla = "";
-      let anchoCards = 0;
-      let marginCards = 0;
-      
-    
-      function ajustarAnchoPCard() {
-        const anchoPantalla = window.innerWidth;
-        if (anchoPantalla >= 1024) {
-          modoPantalla = "granpantalla";
-        } else if (anchoPantalla >= 768) {
-          modoPantalla = "tablet";
-        } else if (anchoPantalla >= 540) {
-          modoPantalla = "tabletmini";
-        } else {
-          modoPantalla = "mobile";
-        }
-    
-        let anchoContenedorPadre = containerCards.offsetWidth;
-        productsCard.forEach((card) => {
-          let anchoCard = 0;
-          let margin = 0;
-          let unidad = "";
-    
-          if (modoPantalla === "tablet" || modoPantalla === "granpantalla") {
-            anchoCard = anchoContenedorPadre / (1100 / 266.25);
-            margin = 15;
-            unidad = "px";
-          } else if(modoPantalla === "tabletmini") {
-            anchoCard = 255.25;
-            margin = 4;
-            unidad = "px";
-          } else if(modoPantalla === "mobile") {
-            anchoCard = 159.25;
-            margin = 4;
-            unidad = "px";
-          }
-          card.style.width = `${anchoCard}${unidad}`;
-          card.style.marginRight = `${margin}${unidad}`;
-          marginCards = margin;
-          anchoCards = anchoCard;
-        });
-      }
-      ajustarAnchoPCard();
-      window.addEventListener('resize', ajustarAnchoPCard);
-    
-      //////////////////////////////////////// Carousel-Modificado
-    
-      function cambiarPosition() {
-        featuredProducts.style.transform = `translate3d(${carouselPosition}px, 0px, 0px)`;
-      }
-    
-      function actualizarPosicionCarousel() {
-        if (modoPantalla === "granpantalla" || modoPantalla === "tabletmini" || modoPantalla ==="tablet") {
-          multiplicadorFinal = products.length - 4;
-          carouselPosition = -((anchoCards + marginCards) * (currentPosition - 1) - marginCards);
-        } else if (modoPantalla === "mobile") {
-          multiplicadorFinal = products.length - 2;
-          carouselPosition = -((anchoCards + marginCards) * (currentPosition - 1) - marginCards);
-        }
-      }
-    
-    
-      actualizarPosicionCarousel();
-      cambiarPosition();
-      window.addEventListener('resize', () => {
-        actualizarPosicionCarousel();
-        cambiarPosition();
-      });
-    
-      nextBtns.forEach((nextBtn) => {
-        nextBtn.addEventListener("click", () => {
-          if (currentPosition > multiplicadorFinal) {
-            currentPosition = 1;
-            carouselPosition = 0;
-          } else {
-            currentPosition++;
-            actualizarPosicionCarousel();
-          }
-    
-          cambiarPosition();
-    
-          setTimeout(() => {
-            observer.disconnect();
-            fadeElements = document.querySelectorAll('[data-transition="fade-in-up"]');
-            fadeElements.forEach((el) => {
-              observer.observe(el);
-            });
-          }, 100);
-        });
-      });
-    
-      prevBtns.forEach((prevBtn) => {
-        prevBtn.addEventListener("click", () => {
-          if (currentPosition === 1) {
-            currentPosition = multiplicadorFinal + 1;
-          } else {
-            currentPosition--;
-          }
-    
-          actualizarPosicionCarousel();
-    
-          cambiarPosition();
-    
-          setTimeout(() => {
-            observer.disconnect();
-            fadeElements = document.querySelectorAll('[data-transition="fade-in-up"]');
-            fadeElements.forEach((el) => {
-              observer.observe(el);
-            });
-          }, 100);
-        });
-      });
-    
-      ////////////////////////////////////////
-    
-      function mostrarDescripcion(div) {
-        if (div.style.display === 'block') {
-          div.style.display = 'none';
-        } else {
-          div.style.display = 'block';
-        }
-      }
-      
-      let numeroIdSeleccionado = "";
-      let talleSeleccionado = "";
-
-      // Obtén todos los enlaces con el atributo data-buy-id
-      const links = document.querySelectorAll('a[data-buy-id]');
-    
-      // Itera sobre cada enlace
-      links.forEach((link) => {
-        // Agrega un evento de clic a cada enlace
-        link.addEventListener('click', async (event) => {
-          event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-    
-          // Obtén el valor del atributo data-buy-id del enlace
-          const productId = link.getAttribute('data-buy-id');
-    
-          // Encuentra el div con el id "descripcion" dentro del div con el atributo data-product-id igual al valor obtenido
-          const descripcionDiv = document.querySelector(`div[data-product-id="${productId}"] #descripcion`);
-    
-          await seleccionarEnlaceTalle(productId);
-          seleccionarBtnAddCart(productId);
-
-          // Establece el estilo del div como "display: block;"
-          mostrarDescripcion(descripcionDiv);
-
-          const enlaceSeleccionado = document.querySelector(`[data-product-talla-id="${productId}"].selected`);
-          talleSeleccionado = enlaceSeleccionado.getAttribute('data-option');
-          numeroIdSeleccionado = productId;
-    
-        });
-      });
-    
-      const closeLinks = document.querySelectorAll('.js-item-buy-close');
-      closeLinks.forEach((closeLink) => {
-        closeLink.addEventListener('click', (event) => {
-          event.preventDefault();
-          const descripcionDiv = closeLink.closest('#descripcion');
-          descripcionDiv.removeAttribute('style');
-
-          talleSeleccionado = "";
-          numeroIdSeleccionado = "";
-        })
-      })
-    
-      // Obtén todos los enlaces con el atributo data-component-value
-      const linksMobile = document.querySelectorAll('a[data-component-value]');
-      const descripcionMobile = document.querySelector('div#quickshop-modal');
-      const descripcionMobileModal = document.querySelector('[data-modal-id="#quickshop-modal"]');
-    
-      // Itera sobre cada enlace
-      linksMobile.forEach((link) => {
-        // Agrega un evento de clic a cada enlace
-        link.addEventListener('click', async (event) => {
-          event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-    
-          // Obtén el valor del atributo data-buy-id del enlace
-          const productId = link.getAttribute('data-component-value');
-          const idProduct = "quick-" + productId;
-    
-          await getDescriptionMobile(productId);
-          getTallesModalSmall(productId);
-          await getTallesModal(productId);
-          seleccionarEnlaceTalle(idProduct);
-          seleccionarBtnAddCart(idProduct);
-    
-          // Establece el estilo del div como "display: block;"
-          mostrarDescripcion(descripcionMobile);
-          mostrarDescripcion(descripcionMobileModal);
-          descripcionMobile.classList.add('modal-show');
-          const enlaceSeleccionado = document.querySelector(`[data-product-talla-id="${idProduct}"].selected`);
-          talleSeleccionado = enlaceSeleccionado.getAttribute('data-option');
-          numeroIdSeleccionado = productId;
-        });
-      });
-    
-      const closeLinkMobile = document.querySelector('.modal-floating-close');
-      closeLinkMobile.addEventListener('click', () => {
-        descripcionMobile.style.display = 'none';
-        descripcionMobileModal.style.display = 'none';
-        descripcionMobile.classList.remove('modal-show');
-
-        talleSeleccionado = "";
-        numeroIdSeleccionado = "";
-      })
-    
-    
-      const getTallesModalSmall = (producto) => {
-        const divTalleModalSmall = document.querySelector(`[quickmodal-tallesmall-id="${producto}"]`);
-        divTalleModalSmall.innerHTML = "";
-        const j = producto - 1;
-        const product = products[j];
-        const cantidadTalles = product.descripcion.talle.length;
-        let isFirstSelected = true;
-        for (let i = 0; i < cantidadTalles; i++) {
-          const isSelected = isFirstSelected ? 'selected="selected"' : '';
-          const talle = product.descripcion.talle[i];
-          const descripcionSmallHTML = `
-            <select id="variation_1" class="form-select js-variation-option js-refresh-installment-data form-control-small" name="variation[0]">
-              <option value="${talle}" ${isSelected}>${talle}</option>
-            </select>
-          `;
-          divTalleModalSmall.innerHTML += descripcionSmallHTML;
-          isFirstSelected = false;
-        }
-      };
-    
-      const getTallesModal = (producto) => {
-        const divTalleModal = document.querySelector(`[quickmodal-talle-id="${producto}"]`);
-        divTalleModal.innerHTML = "";
-        const j = producto - 1;
-        const product = products[j];
-        const cantidadTalles = product.descripcion.talle.length;
-        let isFirstSelected = true;
-        for (let i = 0; i < cantidadTalles; i++) {
-          const isSelected = isFirstSelected ? 'selected' : '';
-          const talle = product.descripcion.talle[i];
-          const descripcionHTML = `
-            <a data-option="${talle}" class="js-insta-variant btn btn-variant ${isSelected}" product-id="${producto}" data-product-talla-id="quick-${producto}">
-              <span class="btn-variant-content" data-name="${talle}">${talle}</span>
-            </a>
-          `;
-          divTalleModal.innerHTML += descripcionHTML;
-          isFirstSelected = false;
-        }
-      };
-
-      
-    
-      function seleccionarEnlaceTalle(id) {
-        const productId = id;
-        const enlacesTalles = document.querySelectorAll(`[data-product-talla-id="${productId}"]`);
-        enlacesTalles.forEach((enlace) => {
-          enlace.addEventListener('click', (event) => {
-            event.preventDefault();
-            const enlaceSeleccionado = document.querySelector(`[data-product-talla-id="${productId}"].selected`);
-
-            if (enlaceSeleccionado) {
-              enlaceSeleccionado.classList.remove('selected');
-            }
-            enlace.classList.add('selected');
-            talleSeleccionado = enlace.getAttribute('data-option');
-            numeroIdSeleccionado = enlace.getAttribute('product-id');
-          });
-        })
-      }
-
-      function animacionBtnCart(id) {
-        const productId = id;
-        const btnAddCart = document.querySelector(`[add-product-cart-id="${productId}"]`);
-        const btnAnimationCart = document.querySelector(`[animation-product-cart-id="${productId}"]`);
-        const addtocartAdding = btnAnimationCart.querySelector('.js-addtocart-adding');
-        const addtocartSuccess = btnAnimationCart.querySelector('.js-addtocart-success');
-        const addtocartText = btnAnimationCart.querySelector('.js-addtocart-text');
-
-        btnAddCart.style.display = "none";
-        btnAnimationCart.style.display = "inline-block";
-        addtocartText.style.display = "none";
-        addtocartAdding.classList.add('active');
-        addtocartSuccess.classList.remove('active');
-
-        setTimeout(() => {
-          addtocartAdding.classList.remove('active');
-          addtocartSuccess.classList.add('active');
-          setTimeout(() => {
-            addtocartText.style.display = "inline-block";
-            btnAnimationCart.style.display = "none";
-            btnAddCart.style.display = "inline-block";
-          }, 3000);
-        }, 2000);
-      }
-
-      let productoComprado = "";
-
-      const notificationCart = document.querySelector('.js-alert-added-to-cart');
-      const cantidadProductCart = document.querySelector('span.js-cart-widget-amount.badge.badge-amount');
-      const productDetailCart = document.querySelector('.js-ajax-cart-list');
-      const productPriceCart = document.querySelector('#price-cart-product');
-      const productCartVacio = document.querySelector('.js-empty-ajax-cart');
-      const notificationCard = document.querySelector('#cart-notification-product');
-
-      function seleccionarBtnAddCart(id) {
-        notificationCard.innerHTML = "";
-        productDetailCart.innerHTML = "";
-        productPriceCart.innerHTML = "";
-        const productId = id;
-        const btnAddCart = document.querySelector(`[add-product-cart-id="${productId}"]`);
-        btnAddCart.addEventListener('click', async (event) => {
-          event.preventDefault();
-          await animacionBtnCart(productId);
-          const product = products[numeroIdSeleccionado - 1];
-          const numero = numeroIdSeleccionado;
-          const talle = talleSeleccionado;
-          const precio = product.precio;
-          const precioFormateado = precio.toLocaleString("es-ES");
-          const contenidoHTML = `
-                <div class="js-cart-notification-item row" data-store="cart-notification-item">
-                  <div class="col-2 pr-0 notification-img">
-                    <img src="" class="js-cart-notification-item-img img-fluid"
-                      srcset="img/productos/${product.imagen} 240w, img/productos/${product.imagen} 320w, img/productos/${product.imagen} 480w, img/productos/${product.imagen} 640w, img/productos/${product.imagen} 1024w">
-                  </div>
-                  <div class="col-10 text-left">
-                    <div class="mb-1 mr-4">
-                      <span class="js-cart-notification-item-name text-bold">${product.nombre}</span>
-                      <span class="js-cart-notification-item-variant-container">
-                        (<span class="js-cart-notification-item-variant">${talle}</span>)
-                      </span>
-                    </div>
-                    <div class="mb-1">
-                      <span class="js-cart-notification-item-quantity">1</span>
-                      <span> x </span>
-                      <span class="js-cart-notification-item-price">$${precioFormateado}</span>
-                    </div>
-                    <strong class="text-accent-success">¡Agregado al carrito!</strong>
-                  </div>
-                </div>
-                <div class="divider my-2"></div>
-                <div class="row h6 mb-3">
-                  <span class="col-auto text-left ml-2">
-                    <span>Total</span>
-                    (<span class="js-cart-widget-amount">1</span>
-                    <span class="js-cart-counts-plural">
-                      producto/s):
-                    </span>
-                  </span>
-                  <strong class="js-cart-total col text-right text-bold js-free-shipping-achieved"
-                    data-priceraw="${product.precio}">$${precioFormateado}</strong>
-                </div>
-            `;
-          notificationCard.innerHTML = contenidoHTML;
-          setTimeout(() => {
-            notificationCart.style.display = "block";
-            notificationCart.classList.replace('notification-hidden', 'notification-visible');
-            cantidadProductCart.innerHTML = "1";
-            seleccionarBtnCloseNotification()
-            setTimeout(() => {
-              notificationCart.classList.replace('notification-visible', 'notification-hidden');
-              notificationCart.style.display = "none";
-            }, 10000);
-          }, 2000);
-          const porcentajeEnvioGratis = (precio * 100) / 50000;
-          const diferencia = (50000 - precio).toLocaleString();
-          const precioCuotas3 = (precio / 3).toLocaleString();
-          setTimeout(() => {
-            productCartVacio.style.display = "none";
-          }, 1000);
-          const contenidoDetailHTML = `
-            <div class="js-cart-item js-cart-item-shippable cart-item form-row position-relative" data-item-id="${numero}"
-              data-store="cart-item-00000${numero}" data-component="cart.line-item">
-              <div class="col-2">
-                <a href="/productos/${product.codigo}/?variant=${talle}" previewlistener="true">
-                  <img
-                    src="img/productos/${product.imagen}"
-                    class="img-fluid">
-                </a>
-              </div>
-              <div class="col-10 d-flex align-items-center">
-                <div class="w-100">
-                  <div class="cart-item-name" data-component="line-item.name">
-                    <a href="/productos/${product.codigo}/?variant=${talle}"
-                      data-component="name.short-name" previewlistener="true">
-                      ${product.nombre}
-                    </a>
-                    <small data-component="name.short-variant-name">(${talle})</small>
-                  </div>
-                  <div class="cart-item-quantity " data-component="line-item.subtotal">
-                    <div class="form-group float-left form-quantity cart-item-quantity small mb-0">
-                      <div class="row m-0 align-items-center ">
-                        <span class="js-cart-quantity-btn form-quantity-icon btn"
-                          onclick="LS.minusQuantity(${numero}, true)" data-component="quantity.minus">
-                          <svg class="icon-inline icon-lg svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path d="M486.4,269.27H25.6v-25.6H486.4Z"></path>
-                          </svg>
-                        </span>
-                        <div class="form-control-container js-cart-quantity-container col px-1">
-                          <input type="number" class=" form-control js-cart-quantity-input text-center form-control-inline"
-                            autocorrect="off" autocapitalize="off" pattern="\d*" name="quantity[${numero}]" value="1"
-                            data-item-id="${numero}" data-component="quantity.value"
-                            style="visibility: visible; pointer-events: all;">
-                        </div>
-                        <span class="js-cart-input-spinner cart-item-spinner" style="display: none;">
-                          <svg class="icon-inline icon-spin svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 256 512">
-                            <path
-                              d="M460.115 373.846l-6.941-4.008c-5.546-3.202-7.564-10.177-4.661-15.886 32.971-64.838 31.167-142.731-5.415-205.954-36.504-63.356-103.118-103.876-175.8-107.701C260.952 39.963 256 34.676 256 28.321v-8.012c0-6.904 5.808-12.337 12.703-11.982 83.552 4.306 160.157 50.861 202.106 123.67 42.069 72.703 44.083 162.322 6.034 236.838-3.14 6.149-10.75 8.462-16.728 5.011z">
-                            </path>
-                          </svg> </span>
-                        <span class="js-cart-quantity-btn form-quantity-icon btn"
-                          onclick="LS.plusQuantity(${numero}, true)" data-component="quantity.plus">
-                          <svg class="icon-inline icon-lg svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path d="M268.8,268.8V486.4H243.2V268.8H25.6V243.2H243.2V25.6h25.6V243.2H486.4v25.6Z"></path>
-                          </svg> </span>
-                      </div>
-                    </div>
-                  </div>
-                  <span class="js-cart-item-subtotal cart-item-subtotal" data-line-item-id="${numero}"
-                    data-component="subtotal.value" data-component-value="$${precioFormateado}">$${precioFormateado}</span>
-                </div>
-              </div>
-              <div class="cart-item-delete col-1 text-right">
-                <button type="button" class="btn " onclick="LS.removeItem(${numero}, true)"
-                  data-component="line-item.remove">
-                  <svg class="icon-inline svg-icon-text icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path
-                      d="M428.8,102.45a51.2,51.2,0,0,0-51.2-51.2H300.8V25.65A25.6,25.6,0,0,0,275.2.05H172.8a25.6,25.6,0,0,0-25.6,25.6v25.6H70.4a51.2,51.2,0,0,0-51.2,51.2v76.8H44.8v281.6A51.2,51.2,0,0,0,96,512.05H352a51.2,51.2,0,0,0,51.2-51.2V179.25h25.6Zm-256-76.8H275.2v25.6H172.8Zm204.8,435.2a25.6,25.6,0,0,1-25.6,25.6H96a25.6,25.6,0,0,1-25.6-25.6V179.25H377.6Zm25.6-307.2H44.8v-51.2a25.6,25.6,0,0,1,25.6-25.6H377.6a25.6,25.6,0,0,1,25.6,25.6ZM172.8,435.25H147.2V204.85h25.6Zm128,0H275.2V204.85h25.6Z">
-                    </path>
-                  </svg>
+    <footer class="footer">
+      <div class="container">
+        <!-- <div class="row justify-content-center">
+          <div class="col-10 col-lg-6">
+            <div class="contenido subscribe mb-5">
+              <form class="suscripcion">
+                <input class="add-correo" type="email" placeholder="subscribe@me.now">
+                <button class="submit-correo" type="button">
+                  <span class="before-submit">Subscribe</span>
+                  <span class="after-submit">Thank you for subscribing!</span>
                 </button>
+              </form>
+            </div>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col-md-4 col-lg-5">
+            <div class="row">
+              <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
+                <h2 class="footer-heading"><a href="#" class="logo">KunturStyle</a></h2>
+                <p>Una tienda digital de ropa urbana.</p>
+                <a href="https://github.com/DovekArt/grupo_5_Kuntur_Style">read more <span class="ion-ios-arrow-round-forward"></span></a>
               </div>
             </div>
-          `;
-          productDetailCart.innerHTML = contenidoDetailHTML;
-          const contenidoPriceHTML = `
-            <div class="js-visible-on-cart-filled" data-prev-visibility="block" style="display: block;">
-              <div class="js-fulfillment-info js-allows-non-shippable">
-                <div class="js-ship-free-rest  mt-2 mb-3">
-                  <div class="js-bar-progress bar-progress">
-                    <div class="js-bar-progress-active bar-progress-active transition-soft" style="width: ${porcentajeEnvioGratis}%;"></div>
-                  </div>
-                  <div class="js-ship-free-rest-message ship-free-rest-message condition">
-                    <div class="ship-free-rest-text bar-progress-success text-accent transition-soft text-accent-success">
-                      ¡Genial! Tenés envío gratis
-                    </div>
-                    <div class="ship-free-rest-text bar-progress-amount transition-soft">
-                      ¡Estás a <span class="js-ship-free-dif">${diferencia}</span> de tener <span class="text-accent-success">envío
-                        gratis</span>!
-                    </div>
-                    <div class="ship-free-rest-text bar-progress-condition transition-soft">
-                      <span class="text-accent text-accent-success">Envío gratis</span> superando los <span>$50.000</span>
-                    </div>
-                  </div>
-                </div>
+          </div>
+          <div class="col-md-8 col-lg-7">
+            <div class="row">
+              <div class="col-md-3 mb-md-0 mb-4 border-left">
+                <h2 class="footer-heading">Soporte</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="py-1 d-block">Buy &amp; Sell</a></li>
+                  <li><a href="#" class="py-1 d-block">Frequent Questions</a></li>
+                  <li><a href="#" class="py-1 d-block">Giving back</a></li>
+                  <li><a href="#" class="py-1 d-block">Help &amp; Support</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 mb-md-0 mb-4 border-left">
+                <h2 class="footer-heading">Menú</h2>
+                <ul class="list-unstyled">
+                  <li><a href="/" class="py-1 d-block">Inicio</a></li>
+                  <li><a href="/sale" class="py-1 d-block">Ofertas</a></li>
+                  <li><a href="/account/register" class="py-1 d-block">Crear cuenta</a></li>
+                  <li><a href="/account/login" class="py-1 d-block">Ingresar cuenta</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 mb-md-0 mb-4 border-left">
+                <h2 class="footer-heading">About Us</h2>
+                <ul class="list-unstyled">
+                  <li><a href="https://github.com/DovekArt/grupo_5_Kuntur_Style/blob/main/README.md" class="py-1 d-block">Blog</a></li>
+                  <li><a href="https://github.com/DovekArt/grupo_5_Kuntur_Style" class="py-1 d-block">Team</a></li>
+                  <li><a href="https://github.com/DovekArt/grupo_5_Kuntur_Style" class="py-1 d-block">Contact us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3 mb-md-0 mb-4 border-left">
+                <h2 class="footer-heading">Social</h2>
+                <ul class="list-unstyled">
+                  <li><i class="fab fa-facebook p-1" style="color: #9d9d9d;"></i><a href="#" class="py-1">Facebook</a></li>
+                  <li><i class="fab fa-twitter pr-2" style="color: #9d9d9d;"></i><a href="#" class="py-1">Twitter</a></li>
+                  <li><i class="fab fa-instagram p-1" style="color: #9d9d9d;"></i><a href="#" class="py-1">Instagram</a></li>
+                </ul>
               </div>
             </div>
-            <div class="subtotal-price hidden" data-priceraw="${precio}00">Subtotal: $${precioFormateado}</div>
-            <div id="store-curr" class="hidden">ARS</div>
-            <h6 class="js-visible-on-cart-filled row mb-1" data-store="cart-subtotal" data-prev-visibility="flex"
-              style="display: flex;">
-              <span class="col-7">
-                Subtotal
-                <small class="js-subtotal-shipping-wording"> (sin envío)</small>
-                :
-              </span>
-              <span class="js-ajax-cart-total js-cart-subtotal col text-right text-bold" data-priceraw="${precio}00"
-                data-component="cart.subtotal" data-component-value="${precio}00">$${precioFormateado}</span>
-            </h6>
-            <div class="js-total-promotions text-accent">
-              <span class="js-promo-in" style="display:none;">en</span>
-              <span class="js-promo-all" style="display:none;">todos los productos</span>
-              <span class="js-promo-buying" style="display:none;"> comprando</span>
-              <span class="js-promo-units-or-more" style="display:none;"> o más</span>
-              <div class="promotions-wrapper"></div>
-            </div>
-            <div class="js-fulfillment-info js-allows-non-shippable">
-              <div class="js-visible-on-cart-filled divider" data-prev-visibility="block" style="display: block;"></div>
-              <div class="js-visible-on-cart-filled js-has-new-shipping js-shipping-calculator-container"
-                data-prev-visibility="block" style="display: block;">
-                <div class="js-shipping-method-unavailable alert alert-warning row row mx-0 mb-3" style="display: none;">
-                  <div class="col-11 text-left pl-1 pr-0">
-                    <div class="mb-1">El medio de envío que habías elegido ya no se encuentra disponible para este carrito. </div>
-                    <div>¡No te preocupes! Podés elegir otro.</div>
-                  </div>
-                </div>
-                <div id="cart-shipping-container" data-shipping-url="/envio/">
-                  <span id="cart-selected-shipping-method" data-code="null" class="hidden"></span>
-                  <div class="js-accordion-container js-toggle-shipping mb-1">
-                    <a href="#" class="js-accordion-toggle py-1 row">
-                      <div class="col">
-                        <svg class="icon-inline icon-w svg-icon-text mr-1" width="512" height="512" viewBox="0 0 512 512" fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M11.3336 117.333C11.3336 111.811 15.8108 107.333 21.3336 107.333H330.668C336.19 107.333 340.668 111.811 340.668 117.333V182H422.09C425.223 182 428.176 183.469 430.066 185.968L498.643 276.634C499.957 278.371 500.668 280.489 500.668 282.666V373.334C500.668 378.857 496.19 383.334 490.668 383.334H424.651C419.129 383.334 414.651 378.857 414.651 373.334C414.651 367.811 419.129 363.334 424.651 363.334H480.668V286.022L417.116 202H340.668V373.334C340.668 378.857 336.19 383.334 330.668 383.334H186.668C181.145 383.334 176.668 378.857 176.668 373.334C176.668 367.811 181.145 363.334 186.668 363.334H320.668V127.333H31.3336V363.334H85.3336C90.8565 363.334 95.3336 367.811 95.3336 373.334C95.3336 378.857 90.8565 383.334 85.3336 383.334H21.3336C15.8108 383.334 11.3336 378.857 11.3336 373.334V117.333Z"
-                            fill="black"></path>
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M131.5 426C160.495 426 184 402.495 184 373.5C184 344.505 160.495 321 131.5 321C102.505 321 79 344.505 79 373.5C79 402.495 102.505 426 131.5 426ZM131.5 407C150.002 407 165 392.002 165 373.5C165 354.998 150.002 340 131.5 340C112.998 340 98 354.998 98 373.5C98 392.002 112.998 407 131.5 407Z"
-                            fill="black"></path>
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M375.5 426C404.495 426 428 402.495 428 373.5C428 344.505 404.495 321 375.5 321C346.505 321 323 344.505 323 373.5C323 402.495 346.505 426 375.5 426ZM375.5 407C394.002 407 409 392.002 409 373.5C409 354.998 394.002 340 375.5 340C356.998 340 342 354.998 342 373.5C342 392.002 356.998 407 375.5 407Z"
-                            fill="black"></path>
-                        </svg>
-                        <span class="subtitle">Medios de envío</span>
-                      </div>
-                      <div class="col-auto">
-                        <span class="js-accordion-toggle-inactive" data-prev-visibility="inline" style="display: none;">
-                          <svg class="icon-inline svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z"></path>
-                          </svg> </span>
-                        <span class="js-accordion-toggle-active" style="display: inline;" data-prev-visibility="inline">
-                          <svg class="icon-inline svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path d="M60.25,367.45l-18.1-18.1L256,135.5,469.85,349.35l-18.1,18.1L256,171.7Z"></path>
-                          </svg> </span>
-                      </div>
-                    </a>
-                    <div class="js-accordion-content" style="display: block;" data-prev-visibility="block">
-                      <div class="mt-1 mb-2" data-store="shipping-calculator">
-                        <div
-                          class="js-shipping-calculator-head shipping-calculator-head position-relative transition-soft with-form with-free-shipping">
-                          <div class="js-shipping-calculator-with-zipcode  mb-4 w-100 transition-up position-absolute mt-2">
-                            <div class="free-shipping-title transition-soft">
-                              <div class="js-free-shipping-title position-absolute transition-up w-100 text-accent">
-                                ¡Genial! Tenés envío gratis
-                              </div>
-                              <div class="js-free-shipping-title-min-cost position-absolute transition-up w-100 transition-up-active">
-                                <span class="text-accent-success">Envío gratis</span> superando los <span>$50.000</span>
-                              </div>
-                            </div>
-                            <div class="container p-0">
-                              <div class="row align-items-center">
-                                <span class="col pr-0">
-                                  <span class="font-small align-bottom">
-                                    <span>Entregas para el CP:</span>
-                                    <strong class="js-shipping-calculator-current-zip"></strong>
-                                  </span>
-                                </span>
-                                <div class="col-auto pl-0">
-                                  <a class="js-shipping-calculator-change-zipcode btn btn-secondary btn-small float-right"
-                                    href="#">Cambiar CP</a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="js-shipping-calculator-form mt-2 shipping-calculator-form transition-up position-absolute w-100 transition-up-active">
-                            <div class="form-group form-row form-group-inline mb-3">
-                              <div class="col-12">
-                                <div class=" mb-2" style="display: none;">
-                                  <span class="text-accent">Envío gratis</span> superando los <span>$50.000</span>
-                                </div>
-                                <div class=" text-accent mb-2" style="display: none;">
-                                  ¡Genial! Tenés envío gratis
-                                </div>
-                              </div>
-                              <div class="position-relative col-12">
-                                <div class="form-control-container ">
-                                  <input type="tel" class=" form-control js-shipping-input form-control-inline" autocorrect="off"
-                                    autocapitalize="off" name="zipcode" placeholder="Tu código postal" aria-label="Tu código postal"
-                                    data-component="cart">
-                                </div>
-                                <button class="js-calculate-shipping btn btn-secondary btn-block" aria-label="Calcular envío">
-                                  <span class="js-calculate-shipping-wording">
-                                    <svg class="icon-inline btn-icon svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 512 512">
-                                      <path d="M268.8,268.8V486.4H243.2V268.8H25.6V243.2H243.2V25.6h25.6V243.2H486.4v25.6Z"></path>
-                                    </svg> </span>
-                                  <span class="float-right loading" style="display: none;">
-                                    <svg class="icon-inline btn-icon icon-spin svg-icon-text" xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 256 512">
-                                      <path
-                                        d="M460.115 373.846l-6.941-4.008c-5.546-3.202-7.564-10.177-4.661-15.886 32.971-64.838 31.167-142.731-5.415-205.954-36.504-63.356-103.118-103.876-175.8-107.701C260.952 39.963 256 34.676 256 28.321v-8.012c0-6.904 5.808-12.337 12.703-11.982 83.552 4.306 160.157 50.861 202.106 123.67 42.069 72.703 44.083 162.322 6.034 236.838-3.14 6.149-10.75 8.462-16.728 5.011z">
-                                      </path>
-                                    </svg> </span>
-                                </button>
-                              </div>
-                              <div class="col-12">
-                                <a class="btn-link btn-link-primary mt-2 mb-2 d-block "
-                                  href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank" previewlistener="true">No sé
-                                  mi código postal</a>
-                              </div>
-                              <div class="col-12">
-                                <div class="js-ship-calculator-error invalid-zipcode alert alert-danger" style="display: none;">
-                                  No encontramos este código postal para Argentina. Podés intentar con otro o
-                                  <a href="#" data-toggle="#cart-shipping-country"
-                                    class="js-modal-open js-open-over-modal btn-link btn-link-primary text-lowercase">
-                                    cambiar tu país de entrega
-                                  </a>
-                                </div>
-                                <div class="js-ship-calculator-error js-ship-calculator-common-error alert alert-danger"
-                                  style="display: none;">Ocurrió un error al calcular el envío. Por favor intentá de nuevo en unos
-                                  segundos.</div>
-                                <div class="js-ship-calculator-error js-ship-calculator-external-error alert alert-danger"
-                                  style="display: none;">El calculo falló por un problema con el medio de envío. Por favor intentá de
-                                  nuevo en unos segundos.</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="js-shipping-calculator-spinner shipping-spinner-container my-4 transition-soft text-center"
-                          style="display: none;">
-                          <i class="spinner col-6 offset-3"></i>
-                        </div>
-                        <div class="js-shipping-calculator-response transition-soft  radio-buttons-group" style="display: none;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="js-cart-total-container js-visible-on-cart-filled mb-4 pt-3" data-store="cart-total"
-              data-prev-visibility="block" style="display: block;">
-              <h4 class="row mb-0">
-                <span class="col">Total:</span>
-                <span class="js-cart-total col text-bold text-right" data-component="cart.total" data-component-value="${precio}00"
-                  data-priceraw="${precio}00">$${precioFormateado},00</span>
-              </h4>
-              <div class="total-price hidden" data-priceraw="${precio}00">Total: $${precioFormateado}</div>
-              <div class="text-right">
-                <div data-interest="0" data-cart-installment="6"
-                  class="js-installments-cart-total mt-2 text-right text-accent-buy">
-                  O hasta
-                  <span class="js-cart-installments-amount">3</span> cuotas sin interés de <span
-                    class="js-cart-installments installment-price">$${precioCuotas3}</span>
-                </div>
-              </div>
-            </div>
-            <div class="js-visible-on-cart-filled container-fluid" data-prev-visibility="block" style="display: block;">
-              <div class="js-ajax-cart-submit row mb-3" id="ajax-cart-submit-div">
-                <input class="btn btn-primary btn-block" type="submit" name="go_to_checkout" value="Iniciar Compra"
-                  data-component="cart.checkout-button">
-              </div>
-              <div class="row">
-                <div class="js-ajax-cart-minimum alert alert-warning mt-4" style="display:none" id="ajax-cart-minumum-div">
-                  El monto mínimo de compra es de $0 sin incluir el costo de envío
-                </div>
-              </div>
-              <input type="hidden" id="ajax-cart-minimum-value" value="0">
-              <div class="row mb-2">
-                <div class="text-center w-100">
-                  <a href="#" class="js-modal-close js-fullscreen-modal-close btn-link">Ver más productos</a>
-                </div>
-              </div>
-            </div>
-          `;
-          productPriceCart.innerHTML = contenidoPriceHTML;
-          productPriceCart.style.display = "block";
-          seleccionarBtnBorrarProduct()
-        });
-      }
-
-      function seleccionarBtnCloseNotification() {
-        const notificationCartClose = document.querySelectorAll('.js-cart-notification-close');
-        notificationCartClose.forEach((btnClose) => {
-          btnClose.addEventListener('click', () => {
-            notificationCart.classList.replace('notification-visible', 'notification-hidden');
-            notificationCart.style.display = "none";
-            if (btnClose.classList.contains('js-open-cart')) {
-              openCart();
-            }
-          });
-        });
-      }
-
-      function seleccionarBtnBorrarProduct() {
-        const btnsBorrar = document.querySelectorAll('[data-component="line-item.remove"]');
-        btnsBorrar.forEach((btnBorrar) => {
-          btnBorrar.addEventListener('click', () => {
-            productPriceCart.style.display = "none";
-            productCartVacio.style.display = "block";
-            productDetailCart.innerHTML = "";
-            productPriceCart.innerHTML = "";
-          });
-        });
-      }
-    </script>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-6 col-lg-8">
+            <p class="copyright">
+              Copyright ©
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | Esta pagina esta hecha
+              con <i class="fas fa-heart" style="color: #ff0000;"></i> por <a href="https://github.com/DovekArt/grupo_5_Kuntur_Style" target="_blank"
+                previewlistener="true">DHG5</a>
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-4 text-md-right">
+            <p class="mb-0 list-unstyled">
+              <a class="mr-md-3" href="#">Terms</a>
+              <a class="mr-md-3" href="#">Privacy</a>
+              <a class="mr-md-3" href="#">Compliances</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/js/products.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/functions.js"></script>
   </body>
 </html>
