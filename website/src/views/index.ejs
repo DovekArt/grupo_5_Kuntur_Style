@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('partials/head', {title: 'Inicio'}) %>
+  </head>
+  <body class="js-head-offset head-offset">
+    <%- include('partials/header') %>
+    <section id="banner" data-store="slider-main">
+      <div class="js-home-main-slider-container" data-transition="fade-in-up">
+        <div class="js-home-main-slider-visibility d-none d-md-block">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col section-slider p-0">
+                <div
+                  class="js-home-slider nube-slider-home swiper-container swiper-container-horizontal swiper-container-initialized">
+                  <div class="swiper-wrapper">
+                    <div id="banner-large" class="swiper-slide slide-container swiper-slide-active">
+                      <a href="/new/" aria-label="Carrusel 1">
+                        <div class="slider-slide">
+                          <img width="1920" height="1080" class="slider-image swiper-lazy fade-in swiper-lazy-loaded"
+                            alt="Carrusel 1" sizes="auto" src="/img/design/banner-large.jpg">
+                          <div class="placeholder-fade"></div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-home-mobile-slider-visibility d-md-none">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col section-slider p-0">
+              <div
+                class="js-home-slider-mobile nube-slider-home swiper-container swiper-container-horizontal swiper-container-initialized">
+                <div class="swiper-wrapper" style="transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+                  <div class="swiper-slide slide-container swiper-slide-active">
+                    <a href="/new/" aria-label="Carrusel 1">
+                      <div class="slider-slide">
+                        <img width="1080" height="1350" src="/img/design/banner-mobile.jpg" class="slider-image  " alt="Carrusel 1">
+                        <div class="placeholder-fade"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="js-swiper-home-control js-swiper-home-prev-mobile swiper-button-prev d-none d-md-block svg-square svg-icon-text swiper-button-disabled">
+                  <svg class="icon-inline icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                    <path d="M241,451.75l-18.11,18.1L9.07,256,222.92,42.15,241,60.25,45.28,256Z"></path>
+                  </svg>
+                </div>
+                <div
+                  class="js-swiper-home-control js-swiper-home-next-mobile swiper-button-next d-none d-md-block svg-square svg-icon-text swiper-button-disabled">
+                  <svg class="icon-inline icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                    <path d="M210.72,256,15,60.25l18.11-18.1L246.93,256,33.08,469.85,15,451.75Z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-informative-banners" data-store="banner-services">
+      <div class="container">
+        <div class="row">
+          <div class="js-informative-banners swiper-container">
+            <div class="swiper-wrapper carousel-inner">
+              <div class="service-item-container col-md swiper-slide p-0 px-md-3"
+                data-transition="fade-in-up">
+                <div class="service-item mx-4 mx-md-0">
+                  <div class="row align-items-flex-start mx-0">
+                    <div class="col-auto px-4">
+                      <svg class="icon-inline icon-3x svg-icon-text-path mb-3" width="512" height="512"
+                        viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11.3336 117.333C11.3336 111.811 15.8108 107.333 21.3336 107.333H330.668C336.19 107.333 340.668 111.811 340.668 117.333V182H422.09C425.223 182 428.176 183.469 430.066 185.968L498.643 276.634C499.957 278.371 500.668 280.489 500.668 282.666V373.334C500.668 378.857 496.19 383.334 490.668 383.334H424.651C419.129 383.334 414.651 378.857 414.651 373.334C414.651 367.811 419.129 363.334 424.651 363.334H480.668V286.022L417.116 202H340.668V373.334C340.668 378.857 336.19 383.334 330.668 383.334H186.668C181.145 383.334 176.668 378.857 176.668 373.334C176.668 367.811 181.145 363.334 186.668 363.334H320.668V127.333H31.3336V363.334H85.3336C90.8565 363.334 95.3336 367.811 95.3336 373.334C95.3336 378.857 90.8565 383.334 85.3336 383.334H21.3336C15.8108 383.334 11.3336 378.857 11.3336 373.334V117.333Z"
+                          fill="black"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M131.5 426C160.495 426 184 402.495 184 373.5C184 344.505 160.495 321 131.5 321C102.505 321 79 344.505 79 373.5C79 402.495 102.505 426 131.5 426ZM131.5 407C150.002 407 165 392.002 165 373.5C165 354.998 150.002 340 131.5 340C112.998 340 98 354.998 98 373.5C98 392.002 112.998 407 131.5 407Z"
+                          fill="black"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M375.5 426C404.495 426 428 402.495 428 373.5C428 344.505 404.495 321 375.5 321C346.505 321 323 344.505 323 373.5C323 402.495 346.505 426 375.5 426ZM375.5 407C394.002 407 409 392.002 409 373.5C409 354.998 394.002 340 375.5 340C356.998 340 342 354.998 342 373.5C342 392.002 356.998 407 375.5 407Z"
+                          fill="black"></path>
+                      </svg>
+                    </div>
+                    <div class="col p-0">
+                      <h4 class="h4 mb-1">Envíos gratis</h4>
+                      <p class="m-0">En compras superiores a $50.000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="service-item-container col-md swiper-slide p-0 px-md-3"
+                data-transition="fade-in-up">
+                <div class="service-item mx-4 mx-md-0">
+                  <div class="row align-items-flex-start mx-0">
+                    <div class="col-auto px-4">
+                      <svg class="icon-inline icon-3x svg-icon-text-path mb-3" width="512" height="512"
+                        viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M170.667 84.6667C167.661 84.6667 164.778 85.8607 162.653 87.9861C160.527 90.1115 159.333 92.9942 159.333 96V138.667C159.333 144.19 154.856 148.667 149.333 148.667C143.81 148.667 139.333 144.19 139.333 138.667V96C139.333 87.6899 142.634 79.7201 148.511 73.844C154.387 67.9678 162.356 64.6667 170.667 64.6667H448C456.31 64.6667 464.28 67.9678 470.156 73.844C476.032 79.7201 479.333 87.6899 479.333 96V288C479.333 296.31 476.032 304.28 470.156 310.156C464.28 316.032 456.31 319.333 448 319.333H426.667C421.144 319.333 416.667 314.856 416.667 309.333C416.667 303.81 421.144 299.333 426.667 299.333H448C451.006 299.333 453.888 298.139 456.014 296.014C458.139 293.888 459.333 291.006 459.333 288V96C459.333 92.9942 458.139 90.1115 456.014 87.9861C453.888 85.8607 451.006 84.6667 448 84.6667H170.667ZM64 212.667C57.7407 212.667 52.6666 217.741 52.6666 224V245.333V288.667H352.667V245.333V224C352.667 217.741 347.593 212.667 341.333 212.667H64ZM372.667 245.333V373.333V416C372.667 433.305 358.638 447.333 341.333 447.333H64C46.695 447.333 32.6666 433.305 32.6666 416V373.333V245.333V224C32.6666 206.695 46.695 192.667 64 192.667H341.333C358.638 192.667 372.667 206.695 372.667 224V245.333ZM52.6666 373.333V416C52.6666 422.259 57.7407 427.333 64 427.333H341.333C347.593 427.333 352.667 422.259 352.667 416V373.333V308.667H52.6666V373.333ZM117.333 352.667C111.81 352.667 107.333 357.144 107.333 362.667C107.333 368.189 111.81 372.667 117.333 372.667H202.667C208.189 372.667 212.667 368.189 212.667 362.667C212.667 357.144 208.189 352.667 202.667 352.667H117.333ZM266.667 352.667C261.144 352.667 256.667 357.144 256.667 362.667C256.667 368.189 261.144 372.667 266.667 372.667H288C293.523 372.667 298 368.189 298 362.667C298 357.144 293.523 352.667 288 352.667H266.667Z"
+                          fill="black"></path>
+                      </svg>
+                    </div>
+                    <div class="col p-0">
+                      <h4 class="h4 mb-1">Hasta 3 cuotas sin interés</h4>
+                      <p class="m-0">Con tarjetas de crédito y debito</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="service-item-container col-md swiper-slide p-0 px-md-3"
+                data-transition="fade-in-up">
+                <div class="service-item mx-4 mx-md-0">
+                  <div class="row align-items-flex-start mx-0">
+                    <div class="col-auto px-4">
+                      <svg class="icon-inline icon-3x svg-icon-text-path mb-3" width="512" height="512"
+                        viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M59.1101 101.777C63.2359 97.6512 68.8316 95.3334 74.6664 95.3334H437.332C443.168 95.3334 448.764 97.6514 452.889 101.777L452.89 101.777C457.015 105.902 459.332 111.498 459.332 117.333V203.334H52.6664V117.333C52.6664 111.499 54.9843 105.903 59.1101 101.777ZM32.6664 223.334V117.333C32.6664 106.194 37.0915 95.5113 44.968 87.6349C52.8445 79.7583 63.5273 75.3334 74.6664 75.3334H437.332C448.472 75.3334 459.155 79.7581 467.032 87.6352C474.91 95.5124 479.332 106.196 479.332 117.333V223.334V245.962C479.332 251.485 474.855 255.962 469.332 255.962C463.81 255.962 459.332 251.485 459.332 245.962V223.334H52.6664V394.666C52.6664 400.502 54.9845 406.098 59.1098 410.223C63.2358 414.348 68.8317 416.666 74.6664 416.666H256C261.523 416.666 266 421.143 266 426.666C266 432.189 261.523 436.666 256 436.666H74.6664C63.5272 436.666 52.8446 432.241 44.9683 424.365C37.0913 416.489 32.6664 405.806 32.6664 394.666V223.334Z"
+                          fill="black"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M331.332 384C331.332 360.804 350.137 342 373.332 342H437.332C460.528 342 479.332 360.804 479.332 384V405.334C479.332 428.53 460.528 447.334 437.332 447.334H373.332C350.137 447.334 331.332 428.53 331.332 405.334V384ZM373.332 362C361.182 362 351.332 371.85 351.332 384V405.334C351.332 417.484 361.182 427.334 373.332 427.334H437.332C449.483 427.334 459.332 417.484 459.332 405.334V384C459.332 371.85 449.483 362 437.332 362H373.332Z"
+                          fill="black"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M405.332 298C399.498 298 393.902 300.318 389.777 304.443C385.65 308.57 383.332 314.166 383.332 320V342H427.332V320C427.332 314.166 425.015 308.57 420.889 304.443C420.889 304.443 420.889 304.443 420.888 304.442M405.332 298C411.168 298 416.763 300.318 420.888 304.442ZM375.635 290.301C383.511 282.425 394.194 278 405.332 278C416.472 278 427.155 282.425 435.031 290.301L435.032 290.302C442.907 298.179 447.332 308.861 447.332 320V352C447.332 357.523 442.855 362 437.332 362H373.332C367.81 362 363.332 357.523 363.332 352V320C363.332 308.861 367.758 298.178 375.635 290.301Z"
+                          fill="black"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M81.7334 149.334C81.7334 139.099 90.0303 130.8 100.267 130.8C110.503 130.8 118.8 139.098 118.8 149.334C118.8 159.571 110.501 167.866 100.267 167.866C90.0323 167.866 81.7334 159.571 81.7334 149.334ZM100.267 150.8C101.077 150.8 101.733 150.143 101.733 149.334C101.733 148.523 101.075 147.866 100.267 147.866C99.4581 147.866 98.8 148.522 98.8 149.334C98.8 150.143 99.4561 150.8 100.267 150.8Z"
+                          fill="black"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M126.534 149.334C126.534 139.1 134.828 130.8 145.066 130.8C155.302 130.8 163.6 139.098 163.6 149.334C163.6 159.572 155.3 167.866 145.066 167.866C134.83 167.866 126.534 159.57 126.534 149.334ZM145.066 150.8C145.878 150.8 146.534 150.142 146.534 149.334C146.534 148.524 145.876 147.866 145.066 147.866C144.258 147.866 143.6 148.522 143.6 149.334C143.6 150.144 144.256 150.8 145.066 150.8Z"
+                          fill="black"></path>
+                      </svg>
+                    </div>
+                    <div class="col p-0">
+                      <h4 class="h4 mb-1">Comprá sin preoucupaciones</h4>
+                      <p class="m-0">Protegemos tus datos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="js-informative-banners-pagination service-pagination swiper-pagination"></div>
+    </section>
+    <section class="section-featured-home container" data-store="products-home-featured">
+      <div class="container" data-store="products-home-featured">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="section-title">
+              <h3 class="h3 mb-1">Destacados</h3>
+            </div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="js-swiper-featured swiper-container swiper-container-initialized swiper-container-horizontal">
+              <div class="swiper-wrapper" id="featured-products" style="transition: all 0ms ease 0s; transform: translate3d(-562px, 0px, 0px);">
+                <!-- Aqui irian los productos -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="btn-carousel">
+        <div id="prevBtn" class="js-swiper-featured-prev swiper-button-prev d-md-block svg-square svg-icon-text">
+          <svg class="icon-inline icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+            <path d="M241,451.75l-18.11,18.1L9.07,256,222.92,42.15,241,60.25,45.28,256Z"></path>
+          </svg>
+        </div>
+        <div id="nextBtn" class="js-swiper-featured-next swiper-button-next d-md-block svg-square svg-icon-text">
+          <svg class="icon-inline icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+            <path d="M210.72,256,15,60.25l18.11-18.1L246.93,256,33.08,469.85,15,451.75Z"></path>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <div class="js-modal-overlay modal-overlay " data-modal-id="#quickshop-modal" style="display: none;" data-prev-visibility="block"></div>
+    <div id="quickshop-modal"
+      class="js-modal js-fullscreen-modal modal modal-quickshop bottom modal-centered modal-bottom-sheet modal-bottom modal--md transition-slide modal-docked-md modal-docked-md-centered transition-soft in"
+      style="display: none;" aria-hidden="false">
+      <div class="js-modal-close js-fullscreen-modal-close modal-header text-right modal-floating-close" style="z-index: 1;">
+        <span class="js-modal-close  modal-close ml-1 no-header">
+          <svg class="icon-inline icon-lg svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M256,274.92,72.67,458.25l-18.1-18.1L237.9,256.82,54.57,73.49l18.1-18.11L256,238.72,439.33,55.38l18.1,18.11L274.1,256.82,457.43,440.15l-18.1,18.1Z">
+            </path>
+          </svg> </span>
+      </div>
+      <div id="quickmodal-body" class="modal-body">
+        <!-- Aqui iria la descripcion -->
+      </div>
+    </div>
+    <section class="section-banners-home position-relative" data-store="banner-home-categories">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 pl-0">
+            <div class="row">
+              <div class="grid-item col-6 col-md-3" data-transition="fade-in-up">
+                <div class="textbanner">
+                  <a href="/shop/prendas/remerones/" class="textbanner-link" aria-label="Carrusel 1">
+                    <div class="textbanner-image p-0 overlay">
+                      <img width="480" height="600" src="/img/categorias/remerones.jpg" data-sizes="auto" data-expand="-10"
+                        class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="remerones" sizes="274px"
+                        srcset="/img/categorias/remerones.jpg 480w, /img/categorias/remerones.jpg 640w, /img/categorias/remerones.jpg 1024w, /img/categorias/remerones.jpg 1920w">
+                      <div class="placeholder-fade"></div>
+                      <div class="textbanner-text over-image  pl-5 pr-5">
+                        <div class="h3">REMERONES</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item col-6 col-md-3" data-transition="fade-in-up">
+                <div class="textbanner">
+                  <a href="/shop/prendas/camperas/" class="textbanner-link" aria-label="Carrusel 1">
+                    <div class="textbanner-image p-0 overlay">
+                      <img width="480" height="600" src="/img/categorias/camperas.jpg" data-sizes="auto" data-expand="-10"
+                        class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="camperas" sizes="274px"
+                        srcset="/img/categorias/camperas.jpg 480w, /img/categorias/camperas.jpg 640w, /img/categorias/camperas.jpg 1024w, /img/categorias/camperas.jpg 1920w">
+                      <div class="placeholder-fade"></div>
+                      <div class="textbanner-text over-image  pl-5 pr-5">
+                        <div class="h3">CAMPERAS</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item col-6 col-md-3" data-transition="fade-in-up">
+                <div class="textbanner">
+                  <a href="/shop/prendas/buzos/" class="textbanner-link" aria-label="Carrusel 1">
+                    <div class="textbanner-image p-0 overlay">
+                      <img width="480" height="600" src="/img/categorias/buzos.jpg" data-sizes="auto" data-expand="-10"
+                        class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="buzos" sizes="274px"
+                        srcset="/img/categorias/buzos.jpg 480w, /img/categorias/buzos.jpg 640w, /img/categorias/buzos.jpg 1024w, /img/categorias/buzos.jpg 1920w">
+                      <div class="placeholder-fade"></div>
+                      <div class="textbanner-text over-image  pl-5 pr-5">
+                        <div class="h3">BUZOS</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item col-6 col-md-3" data-transition="fade-in-up">
+                <div class="textbanner">
+                  <a href="/shop/prendas/pantalones/" class="textbanner-link" aria-label="Carrusel 1">
+                    <div class="textbanner-image p-0 overlay">
+                      <img width="480" height="600" src="/img/categorias/pantalones.jpg" data-sizes="auto" data-expand="-10"
+                        class="textbanner-image-effect img-fluid d-block w-100 lazyautosizes fade-in lazyloaded" alt="pantalones" sizes="274px"
+                        srcset="/img/categorias/pantalones.jpg 480w, /img/categorias/pantalones.jpg 640w, /img/categorias/pantalones.jpg 1024w, /img/categorias/pantalones.jpg 1920w">
+                      <div class="placeholder-fade"></div>
+                      <div class="textbanner-text over-image  pl-5 pr-5">
+                        <div class="h3">PANTALONES</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('partials/footer') %>
+    <script src="/js/products.js"></script>
+    <script src="/js/header.js"></script>
+    <script src="/js/functions.js"></script>
+  </body>
+</html>

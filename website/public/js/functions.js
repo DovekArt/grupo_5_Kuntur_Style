@@ -567,7 +567,7 @@ function seleccionarBtnAddCart(id) {
                           </svg> </span>
                       </div>
                     </a>
-                    <div class="js-accordion-content" style="display: block;" data-prev-visibility="block">
+                    <div class="js-accordion-content" style="display: none;" data-prev-visibility="block">
                       <div class="mt-1 mb-2" data-store="shipping-calculator">
                         <div
                           class="js-shipping-calculator-head shipping-calculator-head position-relative transition-soft with-form with-free-shipping">
@@ -658,6 +658,114 @@ function seleccionarBtnAddCart(id) {
                       </div>
                     </div>
                   </div>
+                  <div class="js-accordion-container js-toggle-shipping mb-1">
+                    
+                    
+                  <details class="js-accordion-container js-toggle-shipping mb-1" id="acordionElement">
+                    <summary>
+                      
+                    <a class="js-accordion-toggle py-1 row">
+                          <div class="col">
+                            <svg class="icon-inline icon-w svg-icon-text mr-1" width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.3336 117.333C11.3336 111.811 15.8108 107.333 21.3336 107.333H330.668C336.19 107.333 340.668 111.811 340.668 117.333V182H422.09C425.223 182 428.176 183.469 430.066 185.968L498.643 276.634C499.957 278.371 500.668 280.489 500.668 282.666V373.334C500.668 378.857 496.19 383.334 490.668 383.334H424.651C419.129 383.334 414.651 378.857 414.651 373.334C414.651 367.811 419.129 363.334 424.651 363.334H480.668V286.022L417.116 202H340.668V373.334C340.668 378.857 336.19 383.334 330.668 383.334H186.668C181.145 383.334 176.668 378.857 176.668 373.334C176.668 367.811 181.145 363.334 186.668 363.334H320.668V127.333H31.3336V363.334H85.3336C90.8565 363.334 95.3336 367.811 95.3336 373.334C95.3336 378.857 90.8565 383.334 85.3336 383.334H21.3336C15.8108 383.334 11.3336 378.857 11.3336 373.334V117.333Z" fill="black"></path>
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M131.5 426C160.495 426 184 402.495 184 373.5C184 344.505 160.495 321 131.5 321C102.505 321 79 344.505 79 373.5C79 402.495 102.505 426 131.5 426ZM131.5 407C150.002 407 165 392.002 165 373.5C165 354.998 150.002 340 131.5 340C112.998 340 98 354.998 98 373.5C98 392.002 112.998 407 131.5 407Z" fill="black"></path>
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M375.5 426C404.495 426 428 402.495 428 373.5C428 344.505 404.495 321 375.5 321C346.505 321 323 344.505 323 373.5C323 402.495 346.505 426 375.5 426ZM375.5 407C394.002 407 409 392.002 409 373.5C409 354.998 394.002 340 375.5 340C356.998 340 342 354.998 342 373.5C342 392.002 356.998 407 375.5 407Z" fill="black"></path>
+                            </svg>
+                            <span class="subtitle">Medios de envío</span>
+                          </div>
+                          <div class="col-auto">
+                            <span class="js-accordion-toggle-inactive" data-prev-visibility="inline" style="display: none;">
+                              <svg class="icon-inline svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M256,340.3,451.75,144.55l18.1,18.1L256,376.5,42.15,162.65l18.1-18.1Z"></path>
+                              </svg> </span>
+                            <span class="js-accordion-toggle-active" style="display: inline;" data-prev-visibility="inline">
+                              <svg class="icon-inline svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M60.25,367.45l-18.1-18.1L256,135.5,469.85,349.35l-18.1,18.1L256,171.7Z"></path>
+                              </svg>
+                            </span>
+                          </div>
+                        </a></summary>
+                    
+                  <div class="js-accordion-content" data-prev-visibility="block">
+                      <div class="mt-1 mb-2" data-store="shipping-calculator">
+                        <div class="js-shipping-calculator-head shipping-calculator-head position-relative transition-soft with-form with-free-shipping">
+                          <div class="js-shipping-calculator-with-zipcode  mb-4 w-100 transition-up position-absolute mt-2">
+                            <div class="free-shipping-title transition-soft">
+                              <div class="js-free-shipping-title position-absolute transition-up w-100 text-accent">
+                                ¡Genial! Tenés envío gratis
+                              </div>
+                              <div class="js-free-shipping-title-min-cost position-absolute transition-up w-100 transition-up-active">
+                                <span class="text-accent-success">Envío gratis</span> superando los <span>$50.000</span>
+                              </div>
+                            </div>
+                            <div class="container p-0">
+                              <div class="row align-items-center">
+                                <span class="col pr-0">
+                                  <span class="font-small align-bottom">
+                                    <span>Entregas para el CP:</span>
+                                    <strong class="js-shipping-calculator-current-zip"></strong>
+                                  </span>
+                                </span>
+                                <div class="col-auto pl-0">
+                                  <a class="js-shipping-calculator-change-zipcode btn btn-secondary btn-small float-right" href="#">Cambiar CP</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="js-shipping-calculator-form mt-2 shipping-calculator-form transition-up position-absolute w-100 transition-up-active">
+                            <div class="form-group form-row form-group-inline mb-3">
+                              <div class="col-12">
+                                <div class=" mb-2" style="display: none;">
+                                  <span class="text-accent">Envío gratis</span> superando los <span>$50.000</span>
+                                </div>
+                                <div class=" text-accent mb-2" style="display: none;">
+                                  ¡Genial! Tenés envío gratis
+                                </div>
+                              </div>
+                              <div class="position-relative col-12">
+                                <div class="form-control-container ">
+                                  <input type="tel" class=" form-control js-shipping-input form-control-inline" autocorrect="off" autocapitalize="off" name="zipcode" placeholder="Tu código postal" aria-label="Tu código postal" data-component="cart" style="
+    width: 433px;
+    height: 10px;
+">
+                                </div>
+                                <button class="js-calculate-shipping btn btn-secondary btn-block" aria-label="Calcular envío">
+                                  <span class="js-calculate-shipping-wording">
+                                    <svg class="icon-inline btn-icon svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                      <path d="M268.8,268.8V486.4H243.2V268.8H25.6V243.2H243.2V25.6h25.6V243.2H486.4v25.6Z"></path>
+                                    </svg> </span>
+                                  <span class="float-right loading" style="display: none;">
+                                    <svg class="icon-inline btn-icon icon-spin svg-icon-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                                      <path d="M460.115 373.846l-6.941-4.008c-5.546-3.202-7.564-10.177-4.661-15.886 32.971-64.838 31.167-142.731-5.415-205.954-36.504-63.356-103.118-103.876-175.8-107.701C260.952 39.963 256 34.676 256 28.321v-8.012c0-6.904 5.808-12.337 12.703-11.982 83.552 4.306 160.157 50.861 202.106 123.67 42.069 72.703 44.083 162.322 6.034 236.838-3.14 6.149-10.75 8.462-16.728 5.011z">
+                                      </path>
+                                    </svg> </span>
+                                </button>
+                              </div>
+                              <div class="col-12">
+                                <a class="btn-link btn-link-primary mt-2 mb-2 d-block " href="https://www.correoargentino.com.ar/formularios/cpa" target="_blank" previewlistener="true">No sé
+                                  mi código postal</a>
+                              </div>
+                              <div class="col-12">
+                                <div class="js-ship-calculator-error invalid-zipcode alert alert-danger" style="display: none;">
+                                  No encontramos este código postal para Argentina. Podés intentar con otro o
+                                  <a href="#" data-toggle="#cart-shipping-country" class="js-modal-open js-open-over-modal btn-link btn-link-primary text-lowercase">
+                                    cambiar tu país de entrega
+                                  </a>
+                                </div>
+                                <div class="js-ship-calculator-error js-ship-calculator-common-error alert alert-danger" style="display: none;">Ocurrió un error al calcular el envío. Por favor intentá de nuevo en unos
+                                  segundos.</div>
+                                <div class="js-ship-calculator-error js-ship-calculator-external-error alert alert-danger" style="display: none;">El calculo falló por un problema con el medio de envío. Por favor intentá de
+                                  nuevo en unos segundos.</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="js-shipping-calculator-spinner shipping-spinner-container my-4 transition-soft text-center" style="display: none;">
+                          <i class="spinner col-6 offset-3"></i>
+                        </div>
+                        <div class="js-shipping-calculator-response transition-soft  radio-buttons-group" style="display: none;"></div>
+                      </div>
+                    </div></details></div>
                 </div>
               </div>
             </div>

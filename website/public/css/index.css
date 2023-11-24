@@ -76,10 +76,10 @@ a {
   -webkit-transform: scale(1);
 }
 
-.position-sticky {
+/* .position-sticky {
   position: sticky!important;
   position: -webkit-sticky;
-}
+} */
 
 .section-adbar {
   width: 100%;
@@ -3926,6 +3926,7 @@ ul.js-pages-accordion.list-subitems.nav-list-accordion.list-subitems {
   background-color: var(--light-grey-bg) !important;
   border: 1px solid var(--light-grey-bg) !important;
   padding: 10px 14px;
+  height: auto;
 }
 
 @media (min-width: 768px) {
@@ -4047,6 +4048,8 @@ ul.js-pages-accordion.list-subitems.nav-list-accordion.list-subitems {
   padding: 10px;
   background: none;
   border: 0;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .btn .icon-inline {

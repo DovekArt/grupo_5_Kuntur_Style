@@ -352,6 +352,7 @@ button[readonly]:hover {
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+  display: block;
 }
 .modal-floating-close {
   position: absolute;
@@ -382,7 +383,7 @@ button[readonly]:hover {
   width: 100%;
 }
 .modal-docked-md {
-  width: 100%;
+  width: 0px;
 }
 .modal-docked-small {
   width: 80%;
@@ -437,9 +438,6 @@ button[readonly]:hover {
 .modal-left.modal-show,
 .modal-left-xs.modal-show {
   left: 0;
-}
-.modal-right.modal-show {
-  right: 0;
 }
 .modal-fade.modal-show {
   bottom: 0;
@@ -2064,7 +2062,7 @@ body:not(.is-using-mouse) .fancybox__container :focus {
     margin-bottom: 50px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .creditcustom {
     flex-direction: column;
     align-items: center;
@@ -2075,6 +2073,11 @@ body:not(.is-using-mouse) .fancybox__container :focus {
   }
   .footer-legal {
     margin-bottom: 40px;
+  }
+
+  .modal-right.modal-show {
+    right: 0;
+    width: 100%;
   }
 }
 .footer-logo {

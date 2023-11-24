@@ -1,24 +1,3 @@
-// Obtener el header
-const body = document.querySelector('body');
-const header = document.querySelector('header');
-// Función para ajustar el ancho del header según el ancho de la pantalla
-function ajustarPaddingTop() {
-  // Obtener la altura del header
-  const headerHeight = header.offsetHeight;
-  const anchoPantalla = window.innerWidth;
-  if (anchoPantalla >= 768) {
-    // Establecer el padding-top del body igual a la altura del header
-    body.style.paddingTop = headerHeight + 'px';
-  } else {
-    // Establecer el padding-top del body igual a 0
-    body.style.paddingTop = '0';
-  }
-}
-// Llamar a la función una vez al cargar la página
-ajustarPaddingTop();
-// Agregar el evento resize para que la función se llame cada vez que se cambie el tamaño de la ventana del navegador
-window.addEventListener('resize', ajustarPaddingTop);
-
 // Acordions
 const acordionElementsHeader = document.querySelectorAll('header #acordionElement');
 acordionElementsHeader.forEach((acordionElement) => {
@@ -64,6 +43,10 @@ detailsElementsModal.forEach((detailsElement) => {
     }
   });
 });
+
+function seleccionarAcordionElement(id) {
+  
+}
 
 // Cart
 const cart = document.querySelector('[data-modal="modal-cart"]');

@@ -1048,6 +1048,7 @@ input::-webkit-outer-spin-button {
   background-color: var(--light-grey-bg) !important;
   border: 1px solid var(--light-grey-bg) !important;
   padding: 10px 14px;
+  height: auto;
 }
 @media (max-width: 768px) {
   .search-input {
