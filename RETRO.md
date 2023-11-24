@@ -66,7 +66,56 @@
 
 
 
+# Retrospectiva del Sprint 2 - Desarrollo de la Aplicación Node.js+Express
 
+## Comenzar a Hacer
+
+1. **Actualizar Tablero en Trello:**
+   - Continuar la gestión de tareas en Trello, asegurándose de que esté actualizado con las nuevas funcionalidades y cambios necesarios.
+   - Utilizar etiquetas o colores para categorizar y priorizar las tareas en el tablero.
+
+2. **Establecer Políticas de Revisión:**
+   - Reforzar las políticas de revisión de código, asegurando una revisión exhaustiva antes de la fusión.
+   - Considerar la implementación de revisiones cruzadas para garantizar una mayor calidad del código.
+
+## Hacer Más
+
+1. **Mejora en la Usabilidad de Páginas:**
+   - Trabajar en la mejora de la usabilidad de las páginas existentes, especialmente en Home, Detalle del producto y Carrito de compras.
+   - Aceptar y actuar sobre comentarios valiosos para mejorar la experiencia del usuario.
+
+2. **Refinamiento de Formularios:**
+   - Continuar refinando los formularios de registro y login para una experiencia de usuario más fluida.
+
+3. **Documentación Actualizada:**
+   - Mantener la documentación del proyecto actualizada con los cambios realizados en este sprint.
+
+5. **Feedback Activo:**
+   - Solicitar y dar feedback de manera más activa entre los miembros del equipo.
+   - Fomentar un ambiente de retroalimentación constructiva para el aprendizaje continuo.
+
+## Continuar Haciendo
+
+1. **Revisión de Código:**
+   - Mantener las revisiones de código como parte integral del proceso de desarrollo.
+   - Asegurar la consistencia en la calidad del código mediante revisiones regulares.
+
+2. **Reuniones de Planificación:**
+   - Continuar con las reuniones de planificación del sprint para establecer metas claras y asignar tareas de manera efectiva.
+   - Evaluar la eficacia de estas reuniones y ajustar según sea necesario.
+
+## Dejar de Hacer
+
+1. **Multitarea Excesiva:**
+   - Desistir de la práctica de la multitarea excesiva, reconociendo su impacto negativo en la concentración y la calidad del trabajo.
+   - Abrazar un enfoque más centrado en una tarea a la vez para potenciar la eficiencia y asegurar una mayor dedicación a las actividades del proyecto.
+
+2. **Déficit en Habilidades Blandas:**
+   - Dejar de lado la ausencia de escucha activa, comprometiéndonos a comprender las necesidades y perspectivas de los miembros del equipo.
+
+5. **Desconexión del Proyecto:**
+   - Dejar de perder el enfoque en el proyecto, reafirmando nuestro compromiso con los objetivos y metas establecidos.
+   - Eliminar distracciones y mantener una conexión constante con el propósito del proyecto para mejorar la productividad y la calidad del trabajo.
 
 ---------------------
 
