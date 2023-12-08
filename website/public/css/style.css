@@ -7728,13 +7728,13 @@ input:-webkit-autofill {
   flex-direction: column;
 }
 
-.mb-2.form-fullname {
+.mb-2.form-doblecampo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.form-fullname .form-input {
+.form-doblecampo .form-input {
   width: calc(50% - 11px);
   padding: 15px;
 }

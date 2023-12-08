@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Productos</title>
+        <link rel="stylesheet" href="/css/editar.css">
+    </head>
+    <body>
+        <h2>Productos</h2>
+        <div class="formulario">
+            <h2>Añade tu producto</h2>
+            <form id="product-form" method="POST" action="/products">
+                <label for="titulo">Título del producto:</label>
+                <input type="text" id="titulo" name="nombre" required><br><br>
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca"><br><br>
+                <label for="link">Link del producto:</label>
+                <input type="text" id="link" name="codigo" required><br><br>
+                <label for="stock">Stock:</label>
+                <input type="text" id="stock" name="stock" required><br><br>
+                <label for="precio">Precio:</label>
+                <input type="text" id="precio" name="precio" required><br><br>
+                <h3>Descripción:</h3>
+                <label for="tag">Categoria:</label>
+                <div id="tag-container">
+                    <input type="text" id="tag" name="tag">
+                    <button type="button" onclick="agregarCampoCategoria()">+</button>
+                </div><br><br>
+                <label for="imagen">Imagen:</label>
+                <div id="imagen-container">
+                    <input type="file" id="imagen" name="imagen" required>
+                    <button type="button" onclick="agregarCampoImagen()">+</button>
+                </div><br><br>
+                <label for="talle">Talle:</label>
+                <div id="talle-container">
+                    <input type="text" id="talle" name="talle" required>
+                    <button type="button" onclick="agregarCampoTalle()">+</button>
+                </div><br><br>
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color"><br><br>
+                <label for="material">Material:</label>
+                <input type="text" id="material" name="material"><br><br>
+                <label for="detalles">Detalles:</label>
+                <textarea id="detalles" name="detalle"></textarea><br><br>
+                <button type="submit">Añadir Producto</button>
+            </form>
+        </div>
+        <div class="lista">
+            <h2>Lista de Productos:</h2>
+            <ul id="product-list">
+                <% productos.forEach(producto => {
+                    const precioFormateado = producto.precio.toLocaleString('es-AR', {
+                        style: 'currency',
+                        currency: 'ARS'
+                    });
+                %>
+                <div class="product-container">
+                    <button type="button" class="delete-button">X</button>
+                    <li>
+                        <h3><%= `${producto.id}- ` + producto.nombre %></h3>
+                        <h4><%= producto.marca %></h4>
+                        <p>
+                            <a href="/shop/<%= producto.codigo %>" target="_blank">Ver producto</a>
+                        </p>
+                        <p>Precio: <%= precioFormateado %></p>
+                        <ul>
+                            <li>Categoria: <%= producto.tag.join(', ') %></li>
+                            <li>Imagen: <%= producto.imagen.join(', ') %></li>
+                            <li>Talle: <%= producto.descripcion.talle.join(', ') %></li>
+                            <li>Color: <%= producto.descripcion.color %></li>
+                            <li>Material: <%= producto.descripcion.material %></li>
+                            <li>Detalles: <%= producto.descripcion.detalle %></li>
+                            <li>Stock: <%= producto.stock %></li>
+                        </ul>
+                    </li>
+                </div>
+                <% }) %>
+            </ul>
+        </div>
+        <script src="/js/productCreate.js"></script>
+    </body>
+</html>
