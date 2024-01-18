@@ -1,5 +1,3 @@
-
-
 // Mostrar el modal de imagenes cuando haga click en la imagen principal
 
 const imagesModal = document.querySelector('.modal-gallery__background');

@@ -1,15 +1,19 @@
 const fs = require("fs");
 const path = require("path");
 const productosFilePath = path.join(__dirname, "../data/products.json");
+<<<<<<< HEAD
 const categoryFilePath = path.join(__dirname, "../data/category.json");
 const addressFilePath = path.join(__dirname, "../data/address.json");
 const imagesFilePath = path.join(__dirname, "../data/images.json");
+=======
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
 
 function obtenerProductosArray() {
   const productosData = fs.readFileSync(productosFilePath, "utf-8");
   return JSON.parse(productosData);
 }
 
+<<<<<<< HEAD
 function obtenerCategory() {
   const categoryData = fs.readFileSync(categoryFilePath, "utf-8");
   return JSON.parse(categoryData);
@@ -32,6 +36,14 @@ const imagenes = obtenerImages();
 
 function buscar(id) {
   const productoEncontrado = productos.find(producto => producto.id === +id);
+=======
+const productos = obtenerProductosArray();
+
+function buscar(id) {
+  const productoEncontrado = productos.find(
+    (producto) => producto.id === id
+  );
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
   return productoEncontrado || null;
 }
 
@@ -54,6 +66,7 @@ function guardarCambios() {
   );
 }
 
+<<<<<<< HEAD
 function guardarAddress() {
   fs.writeFile(
     addressFilePath,
@@ -92,6 +105,8 @@ function guardarImages() {
   );
 }
 
+=======
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
 function vender(id) {
   const productoEncontrado = buscar(id);
   if (productoEncontrado) {
@@ -180,6 +195,7 @@ function crear(producto) {
   return nuevoProducto;
 }
 
+<<<<<<< HEAD
 function crearAddress(address) {
   const nuevaAddress = { id: productos.length + 1, domicilio: "", ciudad: "", codigo_postal: "", ...address };
   direcciones.push(nuevaAddress);
@@ -277,10 +293,24 @@ function actualizarImagen(imagenesNuevas) {
   guardarImages();
 }
 
+=======
+function eliminar(id) {
+  const index = productos.findIndex((producto) => producto.id === id);
+  if (index !== -1) {
+    const productoEliminado = productos.splice(index, 1);
+    guardarCambios();
+    return productoEliminado;
+  } else {
+    return "Producto no encontrado";
+  }
+}
+
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
 module.exports = {
   buscar,
   vender,
   cancelarVenta,
+<<<<<<< HEAD
   obtenerCategory,
   obtenerAddress,
   obtenerImages,
@@ -288,6 +318,8 @@ module.exports = {
   agregarImagenes,
   obtenerImagenes,
   actualizarImagen,
+=======
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
   productosParaLaVenta,
   totalDeVentasProducto,
   totalDeVentas,
@@ -297,9 +329,13 @@ module.exports = {
   productosPorTag,
   productos,
   crear,
+<<<<<<< HEAD
   actualizar,
   eliminar,
   eliminarDefinitivamente,
   obtenerProductosEliminados,
   restaurar
+=======
+  eliminar,
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
 };

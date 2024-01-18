@@ -128,6 +128,7 @@
     "codigo_postal": "Q8300",
     "avatar": "avatar-4.jpg",
     "role": "cliente"
+<<<<<<< HEAD
   },
   {
     "uuid": "8da39f86-5fed-42fd-99fc-5e48b0671076",
@@ -141,5 +142,7 @@
     "codigo_postal": "4700",
     "avatar": "avatar-5.jpg",
     "role": "cliente"
+=======
+>>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
   }
 ]
