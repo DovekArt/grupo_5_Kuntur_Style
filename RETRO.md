@@ -290,6 +290,62 @@
 
 
 
+# Retrospectiva del Sprint 6 - Bases de Datos
+
+## Comenzar a Hacer
+
+1. **Actualizar Tablero en Trello:**
+   - Continuar la gestión de tareas en Trello, asegurándose de que esté actualizado con las nuevas funcionalidades y cambios necesarios.
+   - Utilizar etiquetas o colores para categorizar y priorizar las tareas en el tablero.
+
+2. **Implementación de MySQL y Sequelize:**
+   - Iniciar la implementación de MySQL como sistema de gestión de bases de datos.
+   - Configurar y utilizar Sequelize como ORM para gestionar las operaciones en la base de datos.
+   
+3. **Establecer Políticas de Revisión:**
+   - Reforzar las políticas de revisión de código, asegurando una revisión exhaustiva antes de la fusión.
+   - Considerar la implementación de revisiones cruzadas para garantizar una mayor calidad del código.
+
+## Hacer Más
+
+1. **Desarrollo del Diagrama de Base de Datos:**
+   - Enfocarse en la creación de un diagrama de base de datos que represente la estructura de la base de datos, incluyendo tablas y relaciones.
+   
+2. **Seguimiento de Mejoras en Usabilidad:**
+   - Continuar trabajando en la mejora de la usabilidad de las páginas existentes, aprovechando las capacidades del template engine para estructurar de manera clara y eficiente la interfaz de usuario.
+   
+3. **Script de Creación de Estructura de Base de Datos:**
+   - Trabajar en un script que realice la creación de la base de datos y todas sus tablas, definiendo tipos de datos, restricciones y relaciones entre ellas.
+
+4. **Creación de Carpeta Sequelize:**
+   - Establecer una carpeta Sequelize que contenga archivos de configuración y modelos Sequelize con sus relaciones.
+
+5. **Implementación de BREAD (CRUD):**
+   - Desarrollar operaciones BREAD (Browse, Read, Edit, Add, Delete) para las entidades principales como productos y usuarios.
+
+6. **Feedback Activo:**
+   - Reforzar la cultura de dar y recibir feedback de manera activa entre los miembros del equipo, especialmente en relación con la autenticación y el manejo de sesiones.
+
+## Continuar Haciendo
+
+1. **Revisión de Código:**
+   - Mantener las revisiones de código como parte integral del proceso de desarrollo, prestando especial atención a la eficiencia y seguridad en las operaciones de bases de datos.
+   - Asegurar la consistencia en la calidad del código mediante revisiones regulares.
+
+2. **Reuniones de Planificación:**
+   - Continuar con las reuniones de planificación del sprint para establecer metas claras y asignar tareas relacionadas con la implementación de MySQL y Sequelize.
+   - Evaluar la eficacia de estas reuniones y ajustar según sea necesario.
+
+## Dejar de Hacer
+
+1. **Multitarea Excesiva:**
+   - Persistir en evitar la práctica de la multitarea excesiva, focalizando esfuerzos en la implementación eficiente y segura de bases de datos.
+ 
+2. **Déficit en Habilidades Blandas:**
+   - Continuar esforzándonos por mejorar las habilidades blandas, especialmente en la comunicación efectiva y la comprensión de las perspectivas de los miembros del equipo.
+
+3. **Desconexión del Proyecto:**
+   -Mantener un enfoque constante en el proyecto, recordando el propósito y los objetivos establecidos, y eliminando distracciones para mejorar la productividad y la calidad del trabajo.
 
 
 
