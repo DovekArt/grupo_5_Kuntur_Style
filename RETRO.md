@@ -173,6 +173,61 @@
    - Eliminar distracciones y mantener una conexión constante con el propósito del proyecto para mejorar la productividad y la calidad del trabajo.
 
 
+
+
+# Retrospectiva del Sprint 4 - Desarrollo de la Aplicación Node.js+Express con JSON y Métodos HTTP
+
+## Comenzar a Hacer
+
+1. **Actualizar Tablero en Trello:**
+   - Continuar la gestión de tareas en Trello, asegurándose de que esté actualizado con las nuevas funcionalidades y cambios necesarios.
+   - Utilizar etiquetas o colores para categorizar y priorizar las tareas en el tablero.
+
+2. **Implementación de Métodos HTTP:**
+   - Iniciar la implementación y manejo de métodos HTTP (GET, POST, PUT, DELETE) para lograr la administración completa de productos en la aplicación.
+   
+3. **Establecer Políticas de Revisión:**
+   - Reforzar las políticas de revisión de código, asegurando una revisión exhaustiva antes de la fusión.
+   - Considerar la implementación de revisiones cruzadas para garantizar una mayor calidad del código.
+
+## Hacer Más
+
+1. **Integración de JSON:**
+   - Trabajar en la integración de archivos JSON (products.json y users.json) con datos reales de productos y usuarios.
+   - Asegurar que las acciones de administración de productos se reflejen adecuadamente en los archivos JSON.
+   
+2. **Seguimiento de Mejoras en Usabilidad:**
+   - Continuar trabajando en la mejora de la usabilidad de las páginas existentes, aprovechando las capacidades del template engine para estructurar de manera clara y eficiente la interfaz de usuario.
+   
+3. **Pruebas de Integración:**
+   - Realizar pruebas exhaustivas de integración para verificar que los métodos HTTP y la administración de productos funcionen correctamente con datos reales almacenados en formato JSON.
+
+4. **Feedback Activo:**
+   - Solicitar y dar feedback de manera más activa entre los miembros del equipo.
+   - Fomentar un ambiente de retroalimentación constructiva para el aprendizaje continuo.
+
+## Continuar Haciendo
+
+1. **Revisión de Código:**
+   - Mantener las revisiones de código como parte integral del proceso de desarrollo, prestando especial atención a la calidad del código relacionado con la administración de productos y la manipulación de archivos JSON.
+   - Asegurar la consistencia en la calidad del código mediante revisiones regulares.
+
+2. **Reuniones de Planificación:**
+   - Continuar con las reuniones de planificación del sprint para establecer metas claras y asignar tareas relacionadas con la implementación de JSON y métodos HTTP.
+   - Evaluar la eficacia de estas reuniones y ajustar según sea necesario.
+
+## Dejar de Hacer
+
+1. **Multitarea Excesiva:**
+   - Persistir en evitar la práctica de la multitarea excesiva, centrando los esfuerzos en el desarrollo eficiente de las funcionalidades de administración de productos.
+ 
+2. **Déficit en Habilidades Blandas:**
+   - Continuar esforzándonos por mejorar las habilidades blandas, especialmente en la comunicación efectiva y la comprensión de las perspectivas de los miembros del equipo.
+
+5. **Desconexión del Proyecto:**
+   -Mantener un enfoque constante en el proyecto, recordando el propósito y los objetivos establecidos, y eliminando distracciones para mejorar la productividad y la calidad del trabajo.
+
+
 ---------------------
 
 [***Volver***](https://github.com/DovekArt/grupo_5_Kuntur_Style)
