@@ -1,4 +1,4 @@
-# Retrospectiva del Sprint 1 - Comienzo del Proyecto 
+# Retrospectiva del Sprint 1 - Introducción y wireframing
 -----
 ## Comenzar a Hacer
 
@@ -66,7 +66,7 @@
 
 
 
-# Retrospectiva del Sprint 2 - Desarrollo de la Aplicación Node.js+Express
+# Retrospectiva del Sprint 2 - HTML + CSS
 
 ## Comenzar a Hacer
 
@@ -113,12 +113,13 @@
 2. **Déficit en Habilidades Blandas:**
    - Dejar de lado la ausencia de escucha activa, comprometiéndonos a comprender las necesidades y perspectivas de los miembros del equipo.
 
-5. **Desconexión del Proyecto:**
+3. **Desconexión del Proyecto:**
    - Dejar de perder el enfoque en el proyecto, reafirmando nuestro compromiso con los objetivos y metas establecidos.
    - Eliminar distracciones y mantener una conexión constante con el propósito del proyecto para mejorar la productividad y la calidad del trabajo.
 
 
-# Retrospectiva del Sprint 3 - Desarrollo de la Aplicación Node.js + Express con Template Engines
+
+# Retrospectiva del Sprint 3 - Template Engines
 
 ## Comenzar a Hacer
 
@@ -168,14 +169,13 @@
 2. **Déficit en Habilidades Blandas:**
    - Dejar de lado la ausencia de escucha activa, comprometiéndonos a comprender las necesidades y perspectivas de los miembros del equipo.
 
-5. **Desconexión del Proyecto:**
+3. **Desconexión del Proyecto:**
    - Dejar de perder el enfoque en el proyecto, reafirmando nuestro compromiso con los objetivos y metas establecidos.
    - Eliminar distracciones y mantener una conexión constante con el propósito del proyecto para mejorar la productividad y la calidad del trabajo.
 
 
 
-
-# Retrospectiva del Sprint 4 - Desarrollo de la Aplicación Node.js+Express con JSON y Métodos HTTP
+# Retrospectiva del Sprint 4 - JSON + Métodos HTTP
 
 ## Comenzar a Hacer
 
@@ -224,8 +224,73 @@
 2. **Déficit en Habilidades Blandas:**
    - Continuar esforzándonos por mejorar las habilidades blandas, especialmente en la comunicación efectiva y la comprensión de las perspectivas de los miembros del equipo.
 
-5. **Desconexión del Proyecto:**
+3. **Desconexión del Proyecto:**
    -Mantener un enfoque constante en el proyecto, recordando el propósito y los objetivos establecidos, y eliminando distracciones para mejorar la productividad y la calidad del trabajo.
+
+
+
+# Retrospectiva del Sprint 5 - Middlewares y Autenticación
+
+## Comenzar a Hacer
+
+1. **Actualizar Tablero en Trello:**
+   - Continuar la gestión de tareas en Trello, asegurándose de que esté actualizado con las nuevas funcionalidades y cambios necesarios.
+   - Utilizar etiquetas o colores para categorizar y priorizar las tareas en el tablero.
+
+2. **Implementación de Middlewares:**
+   - Iniciar la implementación de middlewares para gestionar la lógica de las rutas de huéspedes y usuarios, redirigiendo adecuadamente según el estado de autenticación.
+   - Establecer middlewares para verificar la autenticación del usuario en rutas específicas.
+   
+3. **Establecer Políticas de Revisión:**
+   - Reforzar las políticas de revisión de código, asegurando una revisión exhaustiva antes de la fusión.
+   - Considerar la implementación de revisiones cruzadas para garantizar una mayor calidad del código.
+
+## Hacer Más
+
+1. **Desarrollo del Formulario de Registro:**
+   - Enfocarse en el desarrollo del formulario de registro, incorporando los campos mínimos requeridos y permitiendo la subida de una imagen de perfil.
+   - Implementar el guardado de los datos en archivos JSON con encriptación de contraseña para garantizar la seguridad de los usuarios.
+   
+2. **Seguimiento de Mejoras en Usabilidad:**
+   - Continuar trabajando en la mejora de la usabilidad de las páginas existentes, aprovechando las capacidades del template engine para estructurar de manera clara y eficiente la interfaz de usuario.
+   
+3. **Desarrollo del Formulario de Login:**
+   - Trabajar en el desarrollo del formulario de login, incluyendo campos de email y password.
+   - Considerar la implementación opcional de una función de "recordar al usuario" para mejorar la experiencia de usuario.
+
+4. **Desarrollo de Rutas para Huéspedes y Usuarios:**
+   - Desarrollar las rutas de huéspedes y usuarios, redirigiendo a los perfiles o al formulario de login según el estado de autenticación del usuario.
+
+5. **Pruebas de Autenticación:**
+   - Realizar pruebas exhaustivas de autenticación, verificando la funcionalidad de los formularios de registro y login, así como las redirecciones de rutas para huéspedes y usuarios.
+
+6. **Feedback Activo:**
+   - Reforzar la cultura de dar y recibir feedback de manera activa entre los miembros del equipo, especialmente en relación con la autenticación y el manejo de sesiones.
+
+## Continuar Haciendo
+
+1. **Revisión de Código:**
+   - Mantener las revisiones de código como parte integral del proceso de desarrollo, prestando especial atención a la seguridad de la información almacenada y la implementación de middlewares.
+   - Asegurar la consistencia en la calidad del código mediante revisiones regulares.
+
+2. **Reuniones de Planificación:**
+   - Continuar con las reuniones de planificación del sprint para establecer metas claras y asignar tareas relacionadas con la implementación de autenticación y middlewares.
+   - Evaluar la eficacia de estas reuniones y ajustar según sea necesario.
+
+## Dejar de Hacer
+
+1. **Multitarea Excesiva:**
+   - Persistir en evitar la práctica de la multitarea excesiva, centrando los esfuerzos en el desarrollo eficiente de las funcionalidades de administración de productos.
+ 
+2. **Déficit en Habilidades Blandas:**
+   - Continuar esforzándonos por mejorar las habilidades blandas, especialmente en la comunicación efectiva y la comprensión de las perspectivas de los miembros del equipo.
+
+3. **Desconexión del Proyecto:**
+   -Mantener un enfoque constante en el proyecto, recordando el propósito y los objetivos establecidos, y eliminando distracciones para mejorar la productividad y la calidad del trabajo.
+
+
+
+
 
 
 ---------------------
