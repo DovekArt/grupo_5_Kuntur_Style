@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('../partials/head', {title: 'Crear Producto'}) %>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body class="js-head-offset head-offset">
+    <%- include('../partials/header') %>
+    <!-- product create -->
+    <main class="main-container">
+      <div class="container products-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title">Formulario de creación de productos</h2>
+          </div>
+        </div>
+        <div class="col-12">
+          <form method="POST" enctype="multipart/form-data">
+            <div class="row product-detail">
+              <h3>Producto:</h3>
+              <div class="col-12 col-md-6">
+                <label for="nombre" class="form-label">Nombre del producto:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Zapatillas" class="form-input" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="marca" class="form-label">Marca del producto:</label>
+                <input type="text" id="marca" name="marca" placeholder="Ej: Reebok" class="form-input" value="KS" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="codigo" class="form-label">Codigo del producto:</label>
+                <input type="text" id="codigo" name="codigo" placeholder="Ej: zapatilla-reebok" class="form-input" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="precio" class="form-label">Precio del producto:</label>
+                <input type="number" id="precio" name="precio" placeholder="Ej: 5678" class="form-input" min="1" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="descuento" class="form-label">Descuento:</label>
+                <input type="number" id="descuento" name="descuento" placeholder="Ej: 15" class="form-input" value="0" min="0" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="categoryId" class="form-label">Categoría:</label>
+                <select name="categoryId" id="categoryId" class="form-input" required>
+                  <option value="" hidden selected>Elegí</option>
+                  <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.name %> </option>
+                  <% }) %>
+                </select>
+              </div>
+              <h3>Detalles:</h3>
+              <div class="col-12 col-md-6">
+                <label for="color" class="form-label">Color del producto:</label>
+                <input type="text" id="color" name="color" placeholder="Ej: Rojo" class="form-input">
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="material" class="form-label">Material del producto:</label>
+                <input type="text" id="material" name="material" placeholder="Ej: Cuero" class="form-input">
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="descripcion" class="form-label">Descripción:</label>
+                <textarea name="descripcion" id="descripcion" class="form-input"></textarea>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="col-12">
+                  <div class="row sizes">
+                    <h3>Talles:</h3>
+                    <div class="size col-12 col-md-6">
+                      <label for="xs" class="form-label">XS:</label>
+                      <input type="text" id="xs" name="xs" placeholder="Stock:" class="input-sizes" value="0" min="0" required>
+                    </div>
+                    <div class="size col-12 col-md-6">
+                      <label for="s" class="form-label">S:</label>
+                      <input type="text" id="s" name="s" placeholder="Stock:" class="input-sizes" value="0" min="0" required>
+                    </div>
+                    <div class="size col-12 col-md-6">
+                      <label for="m" class="form-label">M:</label>
+                      <input type="text" id="m" name="m" placeholder="Stock:" class="input-sizes" value="0" min="0" required>
+                    </div>
+                    <div class="size col-12 col-md-6">
+                      <label for="l" class="form-label">L:</label>
+                      <input type="text" id="l" name="l" placeholder="Stock:" class="input-sizes" value="0" min="0" required>
+                    </div>
+                    <div class="size col-12 col-md-6">
+                      <label for="xl" class="form-label">XL:</label>
+                      <input type="text" id="xl" name="xl" placeholder="Stock:" class="input-sizes" value="0" min="0" required>
+                    </div>
+                    <div class="size col-12 col-md-6">
+                      <label for="unico" class="form-label">Único:</label>
+                      <input type="text" id="unico" name="unico" placeholder="Stock:" class="input-sizes" value="0" min="0" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="col-12">
+                  <div class="row">
+                    <% for (let i = 0; i < 3; i++) { %>
+                      <div class="col-12 col-md-4">
+                        <div style="width: 100%; height: 200px; border: solid 1px grey; border-radius: 8px;">
+                            <img class="img-product" src="" alt="" id="imagePrev<%= i + 1 %>">
+                        </div>
+                        <label for="image<%= i + 1 %>" class="buy-now-button mt-3" style="cursor: pointer; background-color:darkcyan">
+                          Agregar imagen
+                        </label>
+                        <input type="file" id="image<%= i + 1 %>" name="images" accept="image/*" hidden>
+                      </div>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="buy-now-button">Guardar producto</button>
+                <button type="button" class="danger-button" id="cancel-button">Cancelar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!-- /product create -->
+    <%- include('../partials/footer') %>
+    <script src="/js/header.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="/js/productAdd.js"></script>
+  </body>
+</html>

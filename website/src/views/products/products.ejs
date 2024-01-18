@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="/css/app.css">
+    <%- include('../partials/head', {title: "Todos los productos"}) %>
+  </head>
+  <body class="js-head-offset head-offset">
+    <%- include('../partials/header') %>
+    <!-- todos los productos -->
+    <main class="main-container">     	
+      <div class="container products-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title">Todos los productos</h2>
+          </div>
+          <% products.forEach(({id,nombre,precio,descuento,images}) => { %>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <section class="product-box">
+                <a href="/products/detail/<%= id %>">
+                  <figure class="product-box_image">
+                    <% images.forEach(image => { %>
+                      <% if (image.primary == 1) { %>
+                        <img src="/img/productos/<%= image.file %>" alt="imagen de producto">
+                      <% } %>
+                    <% }) %>
+                  </figure>
+                  <article class="product-box_data">
+                    <% if (descuento > 0) { 
+                      let precioDesc = precio - (precio * (descuento / 100));%>
+                      <h2><%= toThousand(+precioDesc) %></h2>
+                      <h5><del><%= toThousand(+precio) %></del></h5>
+                      <span><%= descuento %>% OFF</span>
+                    <% } else { %>
+                      <h2><%= toThousand(+precio) %></h2>
+                    <% } %>
+                    <p><%= nombre %> </p>
+                  </article>
+                </a>
+              </section>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </main>
+    <!-- /todos los productos -->
+    <%- include('../partials/footer') %>
+    <script src="/js/header.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+</html>

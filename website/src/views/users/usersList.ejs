@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de usuarios</title>
+        <link rel="stylesheet" href="/css/editar.css">
+    </head>
+    <body>
+        <h2>Usuarios</h2>
+        <div class="lista">
+            <h2>Lista de Usuarios:</h2>
+            <ul id="product-list">
+                <% usuarios.forEach(usuario => {
+                %>
+                <div class="product-container">
+                    <button type="button" class="delete-button">X</button>
+                    <li>
+                        <h4><%= usuario.uuid %></h4>
+                        <h3><%= `${usuario.nombre} ` + usuario.apellido %></h3>
+                        <ul>
+                            <li>Email: <%= usuario.email %></li>
+                            <li>Domicilio: <%= usuario.domicilio %></li>
+                            <li>Ciudad: <%= usuario.ciudad %></li>
+                            <li>Codigo Postal: <%= usuario.codigo_postal %></li>
+                            <li>Telefono: <%= usuario.telefono %></li>
+                        </ul>
+                    </li>
+                </div>
+                <% }) %>
+            </ul>
+        </div>
+    </body>
+</html>

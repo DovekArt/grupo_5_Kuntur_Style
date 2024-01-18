@@ -6,7 +6,7 @@
   </head>
   <body class="js-head-offset head-offset">
     <%- include('partials/header') %>
-    <main>
+    <main style="display: inline-block;">
       <% if(error.status == 404){ %>
       <figure>
         <div class="sad-mac"></div>
@@ -31,6 +31,9 @@
         </figcaption>
       </figure>
       <% } else { %>
+      <style>
+        h2, h3, p, i, pre { color: #fff; }
+      </style>
       <h2><%= message %></h2>
 	    <h3><%= error.status %></h3>
 	    <p>Error trying to access to: <b><%= path %></b></p>

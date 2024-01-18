@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "marca": "KS",
+    "nombre": "Bermuda Floreada",
+    "precio": 9000,
+    "descuento": 0,
+    "codigo": "bermuda-1",
+    "categoryId": 6,
+    "descripcion": {
+      "detalle": "Bermuda de playa floreada, comoda y ligera.",
+      "color": "Azul y rojo",
+      "material": "Poliéster"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 2,
+    "marca": "KS",
+    "nombre": "Gorra negra",
+    "precio": 2500,
+    "descuento": 0,
+    "codigo": "gorra-1",
+    "categoryId": 3,
+    "descripcion": {
+      "detalle": "Gorra ligera.",
+      "color": "Negro",
+      "material": "Poliéster"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 10,
+      "L": 0,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 3,
+    "marca": "KS",
+    "nombre": "Remera negra con diseño",
+    "precio": 4000,
+    "descuento": 0,
+    "codigo": "remera-4",
+    "categoryId": 1,
+    "descripcion": {
+      "detalle": "Remera con diseño de arte abstracto.",
+      "color": "Negro",
+      "material": "Algodón"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 10,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 4,
+    "marca": "KS",
+    "nombre": "Bermuda Jean",
+    "precio": 8000,
+    "descuento": 0,
+    "codigo": "jeanshort-3",
+    "categoryId": 6,
+    "descripcion": {
+      "detalle": "Bermuda de jean con detalles de rasgaduras.",
+      "color": "Azul claro",
+      "material": "Mezclilla"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 10,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 5,
+    "marca": "KS",
+    "nombre": "Gorra Beige",
+    "precio": 3000,
+    "descuento": 0,
+    "codigo": "gorra-2",
+    "categoryId": 3,
+    "descripcion": {
+      "detalle": "Gorra de algodón, ligera, comoda y fresca.",
+      "color": "Beige",
+      "material": "Algodón"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 0,
+      "XL": 0,
+      "Único": 10
+    },
+    "activo": true
+  },
+  {
+    "id": 6,
+    "marca": "KS",
+    "nombre": "Remera blanca para mujer",
+    "precio": 3500,
+    "descuento": 0,
+    "codigo": "remera-girl-1",
+    "categoryId": 7,
+    "descripcion": {
+      "detalle": "Remera para mujer con detalles en las mangas.",
+      "color": "Blanca",
+      "material": "Algodón"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 10,
+      "M": 10,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 7,
+    "marca": "KS",
+    "nombre": "Remera blanca con diseño",
+    "precio": 4500,
+    "descuento": 0,
+    "codigo": "remera-3",
+    "categoryId": 1,
+    "descripcion": {
+      "detalle": "Remera ligera con estampado abstracto.",
+      "color": "Blanca",
+      "material": "Algodón"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 10,
+      "XL": 10,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 8,
+    "marca": "KS",
+    "nombre": "Jeans cortos floreados",
+    "precio": 7500,
+    "descuento": 0,
+    "codigo": "jeanshort-1",
+    "categoryId": 6,
+    "descripcion": {
+      "detalle": "Jeans cortos con diseño floreado.",
+      "color": "Celeste",
+      "material": "Mezclilla"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 10,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 9,
+    "marca": "KS",
+    "nombre": "Remera negra con diseño",
+    "precio": 3800,
+    "descuento": 0,
+    "codigo": "remera-2",
+    "categoryId": 1,
+    "descripcion": {
+      "detalle": "Remera con estampado fabuloso.",
+      "color": "Negra",
+      "material": "Algodón"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 10,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  },
+  {
+    "id": 10,
+    "marca": "KS",
+    "nombre": "Bermuda Azul",
+    "precio": 8500,
+    "descuento": 0,
+    "codigo": "bermuda-2",
+    "categoryId": "6",
+    "descripcion": {
+      "detalle": "Bermuda de playa con diseño de flores, comoda y ligera.",
+      "color": "Azul",
+      "material": "Poliéster"
+    },
+    "talles": {
+      "XS": 0,
+      "S": 0,
+      "M": 0,
+      "L": 10,
+      "XL": 0,
+      "Único": 0
+    },
+    "activo": true
+  }
+]
