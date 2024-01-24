@@ -1,6 +1,7 @@
-/node_modules
+/website/node_modules
 .DS_Store
 /*.env
 .vscode
 .prettierrc
 .sequelizerc
+/website/package-log.json

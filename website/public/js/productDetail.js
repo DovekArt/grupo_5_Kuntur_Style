@@ -1,121 +1,99 @@
-// Mostrar el modal de imagenes cuando haga click en la imagen principal
-
+// Mostrar el modal de imágenes cuando se haga clic en la imagen principal
+const imageContainer = document.querySelector('.gallery__image-container');
 const imagesModal = document.querySelector('.modal-gallery__background');
 const closeModalBtn = document.querySelector('.modal-gallery__close');
 
 imageContainer.addEventListener('click', () => {
-    imagesModal.style.display ='grid';
-})
-
-closeModalBtn.addEventListener('click', () => {
-    imagesModal.style.display = 'none';
-})
-
-
-// Cambiar las imagenes principales desde los thumnails
-
-let thumnails = document.querySelector('.gallery__thumnail');
-thumnails = [...thumnails]
-
-thumnails.forEach(thumnail => {
-    thumnail.addEventListener('click', event =>{
-        console.log(event.target.id)
-        imageContainer.style.backgroundImage = `url('${imagesUrls[imgIndex]}')`;
-    })
-})
-// Cambiar imagenes principales desde los tumnails con el modal
-
-let modalthumnails = document.querySelector('.modal-gallery__thumnail');
-const modalImageContainer = document.querySelector('.modal-gallery__image-container')
-modalthumnails = [...modalthumnails];
-
-modalthumnails.forEach(modalthumnail => {
-    modalthumnail.addEventListener('click', event => {
-        console.log(event.target.id.slice(-1))
-        modalImageContainer.style.backgroundImage = `url('${imagesUrls[imgIndex]}')`;
-    });
+  imagesModal.style.display ='grid';
 });
 
-// Cambiar imagenes del modal con flechas
+closeModalBtn.addEventListener('click', () => {
+  imagesModal.style.display = 'none';
+});
 
+// Cambiar las imágenes principales desde los thumbnails
+const galleryThumbnails = document.querySelector('.gallery__thumbnails');
+
+galleryThumbnails.addEventListener('click', (event) => {
+  const target = event.target;
+  if (target.classList.contains('gallery__thumbnail')) {
+    const index = Array.from(target.parentNode.children).indexOf(target);
+    changeImage(imageContainer, index);
+    changeImage(modalImageContainer, index);
+  }
+});
+
+// Cambiar imágenes del modal con flechas
 const previusModalBtn = document.querySelector('.modal-gallery__previus');
-const nextModalBtn = document.querySelector('.modal-gallery__previus');
+const nextModalBtn = document.querySelector('.modal-gallery__next');
+const modalImageContainer = document.querySelector('.modal-gallery__image-container');
 
 nextModalBtn.addEventListener('click', () => {
-    changeNextImage(modalImageContainer);
-})
+  changeImageByDirection(modalImageContainer, 1);
+});
 
 previusModalBtn.addEventListener('click', () => {
-    changePreviusImage(modalImageContainer);
-})
+  changeImageByDirection(modalImageContainer, -1);
+});
 
-
-
-
-// Cambiar imagenes con los botones next y previu
-
-
-const imageContainer = document.querySelector('.gallery__image-container');
+// Cambiar imágenes con los botones next y previous
 const nextGalleryBtn = document.querySelector('.gallery__next');
 const previusGalleryBtn = document.querySelector('.gallery__previus');
-let imgIndex = 0; 
-const imagesUrls = [
-    '../img/productos/bermuda-1.jpg',
-    '../img/productos/bermuda-2.jpg',
-    '../img/productos/campera-1.jpg',
-    '../img/productos/campera-3.jpg'
+const imageUrls = [
+  'bermuda-1.jpg',
+  'bermuda-2.jpg',
+  'campera-1.jpg',
+  'campera-3.jpg'
 ];
+let imgIndex = 0;
 
 nextGalleryBtn.addEventListener('click', () => {
-    changeNextImage(imageContainer);
+  changeImage(imageContainer, imgIndex);
+  changeNextImage(imageContainer);
 });
 
 previusGalleryBtn.addEventListener('click', () => {
-    changePreviusImage(imageContainer);
+  changeImage(imageContainer, imgIndex);
+  changePreviusImage(imageContainer);
 });
 
-
-
-// Incremento del contador + y -. 
-
-let minusBtn = document.querySelector('.input__minus');
-let plusBtn = document.querySelector('.input__plus');
-let userInput = document.querySelector('.input__number');
-
+// Incremento del contador + y -
+const minusBtn = document.querySelector('.input__minus');
+const plusBtn = document.querySelector('.input__plus');
+const userInput = document.querySelector('.input__number');
 let userInputNumber = 0;
 
 plusBtn.addEventListener('click', () => {
-    userInputNumber++;
-    userInput.value = userInputNumber;
-    console.log(userInputNumber);
+  userInputNumber++;
+  userInput.value = userInputNumber;
+  console.log(userInputNumber);
 });
 
-minusBtn.addEventListener('click',  () => {
-    userInputNumber--;
-    if(userInputNumber <= 0) {
-        userInputNumber = 0;
-    }
-    userInput.value = userInputNumber;
-    console.log(userInputNumber);
-})
-
+minusBtn.addEventListener('click', () => {
+  userInputNumber--;
+  if (userInputNumber <= 0) {
+    userInputNumber = 0;
+  }
+  userInput.value = userInputNumber;
+  console.log(userInputNumber);
+});
 
 // Funciones
+function changeImage(container, index) {
+  container.style.backgroundImage = `url("../../public/img/productos/${imageUrls[index]}")`;
+}
 
 function changeNextImage(imageContainer) {
-    if (imgIndex === imagesUrls.length - 1) {
-        imgIndex = 0;
-    } else {
-        imgIndex++;
-    }
-    imageContainer.style.backgroundImage = `url('${imagesUrls[imgIndex]}')`;
+  imgIndex = (imgIndex + 1) % imageUrls.length;
+  changeImage(imageContainer, imgIndex);
 }
 
 function changePreviusImage(imageContainer) {
-    if (imgIndex === 0) {
-        imgIndex = imagesUrls.length - 1;
-    } else {
-        imgIndex--;
-    }
-    imageContainer.style.backgroundImage = `url('${imagesUrls[imgIndex]}')`;
+  imgIndex = (imgIndex - 1 + imageUrls.length) % imageUrls.length;
+  changeImage(imageContainer, imgIndex);
+}
+
+function changeImageByDirection(container, direction) {
+  imgIndex = (imgIndex + direction + imageUrls.length) % imageUrls.length;
+  changeImage(container, imgIndex);
 }

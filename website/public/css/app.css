@@ -453,3 +453,8 @@ body {
   width: 150px;
   height: auto;
 }
+
+.main-container .fa-info {
+  position: relative;
+  top: -8px;
+}

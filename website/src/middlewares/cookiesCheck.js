@@ -1,7 +1,7 @@
 module.exports = (req,res,next) => {
 
-  if(req.cookies.mercadoLiebre14){
-    req.session.userLogin = req.cookies.mercadoLiebre14
+  if(req.cookies.KunturStyle){
+    req.session.userLogin = req.cookies.KunturStyle
   }
   next()
 }

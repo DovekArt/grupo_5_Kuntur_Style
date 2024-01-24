@@ -17,34 +17,30 @@
         <div class="product-detail">
           <div class="row">
             <div class="col-12 col-lg-8">
-              <% images.forEach(image => { %>
-                <% if (image.primary === 1) { %>
-                  <img src="/img/productos/<%= image.file %>" alt="imagen de producto">
+              <% product.images.forEach(image => { %>
+                <% if (image.order === 1) { %>
+                  <img src="/img/productos/<%= image.file %>" alt="imagen de <%= product.nombre %>-<%= image.order %>">
                 <% } %>
-                <img src="/img/productos/<%= image.file %>" alt="imagen de producto" class="images-detail">
+                <img src="/img/productos/<%= image.file %>" alt="imagen de <%= product.nombre %>-<%= image.order %>" class="images-detail">
               <% }) %>
               <p class="product-detail-description">
-                <%= product.descripcion.detalle %>
+                <%= product.descripcion %>
               </p>
               <p class="product-detail-description">
                 Talles:
-                <% Object.keys(product.talles).forEach(function(key) { %>
-                  <% if(product.talles[key] > 0) { %>
-                    <%= key %>. 
-                  <% } %>
-                <% }); %>
+                <% const { xs, s, m, l, xl, unico } = product;
+                  const talles = { xs, s, m, l, xl, unico };
+                  Object.entries(talles).forEach(([talle, cantidad]) => {
+                    if (cantidad > 0) { %>
+                      <%= talle.toUpperCase() %>. 
+                    <% }
+                  }); %>
               </p>
               <p class="product-detail-description">
-                <% if(!product.descripcion.color) {
-                  product.descripcion.color = 'No especificado';
-                }%>
-                Color: <%= product.descripcion.color %>
+                Color: <%= product.color %>.
               </p>
               <p class="product-detail-description">
-                <% if(!product.descripcion.material) {
-                  product.descripcion.material = 'No especificado';
-                }%>
-                Material: <%= product.descripcion.material %>
+                Material: <%= product.material %>.
               </p>
             </div>
             <div class="col-12 col-lg-4">
@@ -65,10 +61,7 @@
                   <p class="product-detail-price">
                     $<%= toThousand(product.precio) %>
                   </p>
-    
                   <% } %>
-    
-    
                 <ul class="actions-list">
                   <li>
                     <i class="fas fa-credit-card"></i>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" href="/css/app.css">
+    <%- include('../partials/head', {title: 'Perfil'}) %>
+  </head>
+  <body class="js-head-offset head-offset">
+    <%- include('../partials/header') %>
+    <main class="main-container">
+      <div class="container products-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="products-title">Perfil de Usuario</h2>
+          </div>
+          <div class="col-12">
+            <form action="/users/update?_method=PUT" method="POST"
+              enctype="multipart/form-data">
+              <div class="row product-detail">
+                <div class="col-12 col-md-4 d-flex flex-column align-items-center justify-content-between">
+                  <img src="/img/avatars/<%= user.image ? user.image : 'default.jpg' %>" id="avatarPrev" class="avatarImg" alt="imagen de perfil"
+                    width="75%" style="object-fit: cover; object-position: top;">
+                    <div class="form-group col-12">
+                      <label class="form-label" for="avatar">Cambiar color de Avatar</label>
+                      <select class="form-input" name="avatar" id="avatar" style="background-color: white;">
+                          <option value="" selected hidden>Seleccione un color</option>
+                          <option value="1">Azul</option>
+                          <option value="2">Rojo</option>
+                          <option value="3">Verde</option>
+                          <option value="4">Amarillo</option>
+                          <option value="5">Naranja</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 ">
+                  <div class="row mt-2">
+                    <div class="form-group col-12 col-md-6 ">
+                      <label class="form-label" for="nombre">Nombre</label>
+                      <input type="text" name="nombre" class="form-input" id="nombre"
+                        value="<%= user.nombre %>" >
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                      <label class="form-label"  for="apellido">Apellido</label>
+                      <input type="text" name="apellido" class="form-input" id="apellido"
+                        value="<%= user.apellido %>" >
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                      <label class="form-label" for="password">Nueva contraseña</label>
+                      <input type="password" name="password" class="form-input" id="password" autocomplete="off">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                      <label class="form-label" for="confirm_password">Confirmar contraseña</label>
+                      <input type="password" name="confirm_password" class="form-input" id="confirm_password" autocomplete="off">
+                    </div>
+                    <div class="form-group col-12  col-md-6">
+                      <label class="form-label" for="domicilio">Dirección</label>
+                      <input type="text" name="domicilio" class="form-input" id="domicilio"
+                        value="<%= user.addresses[0].domicilio %>">
+                    </div>
+                    <div class="form-group col-12  col-md-6">
+                      <label class="form-label" for="type">Tipo</label>
+                      <select class="form-input" name="type" id="type" style="background-color: white;">
+                        <% types.forEach(type => { %>
+                          <option value="<%= type.id %>" <%= type.id == user.addresses[0].typeId && 'selected' %> ><%= type.name %></option>
+                        <% }) %>
+                      </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                      <label class="form-label" for="ciudad">Ciudad</label>
+                        <select type="text" id="ciudad" name="ciudad" required class="form-input form-campo">
+                          <option value="" disabled selected>Provincia</option>
+                          <% provincias.forEach(provincia => { %>
+                            <% if(provincia != user.addresses[0].ciudad) { %>
+                            <option value="<%= provincia %>"><%= provincia %></option>
+                            <% }else{ %>
+                            <option value="<%= user.addresses[0].ciudad %>" selected><%= user.addresses[0].ciudad %></option>
+                            <% } %>
+                          <% }) %>
+                        </select>
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                      <label class="form-label" for="codigo_postal">Provincia</label>
+                      <input type="text" name="codigo_postal" class="form-input" id="codigo_postal"
+                        value="<%= user.addresses[0].codigo_postal %>">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                      <label class="form-label" for="telefono">Telefono</label>
+                      <input type="text" name="telefono" class="form-input" id="telefono"
+                        value="<%= user.telefono %>">
+                    </div>
+                  </div>
+                  <div class="d-md-flex justify-content-end mt-5">
+                    <button type="button" class="cancel-button m-1"><a href="/" class="text-light">Salir sin
+                      guardar</a></button>
+                    <button type="submit" class="buy-now-button m-1">Actualizar datos</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/js/header.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"></script>
+    <script src="/js/profile.js"></script>
+  </body>
+</html>

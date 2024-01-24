@@ -10,13 +10,9 @@ function obtenerUsuariosArray() {
 const usuarios = obtenerUsuariosArray();
 
 function buscar(uuid) {
-<<<<<<< HEAD
   const usuarioEncontrado = usuarios.find(
     (usuario) => usuario.uuid === uuid
   );
-=======
-  const usuarioEncontrado = usuarios.find((usuario) => usuario.uuid === uuid);
->>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
   return usuarioEncontrado || null;
 }
 
@@ -37,7 +33,6 @@ function guardarCambios() {
   );
 }
 
-<<<<<<< HEAD
 function buscarPorEmail(email) {
   const emailMinusculas = email.toLowerCase();
   return usuarios.filter(
@@ -55,8 +50,6 @@ function getActiveOrder(uuid) {
   }
 }
 
-=======
->>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
 function crear(usuario) {
   usuarios.push(usuario);
   guardarCambios();
@@ -76,10 +69,7 @@ function eliminar(uuid) {
 
 module.exports = {
   buscar,
-<<<<<<< HEAD
   buscarPorEmail,
-=======
->>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
   usuarios,
   crear,
   eliminar,

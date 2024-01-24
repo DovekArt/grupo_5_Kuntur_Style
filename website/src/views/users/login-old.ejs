@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('../partials/head', {title: 'Ingresa a tu cuenta'}) %>
+  </head>
+  <body class="js-head-offset head-offset">
+    <%- include('../partials/header') %>
+    <main id="login-form" class="d-flex align-items-center min-vh-100 py-3 py-md-0" style="display: none;">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div id="mensaje-login" class="col-md-5">
+                        <img src="/img/modelos/modelo5.jpg" alt="login" class="login-card-img">
+                        <p
+                            class="text-white font-weight-medium text-center flex-grow align-self-end footer-link text-small"
+                            style="background-color: rgba(0, 0, 0, 0.5); padding: 10px;">
+                            Ingresa a tu cuenta de <a href="/" target="_blank" class="text-white">
+                                KunturStyle</a> para poder realizar pedidos
+                        </p>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <div class="brand-wrapper">
+                                <img src="/img/design/logo.png" alt="logo" class="logo">
+                            </div>
+                            <p class="login-card-description">Ingresa a tu cuenta</p>
+                            <form id="login-form" action="" method="POST" data-store="account-login">
+                                <div class="field-set">
+                                    <div class="mb-2 form-campo">
+                                        <span class="input-item">
+                                            <i class="fa fa-user-circle"></i>
+                                        </span>
+                                        <input class="form-input" id="txt-input" type="email" placeholder="@Correo" required>
+                                    </div>
+                                    <div class="mb-2 form-campo">
+                                        <span class="input-item">
+                                            <i class="fa fa-key"></i>
+                                        </span>
+                                        <input class="form-input" type="password" placeholder="Password" id="pwd" name="password" minlength="6" required>
+                                        <span>
+                                            <i class="fa fa-eye-slash" aria-hidden="true" type="button" id="eye"></i>
+                                        </span>
+                                    </div>
+                                    <div class="notification-danger notification-left" id="notification-password" style="display: none;">El correo o la contraseña no son correctos.</div>
+                                    <button class="btn btn-block login-btn mb-4 log-in" id="login-btn" type="submit" value="Iniciar sesión"> Iniciar sesión </button>
+                                </div>
+                            </form>
+                            <a href="#!" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                            <p class="login-card-footer-text">¿No tenés una cuenta? <a href="/account/register" class="text-reset">Crear cuenta</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>
+    <script src="/js/header.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

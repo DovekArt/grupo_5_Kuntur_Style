@@ -1,190 +1,232 @@
-<<<<<<< HEAD
-const productsService = require('../services/productsService');
+const fs = require('fs');
+const path = require('path');
+const db = require('../database/models');
 const toThousand = n => n.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const {Op} = require('sequelize')
 
 const controller = {
-  index: (req, res) => {
-    const products = productsService.productos.map(product => {
-      const images = productsService.obtenerImages().filter(image => image.productId == product.id);
-      return {
-        ...product,
-        images: images
-      };
-    });
-  
-    res.render('products/products', {
-      products,
-      toThousand
-    });
-  },
-  detail: (req, res) => {
-    const product = productsService.buscar(req.params.id);
-    const images = productsService.obtenerImagenes(req.params.id);
-    console.log(product);
-    console.log(images);
-    if (product) {
-      res.render('products/detail', {
-        product,
-        images,
-        toThousand
-      });
-    } else {
-      res.send('Producto no encontrado');
-    }
-  },
-  create: (req, res) => {
-    const categories = productsService.obtenerCategory();
-    res.render('products/create', {
-      categories
-    });
-  },
-  store: (req, res) => {
-    const { nombre, marca, precio, descuento, descripcion, categoryId, codigo, color, material, xs, s, m, l, xl, unico } = req.body;
-    const newProduct = {
-      marca: marca.trim(),
-      nombre: nombre.trim(),
-      precio: +precio,
-      descuento: +descuento,
-      codigo: codigo.trim(),
-      categoryId,
-      descripcion: {
-        detalle: descripcion.trim(),
-        color: color.trim(),
-        material: material.trim()
-      },
-      talles: {
-        XS: +xs,
-        S: +s,
-        M: +m,
-        L: +l,
-        XL: +xl,
-        "Único": +unico
-      },
-      activo: true
-    };
-    const createdProduct = productsService.crear(newProduct);
-    if (req.files.length > 0) {
-      const images = req.files.map(({ filename }, i) => ({
-        file: filename,
-        productId: createdProduct.id,
-        primary: i === 0 ? 1 : 0
-      }));
-      productsService.agregarImagenes(images);
-    }
-    res.redirect('/products');
-  },
-  edit: (req, res) => {
-    const product = productsService.buscar(req.params.id);
-    const images = productsService.obtenerImagenes(req.params.id);
-    const categories = productsService.obtenerCategory();
-    if (product) {
-      res.render('products/edit', {
-        product,
-        images,
-        categories
-      });
-    } else {
-      res.send('Producto no encontrado');
-    }
-  },
-  update: (req, res) => {
-    const { nombre, marca, precio, descuento, descripcion, categoryId, codigo, color, material, xs, s, m, l, xl, unico } = req.body;
-    const updatedProduct = {
-      id: +req.params.id,
-      marca: marca.trim(),
-      nombre: nombre.trim(),
-      precio: +precio,
-      descuento: +descuento,
-      codigo: codigo.trim(),
-      categoryId,
-      descripcion: {
-        detalle: descripcion.trim(),
-        color: color.trim(),
-        material: material.trim()
-      },
-      talles: {
-        XS: +xs,
-        S: +s,
-        M: +m,
-        L: +l,
-        XL: +xl,
-        "Único": +unico
-      },
-      activo: true
-    };
-    productsService.actualizar(updatedProduct);
-    if (req.files.length > 0) {
-      const images = req.files.map(({ filename }, i) => ({
-        file: filename,
-        productId: createdProduct.id,
-        primary: i === 0 ? 1 : 0
-      }));
-      productsService.actualizarImagen(images);
-    }
-    res.redirect('/products');
-  },
-  delete: (req, res) => {
-    productsService.eliminar(req.params.id);
-    res.redirect('/products');
-  },
-  recycle: (req, res) => {
-    const products = productsService.obtenerProductosEliminados();
-    const imagenes = productsService.obtenerImages();
-    res.render('products/recycle', {
-      products,
-      imagenes,
-      toThousand
-    });
-  },
-  restore: (req, res) => {
-    productsService.restaurar(req.params.id);
-    res.redirect('/products');
-  },
-  destroy: (req, res) => {
-    productsService.eliminarDefinitivamente(req.params.id);
-    res.redirect('/products');
-  },
-=======
-// Requires
+	// Root - Show all products
+	index: (req, res) => {
 
-// Services
-const productsService = require("../services/productsService");
+		db.Product.findAll({
+			include : ['images']
+		})
+			.then(products => {
+				return res.render('products/products',{
+					products,
+					toThousand
+				})
+			})
+			.catch(error => console.log(error))
+	},
 
-const productsController = {
-	// Detail - Detail de un producto
+	// Detail - Detail from one product
 	detail: (req, res) => {
-		res.render('products/detail');
+		
+		db.Product.findByPk(req.params.id,{
+			include : ['images']
+		})
+			.then(product => {
+				return res.render('products/detail',{
+					product,
+					toThousand
+				})
+			})
+			.catch(error => console.log(error))
 	},
 
-	// Products List - Listado de todos los Productos
-	list: (req, res) => {
-		const productos = productsService.productos;
-		res.render('products/productsList', { productos });
-	},
-
-	// create - Crear un nuevo producto
+	// Create - Form to create
 	create: (req, res) => {
-		const { marca, nombre, precio, imagen, codigo, stock, tag, detalle, color, material, talle } = req.body;
-		const nuevoProducto = {
-			marca,
-			nombre,
-			precio,
-			imagen,
-			codigo,
-			stock,
-			tag,
-			descripcion: {
-				detalle,
-				color,
-				material,
-				talle
+		db.Category.findAll()
+			.then(categories => {
+				return res.render('products/create',{
+					categories
+				})
+			})
+			.catch(error => console.log(error))		
+	},
+	
+	// Create -  Method to store
+	store: (req, res) => {
+		const { nombre, marca, precio, descuento, descripcion, categoryId, codigo, color, material, xs, s, m, l, xl, unico } = req.body;
+
+		db.Product.create({
+			marca: marca.trim(),
+      nombre: nombre.trim(),
+      precio: +precio,
+      descuento: +descuento,
+      codigo: codigo.trim(),
+      categoryId: +categoryId || 10,
+      descripcion: descripcion.trim(),
+      color: color.trim(),
+      material: material.trim(),
+      xs: +xs,
+      s: +s,
+      m: +m,
+      l: +l,
+      xl: +xl,
+      unico: +unico,
+      activo: true
+		})
+			.then(product => {
+				if(req.files.length > 0){
+					let images = req.files.map(({filename},i) => {
+						let image = {
+							file: filename,
+							productId: product.id,
+							order: +i
+						}
+						return image
+					})
+					db.Image.bulkCreate(images,{validate: true})
+						.then( (result) => console.log(result))		
+				}
+				return res.redirect('/products')
+			})
+			.catch(error => console.log(error))	
+	},
+
+	// Update - Form to edit
+	edit: (req, res) => {
+
+		let images = db.Type.findAll().filter((image) => image.productId === req.params.id)
+		let product = db.Product.findByPk(req.params.id,{
+			include : ['images']
+		})
+		let categories = db.Category.findAll()
+
+		Promise.all([product,categories])
+			.then(([product,categories]) => {
+				return res.render('products/edit',{
+					product,
+          images,
+					categories
+				})
+			})
+			.catch(error => console.log(error))		
+	
+	},
+	// Update - Method to update
+	update: (req, res) => {
+
+		const { nombre, marca, precio, descuento, descripcion, categoryId, codigo, color, material, xs, s, m, l, xl, unico } = req.body;
+		
+		db.Product.update(
+			{
+				marca: marca.trim(),
+        nombre: nombre.trim(),
+        precio: +precio,
+        descuento: +descuento,
+        codigo: codigo.trim(),
+        categoryId,
+        descripcion: descripcion.trim(),
+        color: color.trim(),
+        material: material.trim(),
+        xs: +xs,
+        s: +s,
+        m: +m,
+        l: +l,
+        xl: +xl,
+        unico: +unico,
+        activo: true
+			},
+			{
+				where : {
+					id : req.params.id
+				}
 			}
-		};
-		productsService.crear(nuevoProducto);
-		console.log(nuevoUsuario);
-		res.redirect('/products');
-	}
->>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
+		).then(async () => {
+			if (req.files.length > 0) {
+        const images = req.files.map(({ filename }, i) => ({
+          file: filename,
+          productId: createdProduct.id,
+          order: +i
+        }));
+      
+        for (const image of images) {
+          try {
+            await db.Image.update(
+              { file: image.file },
+              { where: { productId: image.productId, order: image.order } }
+            );
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      }
+			return res.redirect('/products');
+
+		}).catch(error => console.log(error))
+	},
+
+	// Delete - Delete one product from DB
+	delete : (req, res) => {
+
+		db.Product.destroy({
+			where : {
+				id : req.params.id
+			}
+		})
+			.then((info) => {
+				return res.redirect('/products');
+			})
+			.catch(error => console.log(error))
+	},
+	recycle : (req,res) => {
+		db.Product.findAll({
+			where : {
+				deletedAt : {
+					[Op.not] : null
+				}
+			},
+			paranoid : false,
+			include : ['images']
+		})
+			.then(products => res.render('products/recycle', {
+				products,
+				toThousand
+			}))
+			.catch(error => console.log(error))
+	},
+	restore : (req,res) => {
+		db.Product.restore({
+			where : {
+				id : req.params.id
+			}
+		})
+		.then((info) => {
+			console.log('>>>>>>>>>>>>>>>>>>>>>>>>',info);
+			return res.redirect('/products');
+		})
+		.catch(error => console.log(error))
+	},
+	destroy : (req, res) => {
+
+		db.Image.findAll({
+			where : {
+				productId : req.params.id
+			}
+		})
+			.then(images => {
+				images.forEach(image => {
+					if(fs.existsSync(path.resolve(__dirname,'../../public/img/productos/' + image.file))){
+						console.log(image.file)
+						fs.unlinkSync(path.resolve(__dirname,'../../public/img/productos/' + image.file))
+					}
+				});
+				db.Product.destroy({
+					where : {
+						id : req.params.id
+					},
+					force : true
+				})
+					.then((info) => {
+						console.log('>>>>>>>>>>>>>>>>>>>>>>>>',info);
+						return res.redirect('/products');
+					})
+			})
+			.catch(error => console.log(error))
+	},
 };
 
-module.exports = productsController;
+module.exports = controller;

@@ -19,7 +19,7 @@
                 <a href="/products/detail/<%= id %>">
                   <figure class="product-box_image">
                     <% images.forEach(image => { %>
-                      <% if (image.primary == 1) { %>
+                      <% if (image.order == 1) { %>
                         <img src="/img/productos/<%= image.file %>" alt="imagen de producto">
                       <% } %>
                     <% }) %>
