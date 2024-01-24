@@ -4,3 +4,4 @@
 .vscode
 .prettierrc
 .sequelizerc
+/website/package-log.json
