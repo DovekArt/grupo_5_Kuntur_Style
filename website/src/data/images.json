@@ -1,52 +1,32 @@
 [
   {
-    "file": "bermuda-1.jpg",
-    "productId": "1",
-    "primary": 1
+    "image": "bermuda-1.jpg"
   },
   {
-    "file": "gorra-1.jpg",
-    "productId": "2",
-    "primary": 1
+    "image": "gorra-1.jpg"
   },
   {
-    "file": "remera-4.jpg",
-    "productId": "3",
-    "primary": 1
+    "image": "remera-4.jpg"
   },
   {
-    "file": "jeanshort-3.jpg",
-    "productId": "4",
-    "primary": 1
+    "image": "jeanshort-3.jpg"
   },
   {
-    "file": "gorra-2.jpg",
-    "productId": "5",
-    "primary": 1
+    "image": "gorra-2.jpg"
   },
   {
-    "file": "remera-girl-1.jpg",
-    "productId": "6",
-    "primary": 1
+    "image": "remera-girl-1.jpg"
   },
   {
-    "file": "remera-3.jpg",
-    "productId": "7",
-    "primary": 1
+    "image": "remera-3.jpg"
   },
   {
-    "file": "jeanshort-1.jpg",
-    "productId": "8",
-    "primary": 1
+    "image": "jeanshort-1.jpg"
   },
   {
-    "file": "remera-2.jpg",
-    "productId": "9",
-    "primary": 1
+    "image": "remera-2.jpg"
   },
   {
-    "file": "bermuda-2.jpg",
-    "productId": "10",
-    "primary": 1
+    "image": "bermuda-2.jpg"
   }
 ]

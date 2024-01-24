@@ -1,31 +1,6 @@
-<<<<<<< HEAD
-const uuid = require("uuid");
-
-// const usersController = {
-//   processRegister: (req, res) => {
-//     const randomNum = Math.floor(Math.random() * 5) + 1;
-//     const nuevoUsuario = {
-//       uuid: uuid.v4(),
-//       nombre: req.body.nombre,
-//       apellido: req.body.apellido,
-//       email: req.body.email,
-//       password: bcrypt.hashSync(req.body.password, 10),
-//       telefono: req.body.telefono,
-//       domicilio: req.body.domicilio,
-//       ciudad: req.body.ciudad,
-//       codigo_postal: req.body.codigo_postal,
-//       avatar: "avatar-" + randomNum + ".jpg",
-//       role: "cliente",
-//     };
-//     usersService.crear(nuevoUsuario);
-//     console.log(nuevoUsuario);
-//     res.redirect("/");
-//   }
-// };
-
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const usersService = require("../services/usersService");
+const db = require('../database/models');
 
 module.exports = {
   register: (req, res) => {
@@ -36,29 +11,26 @@ module.exports = {
     if (errors.isEmpty()) {
       let { nombre, apellido, email, password } = req.body;
       const randomNum = Math.floor(Math.random() * 5) + 1;
-      const nuevoUsuario = {
-        uuid: uuid.v4(),
+
+      db.User.create({
         nombre: nombre.trim(),
         apellido: apellido.trim(),
         email: email.trim(),
-        password: bcrypt.hashSync(password, 10),
+        password: bcryptjs.hashSync(password, 10),
         telefono: "",
-        avatar: "avatar-" + randomNum + ".jpg",
-        role: 2,
-      };
-      usersService.crear(
-        nuevoUsuario
-        )
-        .then(() => {
-          usersService.crearAddress({
-              userUUID : nuevoUsuario.uuid,
-              typeId : 1
-          }).then( () => {
-            return res.redirect("/users/login");
-          })
+        image: "avatar-" + randomNum + ".jpg",
+        rolId: 2,
+      })
+        .then(user => {
+            db.Address.create({
+                userId : user.id,
+                typeId : 1
+            }).then( () => {
+              return res.redirect("/account/login");
+            })
         })
-        .catch(error => console.log(error));
-
+        .catch(error => console.log(error))
+  
     } else {
       return res.render("users/register", {
         old: req.body,
@@ -69,157 +41,159 @@ module.exports = {
   login: (req, res) => {
     return res.render("users/login");
   },
-  // processLogin: async (req, res) => {
-  //   const errors = validationResult(req);
-  //   if (errors.isEmpty()) {
-  //     const { email } = req.body;
-  //     try {
-  //       const user = await usersService.buscarPorEmail(email);
-  //       let order = await usersService.getActiveOrder(user.uuid);
-  //       req.session.userLogin = {
-  //         uuid: user.uuid,
-  //         name: user.nombre,
-  //         image: user.avatar,
-  //         rol: user.role,
-  //         order,
-  //       };
-  //       if (req.body.remember) {
-  //         res.cookie('KunturStyle', req.session.userLogin, { maxAge: 1000 * 60 * 2 });
-  //       }
-  //       return res.redirect('/?user=true');
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   } else {
-  //     return res.render("userLogin", {
-  //       old: req.body,
-  //       errors: errors.mapped(),
-  //     });
-  //   }
-  // },
-  // profile: async (req, res) => {
-  //   try {
-  //     const user = await usersService.buscar(req.session.userLogin.uuid);
-  //     const types = await usersService.getAddressTypes();
-  //     res.render("userProfile", {
-  //       user,
-  //       types,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
-  // update: async (req, res) => {
-  //   const { nombre, apellido, password, domicilio, ciudad, codigo_postal, telefono } = req.body;
-  //   try {
-  //     const user = await usersService.buscar(req.session.userLogin.uuid);
-  //     await usersService.actualizar(user.uuid, nombre.trim(), apellido.trim(), password, telefono, req.avatarId);
-  //     await usersService.actualizarAddress(user.uuid, domicilio.trim(), ciudad, codigo_postal);
-  //     res.redirect('/account/profile');
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
-  // logout: (req, res) => {
-  //   req.session.destroy();
-  //   res.cookie('KunturStyle', null, { maxAge: -1 });
-  //   res.redirect('/');
-  // },
-  // checkEmail: async (req, res) => {
-  //   try {
-  //     const email = req.body.email;
-  //     const user = await usersService.buscarPorEmail(email);
-  //     let response = {
-  //       ok: true,
-  //       data: user ? true : false,
-  //     };
-  //     return res.status(200).json(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //     return res.status(error.status || 500).json({
-  //       ok: false,
-  //       msg: error.message || 'Comuníquese con el administrador del sitio',
-  //     });
-  //   }
-  // }
-};
-=======
-// Requires
-const { validationResult } = require("express-validator");
-const bcrypt = require("bcrypt");
-const uuid = require("uuid");
-
-// Services
-const usersService = require("../services/usersService");
-
-const usersController = {
-  // Register - Register form
-  register: (req, res) => {
-    res.render("users/register");
-  },
-
-  // Process - Register form
-  processRegister: (req, res) => {
-    const randomNum = Math.floor(Math.random() * 5) + 1;
-    const nuevoUsuario = {
-      uuid: uuid.v4(),
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      telefono: req.body.telefono,
-      domicilio: req.body.domicilio,
-      ciudad: req.body.ciudad,
-      codigo_postal: req.body.codigo_postal,
-      avatar: "avatar-" + randomNum + ".jpg",
-      role: "cliente",
-    };
-    usersService.crear(nuevoUsuario);
-    console.log(nuevoUsuario);
-    res.redirect("/");
-  },
-
-  // Login - Login form
-  login: (req, res) => {
-    res.render("users/login");
-  },
-
-  // Process - Login form
   processLogin: (req, res) => {
-    res.redirect("/");
-  },
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      
+      const { email } = req.body
 
-  // Logout - Logout
-  logout: (req, res) => {
-    res.redirect("/");
-  },
+      db.User.findOne({
+        where : {
+          email
+        }
+      }).then( async ({id,nombre,image, rolId}) => {
 
-  // Detail - Detail de un usuario
-  detail: (req, res) => {
-    res.render("users/detail");
+        let order = await db.Order.findOne({
+          where : {
+            userId : id,
+            statusId : 1
+          },
+          include : [
+            {
+              association : 'carts',
+              attributes : ['id','quantity'],
+              include : [
+                {
+                  association : 'product',
+                  include : ['images'],
+                  attributes : ['id', 'marca','nombre','precio','descuento']
+                }
+              ]
+            }
+          ]
+        })
+        req.session.userLogin = {
+          id: +id,
+          nombre,
+          image,
+          rol: +rolId,
+          order
+      }
+      if(req.body.remember){
+        res.cookie('KunturStyle',req.session.userLogin,{maxAge:1000*60*2})
+      }
+      return res.redirect('/?user=true')
+      })
+      
+    } else {
+      return res.render("users/login", {
+        old: req.body,
+        errors: errors.mapped(),
+      });
+    }
   },
-
-  // Update - Form para editar usuario
-  edit: (req, res) => {
-    res.render("users/edit");
+  profile: (req, res) => {
+    const provincias = [
+      "Buenos Aires",
+      "Capital Federal",
+      "Catamarca",
+      "Chaco",
+      "Chubut",
+      "Córdoba",
+      "Corrientes",
+      "Entre Ríos",
+      "Formosa",
+      "Jujuy",
+      "La Pampa",
+      "La Rioja",
+      "Mendoza",
+      "Misiones",
+      "Neuquén",
+      "Río Negro",
+      "Salta",
+      "San Juan",
+      "San Luis",
+      "Santa Cruz",
+      "Santa Fe",
+      "Santiago del Estero",
+      "Tierra del Fuego",
+      "Tucumán"
+    ];
+    let user = db.User.findByPk(req.session.userLogin.id,{
+      include : ['addresses']
+    })
+    let types = db.Type.findAll()
+    Promise.all([user,types])
+      .then(([user,types]) => res.render("users/profile", {
+        user,
+        provincias,
+        types
+      }))
   },
-
-  // Update - Procesar formulario de edición
-  update: (req, res) => {
-    res.redirect("/users/detail");
+  update : (req,res) => {
+    const { nombre, apellido, password, domicilio, ciudad, codigo_postal, telefono, avatar, type } = req.body;
+    db.User.findByPk(req.session.userLogin.id,{
+      attributes : ['password']
+    })
+      .then(user => {
+        db.User.update(
+          {
+            nombre: nombre.trim(),
+            apellido: apellido.trim(),
+            password: password ? bcryptjs.hashSync(password, 10) : user.password,
+            telefono: telefono.trim(),
+            image : `avatar-${avatar}.jpg`
+          },
+          {
+            where : {
+              id : req.session.userLogin.id
+            }
+          }
+        )
+          .then( () => {
+            db.Address.update(
+              {
+                domicilio: domicilio.trim(),
+                ciudad: ciudad.trim(),
+                codigo_postal: codigo_postal.trim(),
+                typeId: +type
+              },
+              {
+                where : {
+                  userId : req.session.userLogin.id
+                }
+              }
+            ).then( () => res.redirect('/account/profile'))
+          })
+      }).catch(error => console.log(error))
+  
   },
-
-  // Delete - Deletea un usuario
-  delete: (req, res) => {
-    res.redirect("/users/list");
+  logout : (req,res) => {
+    req.session.destroy();
+    res.cookie('KunturStyle',null,{maxAge : -1})
+    res.redirect('/')
   },
-
-  // List - Listado de todos los usuarios
-  list: (req, res) => {
-    const usuarios = usersService.usuarios;
-    res.render("users/usersList", { usuarios });
+  /* APIs */
+  checkEmail : async (req,res) => {
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>',req.body)
+    try {
+      let user = await db.User.findOne({
+          where : {
+            email : req.body.email
+          }
+      })
+      let response = {
+        ok: true,
+        data : user ? true : false
+      }
+      return res.status(200).json(response)
+      
+    } catch (error) {
+      console.log(error)
+      return res.status(error.status || 500).json({
+        ok : false,
+        msg : error.message || 'Comuníquese con el administrador del sitio'
+      })
+    }
   }
 };
-
-module.exports = usersController;
->>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2

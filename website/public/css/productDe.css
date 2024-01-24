@@ -62,22 +62,22 @@
   cursor: pointer;
 }
 
-.gallery__thumnails {
+.gallery__thumbnails {
   display: none;
 }
 
 @media (min-width: 1115px) {
-  .gallery__thumnails{
+  .gallery__thumbnails{
       display: flex;
       justify-content: space-between;
   }
 }
 
-.gallery__thumnail {
+.gallery__thumbnail {
   width: 90px;
   border-radius: 16px;
 }
-.gallery__thumnail:hover {
+.gallery__thumbnail:hover {
   cursor: pointer;
   border: 2px solid orange;
 }
@@ -390,19 +390,19 @@
 }
 
 
-.modal-gallery__thumnails{
+.modal-gallery__thumbnails{
   display: flex;
   justify-content: space-between;
   width: 450px;
   margin: auto;
 }
 
-.modal-gallery__thumnail {
+.modal-gallery__thumbnail {
   width: 90px;
   border-radius: 16px;
 }
 
-.modal-gallery__thumnail:hover {
+.modal-gallery__thumbnail:hover {
   cursor: pointer;
   border: 2px solid orange;
 }

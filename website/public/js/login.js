@@ -26,17 +26,3 @@ document.getElementById('eye').addEventListener("click", function () {
         hide();
     }
 }, false);
-
-document.getElementById("login-btn").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe automáticamente
-
-    const passwordInput = document.getElementById("pwd");
-    const notification = document.getElementById("notification-password");
-
-    if (passwordInput.value !== "Password123") {
-        notification.style.display = "block";
-    } else {
-        notification.style.display = "none";
-        document.getElementById("login-form").submit(); // Envía el formulario si la contraseña es correcta
-    }
-});

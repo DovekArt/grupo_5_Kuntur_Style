@@ -1,38 +1,30 @@
-<<<<<<< HEAD
 const multer = require('multer');
 const path = require('path');
 
+// Función para verificar el tipo de archivo
+const imageFileFilter = (req, file, callback) => {
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+
+  if (allowedTypes.includes(file.mimetype)) {
+    callback(null, true); // Aceptar el archivo
+  } else {
+    callback(new Error('Solo se permiten archivos de imagen (jpg, png, webp, gif)')); // Rechazar el archivo
+  }
+};
+
+// Configuración de multer con verificación de tipo de archivo
 const storageImgProduct = multer.diskStorage({
-    destination : function (req,file,callback) {
-        callback(null,'public/img/productos')
-    },
-    filename : function (req,file,callback){
-        callback(null, `${Date.now()}_products_${path.extname(file.originalname)}`)
-    }
+  destination: function (req, file, callback) {
+    callback(null, 'public/img/productos');
+  },
+  filename: function (req, file, callback) {
+    callback(null, `${Date.now()}_products${path.extname(file.originalname)}`);
+  }
 });
 
 const productsFileUpload = multer({
-    storage : storageImgProduct
-})
-=======
-const multer = require("multer");
-const path = require("path");
-
-
-const storage = multer.diskStorage({
-
-    destination: (req, file, callback) => {
-        let folder = path.join(__dirname, "../../public/img/productos");
-        callback(null, folder);
-    },
-    
-    filename: (req, file, callback) => {
-        let imgName = 'producto-' + Date.now() + path.extname(file.originalname);
-        callback(null, imgName)
-    }
+  storage: storageImgProduct,
+  fileFilter: imageFileFilter // Aplicar verificación de tipo de archivo
 });
-
-const productsFileUpload = multer({ storage });
->>>>>>> b330e3c84a429cc6f9ce89629c81bda91d3b8ab2
 
 module.exports = productsFileUpload;

@@ -1,47 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <%- include('partials/head', {title: 'Inicio'}) %>
     <link rel="stylesheet" href="../../public/css/productDe.css">
 </head>
 <body>
-    <header>
-        <%- include('partials/header') %>
-    </header>
-    
     <section class="container-main">
-
-
         <article class="gallery">
-
             <div class="gallery__image-container">
                 <img  class="gallery__previus" src="../../public/img/design/icons/next-chevron-right.svg" alt="previus">
                 <img class="gallery__next" src="../../public/img/design/icons/previus-chevron-left.svg" alt="next">
             </div>
-            <div class="gallery__thumnails">
-                <img id="1" class="gallery__thumnail" src="../../public/img/productos/bermuda-1.jpg" alt="thumnail">
-                <img id="2" class="gallery__thumnail" src="../../public/img/productos/bermuda-2.jpg" alt=thumnail">
-                <img id="3" class="gallery__thumnail" src="../../public/img/productos/campera-1.jpg" alt="thumnail">
-                <img id="4" class="gallery__thumnail" src="../../public/img/productos/campera-2.jpg" alt="thumnail">
+            <div class="gallery__thumbnails">
+                <img id="1" class="gallery__thumbnail" src="../../public/img/productos/bermuda-1.jpg" alt="thumbnail">
+                <img id="2" class="gallery__thumbnail" src="../../public/img/productos/bermuda-2.jpg" alt="thumbnail">
+                <img id="3" class="gallery__thumbnail" src="../../public/img/productos/campera-1.jpg" alt="thumbnail">
+                <img id="4" class="gallery__thumbnail" src="../../public/img/productos/campera-2.jpg" alt="thumbnail">
             </div>
-
         </article>
-
-
-
         <article class="details">
-
             <h2 class="details__company">Kuntur Company</h2>
             <h2 class="details__title">Campera de edicion limitada "Especial verano Kuntur"</h2>
             <p class="details__description">Estas prendas fueron de la ultima coleccion del verano del 22 confeccionadas
                 para resisitir y perdurar en el tiempo como nuestra empresa.
             </p>
-
             <div class="details__prices">
                 <p class="details__now">$150.000 <span class="details_discount">50%</span></p>
                 <p class="details__before">$375.000</p>
             </div>
-
             <div class="details__product-quantity">
                 <div class="input">
                     <img class="input__minus" src="../../public/img/design/icons/bx-minus.svg" alt="minus">
@@ -50,14 +35,9 @@
                 </div>
                 <button class="details__button"><img src="../../public/img/design/icons/bxs-cart.svg" alt="cart">Add to cart</button>
             </div>
-
         </article>
 
-    
-
-
-    <!-- Inicio del cart modal para agregar al accarito del mercado opcional 
-
+    <!-- Inicio del cart modal para agregar al accarito del mercado opcional -->
     <div class="cart-modal">
         <p class="cart-modal__title">Cart</p>
         <div class="cart-modal__checkout-container">
@@ -72,40 +52,28 @@
             <button class="cart-modal__delete">Checkout</button>
         </div>
     </div>
-
-     Final del cart modal -->
-
+    <!-- Final del cart modal -->
 
     <!-- Inicio modal Gallery -->
-
     <div class="modal-gallery__background">
     <article class="modal-gallery">
         <div class="modal-gallery__close-container">
         <img class="modal-gallery__close" src="../../public/img/design/icons/bx-window-close.svg" alt="close">
-         </div>
+        </div>
         <div class="modal-gallery__image-container">
             <img  class="modal-gallery__previus" src="../../public/img/design/icons/previus-chevron-left.svg" alt="previus">
             <img class="modal-gallery__next" src="../../public/img/design/icons/next-chevron-right.svg" alt="next">
         </div>
-        <div class="modal-gallery__thumnails">
-            <img id="m1" class="modal-gallery__thumnail" src="../../public/img/productos/bermuda-1.jpg" alt="thumnail">
-            <img id="m2" class="modal-gallery__thumnail" src="../../public/img/productos/bermuda-2.jpg" alt="thumnail">
-            <img id="m3" class="modal-gallery__thumnail" src="../../public/img/productos/campera-1.jpg" alt="thumnail">
-            <img id="m4" class="modal-gallery__thumnail" src="../../public/img/productos/campera-2.jpg" alt="thumnail">
+        <div class="modal-gallery__thumbnails">
+            <img id="m1" class="modal-gallery__thumbnail" src="../../public/img/productos/bermuda-1.jpg" alt="thumbnail">
+            <img id="m2" class="modal-gallery__thumbnail" src="../../public/img/productos/bermuda-2.jpg" alt="thumbnail">
+            <img id="m3" class="modal-gallery__thumbnail" src="../../public/img/productos/campera-1.jpg" alt="thumbnail">
+            <img id="m4" class="modal-gallery__thumbnail" src="../../public/img/productos/campera-2.jpg" alt="thumbnail">
         </div>
-
     </article>
     </div>
-
 </section>
-
     <!-- Final modal Gallery -->
-
-
-
-    <footer>
-        <%- include('partials/footer') %>
-    </footer>
     <script src="../../public/js/productDetail.js"></script>
 </body>
 </html>

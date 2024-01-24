@@ -1,0 +1,59 @@
+<main class="main-container">
+<div class="container products-wrapper">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="products-title">Productos</h2>
+      <div class="row product-detail">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-1">#</th>
+                <th scope="col" class="col-1">Imagen</th>
+                <th scope="col" class="col-4">Producto</th>
+                <th scope="col" class="col-1">Precio</th>
+                <th scope="col" class="col-1">Descuento</th>
+                <th scope="col" class="col-1">Categoría</th>
+                <th scope="col" class="col-1">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% products.forEach(({id,nombre,precio,descuento,category,images})=> { %>
+                <tr>
+                  <th scope="row">
+                    <%= id %>
+                  </th>
+                  <td><img src="/img/productos/<%= images[0].file %>" alt=""> </td>
+                  <td class="align-middle">
+                    <%= nombre %>
+                  </td>
+                  <td class="align-middle">
+                    <%= precio %>
+                  </td>
+                  <td class="align-middle">
+                    <%= descuento %>
+                  </td>
+                  <td class="align-middle">
+                    <%= category.name %>
+                  </td>
+                  <td class="align-middle">
+                    <div class="d-flex gap-2">
+                      <a style="width: 25px; height:25px" class="btn btn-sm btn-primary" href=""><i
+                          class="fas fa-info"></i></a>
+                      <a style="width: 25px; height:25px" class="btn btn-sm btn-success" href=""><i
+                          class="fas fa-edit"></i></a>
+                      <form action="">
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+                <% }) %>
+            </tbody>
+          </table>
+        </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>

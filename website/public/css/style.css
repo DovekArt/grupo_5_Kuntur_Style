@@ -7744,7 +7744,7 @@ input:-webkit-autofill {
 }
 
 @media (min-width: 768px) {
-  input[class="form-input"] {
+  input[class="form-input "] {
     width: 240px;
   }
 
@@ -7821,7 +7821,7 @@ input:-webkit-autofill {
   cursor: pointer;
 }
 
-input[class="form-input"] {
+input[class="form-input "] {
   width: 140px;
   height: 50px;
   margin-top: 2%;
@@ -7885,7 +7885,7 @@ input:focus {
     padding: 85px 60px 60px;
   }
 
-  input[class="form-input"] {
+  input[class="form-input "] {
     width: 240px;
   }
 }

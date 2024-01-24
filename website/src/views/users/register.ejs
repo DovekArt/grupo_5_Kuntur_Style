@@ -15,95 +15,81 @@
                   <img src="/img/design/logo.png" alt="logo" class="logo">
                 </div>
                 <p class="login-card-description">Crear cuenta</p>
-                <form id="register-form" action="/account/register" method="POST" data-store="account-register" data-toggle="validator"
+                <form id="register-form" action="" method="POST" data-store="account-register" data-toggle="validator"
                   role="form">
                   <div class="field-set">
                     <div class="mb-2 form-doblecampo">
-                      <input class="form-input form-campo" id="txt-input" type="text" name="nombre" placeholder="Nombre" required>
-                      <input class="form-input form-campo" id="txt-input" type="text" name="apellido" placeholder="Apellido" required>
-                    </div>
-                    <div class="mb-2 form-campo">
-                      <span class="input-item">
-                        <i class="fa fa-location-dot"></i>
-                      </span>
-                      <input class="form-input" id="txt-input" type="text" name="domicilio" placeholder="Domicilio" required="">
-                    </div>
-                    <div class="mb-2 form-doblecampo">
-                      <select type="text" id="ciudad" name="ciudad" required="" class="form-input form-campo">
-                        <option value="" disabled="" selected="">Provincia</option>
-                        <option value="Buenos Aires">Buenos Aires</option>
-                        <option value="Capital Federal">Capital Federal</option>
-                        <option value="Catamarca">Catamarca</option>
-                        <option value="Chaco">Chaco</option>
-                        <option value="Chubut">Chubut</option>
-                        <option value="Córdoba">Córdoba</option>
-                        <option value="Corrientes">Corrientes</option>
-                        <option value="Entre Ríos">Entre Ríos</option>
-                        <option value="Formosa">Formosa</option>
-                        <option value="Jujuy">Jujuy</option>
-                        <option value="La Pampa">La Pampa</option>
-                        <option value="La Rioja">La Rioja</option>
-                        <option value="Mendoza">Mendoza</option>
-                        <option value="Misiones">Misiones</option>
-                        <option value="Neuquén">Neuquén</option>
-                        <option value="Río Negro">Río Negro</option>
-                        <option value="Salta">Salta</option>
-                        <option value="San Juan">San Juan</option>
-                        <option value="San Luis">San Luis</option>
-                        <option value="Santa Cruz">Santa Cruz</option>
-                        <option value="Santa Fe">Santa Fe</option>
-                        <option value="Santiago del Estero">Santiago del Estero</option>
-                        <option value="Tierra del Fuego">Tierra del Fuego</option>
-                        <option value="Tucumán">Tucumán</option>
-                      </select>
-                      <input class="form-input form-campo" id="txt-input" type="text" name="codigo_postal" placeholder="Codigo Postal" required="">
-                    </div>
-                    <div class="mb-2 form-campo">
-                      <span class="input-item">
-                        <i class="fa fa-phone"></i>
-                      </span>
-                      <input class="form-input" id="txt-input" type="tel" name="telefono" placeholder="Número de telefono" required="">
+                      <input class="form-input form-campo <%= locals.errors && errors.nombre ? 'is-invalid' : null %>" 
+                      id="txt-input" type="text" name="nombre" placeholder="Nombre" 
+                      value="<%= locals.old && old.nombre ? old.nombre : null %>" 
+                      title="El nombre debe tener más de tres caracteres" data-minlength="3" required>
+                      <small id="errorNombre" class="notification-danger notification-left">
+                        <%= locals.errors && errors.nombre ? errors.nombre.msg : null %>
+                      </small>
+                      <input class="form-input form-campo <%= locals.errors && errors.apellido ? 'is-invalid' : null %>" 
+                      id="txt-input" type="text" name="apellido" placeholder="Apellido" 
+                      value="<%= locals.old && old.apellido ? old.apellido : null %>" 
+                      title="El nombre debe tener más de tres caracteres" data-minlength="3" required>
+                      <small id="errorApellido" class="notification-danger notification-left">
+                        <%= locals.errors && errors.apellido ? errors.apellido.msg : null %>
+                      </small>
                     </div>
                     <div class="mb-2 form-campo">
                       <span class="input-item">
                         <i class="fa fa-user-circle"></i>
                       </span>
-                      <input class="form-input" id="txt-input" type="email" name="email" placeholder="@Correo" required>
+                      <input class="form-input <%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                      id="txt-input" type="email" name="email" placeholder="@Correo" 
+                      value="<%= locals.old && old.email ? old.email : null %>" 
+                      title="El email debe ser valido" required>
+                      <small id="errorEmail" class="notification-danger notification-left">
+                        <%= locals.errors && errors.email ? errors.email.msg : null %>
+                      </small>
                     </div>
                     <div class="mb-2 form-campo form-group">
                       <span class="input-item">
                         <i class="fa fa-key"></i>
                       </span>
-                      <input class="form-input" type="password" placeholder="Contraseña" id="pwd" name="password"
-                        required data-minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                        title="Debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número.">
+                      <input class="form-input <%= locals.errors && errors.password ? 'is-invalid' : null %>" type="password" placeholder="Contraseña" id="pwd" name="password"
+                        required data-minlength="6" data-maxlength="18"
+                        title="Debe tener min. 6 caracteres y max. 18.">
                       <span>
                         <i class="fa fa-eye-slash" aria-hidden="true" type="button" id="eye"></i>
                       </span>
+                      <small id="errorPass" class="notification-danger notification-left">
+                        <%= locals.errors && errors.password ? errors.password.msg : null %>
+                      </small>
                     </div>
                     <div class="form-group">
                       <div class="mb-2 form-campo">
                         <span class="input-item">
                           <i class="fa fa-key"></i>
                         </span>
-                        <input class="form-input" type="password" placeholder="Confirmar contraseña" id="pwd-confirm"
+                        <input class="form-input <%= locals.errors && errors.confirm_password ? 'is-invalid' : null %>" type="password" placeholder="Confirmar contraseña" id="pwd-confirm"
                           name="confirm_password" required data-match="#pwd"
                           data-match-error="Ups, las contraseñas no coinciden!">
                         <span>
                           <i class="fa fa-eye-slash eye" aria-hidden="true" type="button" id="eye-confirm"></i>
                         </span>
+                        <small id="errorPass2" class="notification-danger notification-left">
+                          <%= locals.errors && errors.confirm_password ? errors.confirm_password.msg : null %>
+                        </small>
                       </div>
                       <div class="help-block with-errors"></div>
                     </div>
                     <div class="notification-danger notification-left" id="notification-danger" style="display: none;">
                       Las contraseñas no coinciden.</div>
                     <div class="mb-1">
-                      <input class="form-check-input" type="checkbox" id="termsCheck" required>
-                      <label class="form-check-label" for="termsCheck">Acepto los términos y condiciones.</label>
+                      <input class="form-check-input <%= locals.errors && errors.bases ? 'is-invalid' : null %>" type="checkbox" name="bases" id="termsCheck" required>
+                      <label class="form-check-label" for="bases">Acepto los términos y condiciones.</label>
                     </div>
                     <button class="btn btn-block login-btn mb-4 log-in" id="register-btn" type="submit"
                       value="Crear cuenta" disabled> Crear cuenta </button>
                   </div>
+                  <p id="errorTerms" class="notification-danger notification-left mt-4">
+                    <%= locals.errors && errors.bases ? errors.bases.msg : null %>
+                  </p>
+                  <p id="msgError" class="notification-danger notification-left"></p>
                 </form>
                 <p class="login-card-footer-text">¿Ya tenés una cuenta? <a href="/account/login"
                     class="text-reset">Iniciá sesión</a></p>
@@ -124,5 +110,10 @@
     <%- include('../partials/footer') %>
     <script src="/js/header.js"></script>
     <script src="/js/register.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"></script>
   </body>
 </html>
