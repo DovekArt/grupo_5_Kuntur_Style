@@ -6,6 +6,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 
 // ************ Middlewares Require ************
+const adminCheck = require('../middlewares/admin');
 const productImageUpload = require("../middlewares/productImage");
 const productFormValidation = require("../middlewares/productForm");
 
@@ -13,14 +14,14 @@ const productFormValidation = require("../middlewares/productForm");
 router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/
-router.get('/create', productsController.create);
+router.get('/create', adminCheck,productsController.create);
 router.post('/create', productFormValidation, productImageUpload.array('images'), productsController.store);
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/detail/:id/', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
+router.get('/edit/:id', adminCheck,productsController.edit); 
 router.put('/update/:id', productFormValidation, productImageUpload.array('image'), productsController.update);
 
 /*** DELETE ONE PRODUCT***/
@@ -31,6 +32,6 @@ router.delete('/destroy/:id', productsController.destroy);
 router.post('/restore/:id', productsController.restore); 
 
 /*** GET ALL PRODUCTS RECYCLES ***/ 
-router.get('/recycles', productsController.recycle);
+router.get('/recycles', adminCheck,productsController.recycle);
 
 module.exports = router;

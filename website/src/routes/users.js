@@ -20,6 +20,6 @@ router
     .get('/logout', logout)
 
     /* APIs */
-    .post('/api/check-email', userCheck,checkEmail);
+    .post('/api/check-email',checkEmail);
 
 module.exports = router;

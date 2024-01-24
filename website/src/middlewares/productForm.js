@@ -1,5 +1,4 @@
 const {check} = require("express-validator");
-
 module.exports=[
   check("nombre").notEmpty().withMessage("Tienes que completar el nombre"),
   check("nombre").isLength({ min: 5, max: 40}).withMessage("El nombre debe contener entre 5 y 40 caracteres").bail(),

@@ -75,11 +75,12 @@
     
                 <button value="<%= product.id %>" id="btn-cart-add" class="buy-now-button W-100">AGREGAR AL CARRITO</button>
                 <hr>
-    
+                <% if (userLogin && userLogin.rol === 1) { %>
                 <a href="/products/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
                 <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                   <button type="submit" class="action-button delete" style="cursor:pointer;">ELIMINAR</button>
                 </form>
+                <% } %>
               </article>
             </div>
           </div>

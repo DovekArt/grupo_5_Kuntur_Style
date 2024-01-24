@@ -1,6 +1,5 @@
 const db = require('../database/models');
 const { check, body } = require("express-validator");
-
 module.exports = [
   check("nombre")
     .isLength({ min: 3 })
