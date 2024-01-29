@@ -1,5 +1,6 @@
 /*====== Variables ======*/
 :root {
+  --orange: orange;
   --yellow: #EAC926;
   --dark-blue: #03264C;
   --light-blue: #1259c3;
@@ -235,7 +236,13 @@ body {
 }
 
 /*====== Product Detail ======*/
+.product-detail{
+  padding-bottom: 50px;
+}
 
+.description{
+  width: 100%; 
+}
 .main-container .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
@@ -251,24 +258,22 @@ body {
 
 .main-container .product-detail-info {
   border-left: 1px solid var(--light-gray);
-  padding: 15px;
   height: 100%;
 }
 
 .main-container .product-detail-title {
   font-weight: 400;
-  font-size: 2.8em;
+  font-size: 2.8em; 
 }
 
 .main-container .product-detail-description {
-  padding: 15px;
-  font-size: 1.8em;
+  font-size: 1.3em;
   line-height: 1.5;
 }
 
 .main-container .product-detail-price {
-  font-size: 5.5em;
-  margin: 10px 0;
+  font-size: 3.5em; 
+  margin: 2.5rem 0 2rem 0;
 }
 
 .main-container .small {
@@ -304,8 +309,7 @@ body {
 }
 
 .main-container .buy-now-button {
-  background-color: var(--light-blue);
-  font-size: 1.6em;
+  background-color: var(--orange);
   color: #ffffff;
   display: flex;
   align-items: center;

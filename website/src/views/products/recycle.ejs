@@ -36,8 +36,8 @@
                       <td>
                         <div class="col-12 col-lg-8">
                           <% let image = null; %>
-                          <% imagenes.forEach(imagen => { 
-                            if (imagen.productId == product.id && imagen.primary == 1) {
+                          <% product.images.forEach(imagen => { 
+                            if (imagen.productId == product.id && imagen.order == 1) {
                               image = imagen.file;
                             }
                           }); %>

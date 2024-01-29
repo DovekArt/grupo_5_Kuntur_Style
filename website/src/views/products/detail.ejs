@@ -11,7 +11,6 @@
       <div class="container products-wrapper">
         <div class="row">
           <div class="col-12">
-            <h2 class="products-title">Detalle del producto: <%= product.nombre %></h2>
           </div>
         </div>
         <div class="product-detail">
@@ -23,64 +22,60 @@
                 <% } %>
                 <img src="/img/productos/<%= image.file %>" alt="imagen de <%= product.nombre %>-<%= image.order %>" class="images-detail">
               <% }) %>
-              <p class="product-detail-description">
-                <%= product.descripcion %>
-              </p>
-              <p class="product-detail-description">
-                Talles:
-                <% const { xs, s, m, l, xl, unico } = product;
-                  const talles = { xs, s, m, l, xl, unico };
-                  Object.entries(talles).forEach(([talle, cantidad]) => {
-                    if (cantidad > 0) { %>
-                      <%= talle.toUpperCase() %>. 
-                    <% }
-                  }); %>
-              </p>
-              <p class="product-detail-description">
-                Color: <%= product.color %>.
-              </p>
-              <p class="product-detail-description">
-                Material: <%= product.material %>.
-              </p>
+              <div class="description"> 
+                  <p class="product-detail-description">
+                    <%= product.descripcion %>
+                  </p>
+                  <p class="product-detail-description">
+                    Talles:
+                    <% const { xs, s, m, l, xl, unico } = product;
+                      const talles = { xs, s, m, l, xl, unico };
+                      Object.entries(talles).forEach(([talle, cantidad]) => {
+                        if (cantidad > 0) { %>
+                          <%= talle.toUpperCase() %>. 
+                        <% }
+                      }); %>
+                  </p>
+                  <p class="product-detail-description">
+                    Color: <%= product.color %>.
+                  </p>
+                  <p class="product-detail-description">
+                    Material: <%= product.material %>.
+                  </p>
+              </div>
+
             </div>
             <div class="col-12 col-lg-4">
-              <article class="product-detail-info">
-                <h2 class="product-detail-title"> <%= product.nombre %></h2>
+              <!-- <article class="product-detail-info"> -->
+                <article>
+                  <div class="product-detail">
+                    <h2 class="product-detail-title"> <%= product.nombre %></h2>
+                  
+                    <% if (+product.descuento !== 0) { %>
+                      <p class="product-detail-price small">
+                        <span>$<%= toThousand(product.precio) %></span>
+                        /
+                        <b><%= product.descuento %>% OFF</b>
+                      </p>
+                      <p class="product-detail-price">
+                        $<%= toThousand(product.precio - (product.precio * product.descuento) / 100) %> 
+                      </p>
+                    <% }else{ %>
                 
-                <% if (+product.descuento !== 0) { %>
-                  <p class="product-detail-price small">
-                    <span>$<%= toThousand(product.precio) %></span>
-                    /
-                    <b><%= product.descuento %>% OFF</b>
-                  </p>
-                  <p class="product-detail-price">
-                    $<%= toThousand(product.precio - (product.precio * product.descuento) / 100) %> 
-                  </p>
-                <% }else{ %>
-            
-                  <p class="product-detail-price">
-                    $<%= toThousand(product.precio) %>
-                  </p>
+                      <p class="product-detail-price">
+                        $<%= toThousand(product.precio) %>
+                      </p>
+                      <% } %>
+
+                  </div>
+                  <button value="<%= product.id %>" id="btn-cart-add" class="buy-now-button W-100">AGREGAR AL CARRITO</button>
+                  <hr>
+                  <% if (userLogin && userLogin.rol === 1) { %>
+                  <a href="/products/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
+                  <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                    <button type="submit" class="action-button delete" style="cursor:pointer;">ELIMINAR</button>
+                  </form>
                   <% } %>
-                <ul class="actions-list">
-                  <li>
-                    <i class="fas fa-credit-card"></i>
-                    <p>Pagá en 12 cuotas sin interes</p>
-                  </li>
-                  <li>
-                    <i class="fas fa-store"></i>
-                    <p>Retiro gratis en locales del vendedor</p>
-                  </li>
-                </ul>
-    
-                <button value="<%= product.id %>" id="btn-cart-add" class="buy-now-button W-100">AGREGAR AL CARRITO</button>
-                <hr>
-                <% if (userLogin && userLogin.rol === 1) { %>
-                <a href="/products/edit/<%= product.id %>" class="action-button edit">EDITAR PRODUCTO</a>
-                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                  <button type="submit" class="action-button delete" style="cursor:pointer;">ELIMINAR</button>
-                </form>
-                <% } %>
               </article>
             </div>
           </div>
