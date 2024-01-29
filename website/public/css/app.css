@@ -263,7 +263,7 @@ body {
 
 .main-container .product-detail-title {
   font-weight: 400;
-  font-size: 2.8em; 
+  font-size: 2em; 
 }
 
 .main-container .product-detail-description {
@@ -272,7 +272,7 @@ body {
 }
 
 .main-container .product-detail-price {
-  font-size: 3.5em; 
+  font-size: 2.5em; 
   margin: 2.5rem 0 2rem 0;
 }
 
@@ -433,6 +433,12 @@ body {
     width: 95%;
     margin: auto;
   }
+  .main-container .product-detail-price {
+    font-size: 3.5em;
+  }
+  .main-container .product-detail-title {
+    font-size: 2.8em;
+}
 }
 
 .main-container .size {
