@@ -349,6 +349,47 @@
 
 
 
+# Retrospectiva del Sprint 7 - Validaciones (Back + Front)
+
+## Comenzar a Hacer
+
+1. **Actualizar Tablero en Trello:**
+   - Continuar la gestión de tareas en Trello, asegurándose de que esté actualizado con las nuevas funcionalidades y cambios necesarios.
+
+2. **Implementación de Validaciones en Backend y Frontend:**
+   - Se realizaron con éxito las validaciones tanto en el backend utilizando Express Validator como en el frontend.
+   - Las validaciones se aplicaron en el registro y login de usuarios, así como en la creación y modificación de productos, garantizando la integridad de los datos en nuestra base de datos.
+
+## Hacer Más
+
+1. **Pruebas Exhaustivas de Validaciones:**
+   - Realizar pruebas exhaustivas de todas las validaciones implementadas en el backend y el frontend.
+   - Garantizar que todas las funcionalidades relacionadas con la autenticación y la manipulación de productos estén completamente validadas y funcionando correctamente.
+
+2. **Feedback Activo:**
+   - Reforzar la cultura de dar y recibir feedback de manera activa entre los miembros del equipo, especialmente en relación con la autenticación y el manejo de sesiones.
+
+## Continuar Haciendo
+
+1. **Revisión de Código:**
+   - Continuar con las revisiones de código entre los miembros del equipo para garantizar la calidad y consistencia del código.
+   - Fomentar la colaboración y el intercambio de conocimientos entre los miembros del equipo durante las revisiones de código.
+
+2. **Reuniones de Planificación:**
+   - Mantener una comunicación activa y regular entre los miembros del equipo, especialmente durante las dailies / weeklies.
+   - Asegurar que todos estén al tanto del progreso del proyecto y cualquier problema o bloqueo que surja.
+
+## Dejar de Hacer
+
+1. **Multitarea Excesiva:**
+   - Persistir en evitar la práctica de la multitarea excesiva, focalizando esfuerzos en la implementación eficiente y segura de bases de datos.
+ 
+2. **Déficit en Habilidades Blandas:**
+   - Continuar esforzándonos por mejorar las habilidades blandas, especialmente en la comunicación efectiva y la comprensión de las perspectivas de los miembros del equipo.
+
+3. **Desconexión del Proyecto:**
+   -Mantener un enfoque constante en el proyecto, recordando el propósito y los objetivos establecidos, y eliminando distracciones para mejorar la productividad y la calidad del trabajo.
+
 ---------------------
 
 [***Volver***](https://github.com/DovekArt/grupo_5_Kuntur_Style)
