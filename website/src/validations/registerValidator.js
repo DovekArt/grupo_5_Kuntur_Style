@@ -48,9 +48,11 @@ module.exports = [
       "Debes validar tu contraseña"
     )
     .custom((value, { req }) => {
-      if (value !== req.body.pass) {
+      if (value !== req.body.password) {
+        console.log(value + " no es lo mismo que " + req.body.password);
         return false;
       } else {
+        console.log(value + " si es lo mismo que " + req.body.password);
         return true;
       }
     })

@@ -122,6 +122,39 @@
               <div class="js-search-suggest search-suggest mr-md-3"></div>
             </span>
           </div>
+          <% if(locals.userLogin){ %>
+          <div class="col-auto col-utility">
+            <details id="acordionElement">
+              <summary>
+                <div class="button">
+                  <a class=" nav-list-link position-relative ">
+                    <span class="nav-list-arrow ml-1">
+                      <svg class="icon-inline utilities-icon " viewBox="0 0 512 512">
+                        <path d="M384,281.6H128A102.41,102.41,0,0,0,25.6,384V512H486.4V384A102.41,102.41,0,0,0,384,281.6Zm76.8,204.8H51.2V384A76.79,76.79,0,0,1,128,307.2H384A76.79,76.79,0,0,1,460.8,384ZM256,256A128,128,0,1,0,128,128,128,128,0,0,0,256,256Zm0-230.4A102.4,102.4,0,1,1,153.6,128,102.41,102.41,0,0,1,256,25.6Z">
+                        </path>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <div class="acordion-modal-overlay"></div>
+              </summary>
+              <div class="details-modal" style="max-height: 71.016px;top: 300%;left: -5px;max-width: 150px;">
+                <ul class="desktop-list-subitems list-subitems">
+                  <li class="nav-item item-with-subitems">
+                    <ul class="js-pages-accordion list-subitems nav-list-accordion">
+                      <li class="nav-item ">
+                        <a class="nav-list-link " href="/account/profile">PERFIL</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-list-link " href="/account/logout">SALIR</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </div>
+          <% }else{ %>
           <div class="col-auto col-utility">
             <span class="utilities-container">
               <a class="mobilebuttonsize" href="/account/login">
@@ -133,6 +166,18 @@
               </a>
             </span>
           </div>
+          <% } %>
+          <% if(locals.userLogin){ %>
+          <div class="col-auto col-utility">
+              <a id="btn-cart" class=" nav-list-link position-relative ">
+                <svg class="icon-inline utilities-icon" viewBox="0 0 512 512">
+                  <path
+                    d="M371.2 128v-14.2C371.2 50.87 319.43.2 256 .2S140.8 50.87 140.8 113.8V128H51.2v281.6c0 56.55 45.85 102.4 102.4 102.4h204.8c56.55 0 102.4-45.85 102.4-102.4V128h-89.6Zm-204.8-14.2c0-48.41 39.92-88 89.6-88s89.6 39.59 89.6 88V128H166.4v-14.2Zm268.8 295.8c0 42.42-34.39 76.8-76.8 76.8H153.6c-42.42 0-76.8-34.38-76.8-76.8v-256h64v89.8h25.6v-89.8h179.2v89.8h25.6v-89.8h64v256Z">
+                  </path>
+                </svg>
+              </a>
+          </div>
+          <% }else{ %>
           <details id="detailsElementModal" data-modal="modal-cart">
             <summary>
               <div class="button">
@@ -147,9 +192,9 @@
               <div class="details-modal-overlay js-modal-overlay modal-overlay"></div>
             </summary>
           </details>
+          <% } %>
         </div>
-        <div
-          class="col-auto col-md-auto align-items-center no-gutters order-sm-2 order-md-1 order-lg-1 text-center text-md-left">
+        <div class="col-auto col-md-auto align-items-center no-gutters order-sm-2 order-md-1 order-lg-1 text-center text-md-left">
           <div class="h3 m-0">
             <div id="logo" class="logo-img-container position-relative">
               <a href="/" title>
@@ -592,6 +637,40 @@
         </ul>
       </div>
     </div>
+</div>
+<!-- Modal Cart -->
+<div class="modal fade show" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Mis compras</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <table class="table" id="cart-box">
+          <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+          </tbody>
+          </table>
+        <p id="msg-empty" hidden>No tenés productos agregados al carrrito</p>
+    </div>
+    <div class="modal-footer">
+      <div id="btn-buy">
+        <button id="btn-cart-removeAll" type="button" class="btn btn-danger" value="<%= locals.userLogin && userLogin.order && userLogin.order.id %>">Vaciar carrito</button>
+        <button type="button" class="btn btn-primary">Finalizar compra</button> 
+      </div>
+    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
+    </div>
+    </div>
+  </div>
 </div>
 <div id="modal-cart"
       class="js-modal js-fullscreen-modal modal modal-cart js-tabnav-modal tabnav-modal modal-right modal-right-md transition-slide modal-docked-md transition-soft"

@@ -129,9 +129,22 @@ const nextBtns = document.querySelectorAll('#nextBtn');
 //   },
 // ];
 
-const products = productos;
+// const products = productos;
 
 let productsCantidad = 0;
+
+const productList = document.querySelectorAll('#product-info');
+let products = [];
+productList.forEach((prod) => {
+  const product = {
+    id: prod.getAttribute('product-id'),
+    nombre: prod.querySelector('#product-title').textContent,
+    precio: prod.querySelector('#product-price').textContent,
+    descuento: prod.querySelector('#product-discount').textContent,
+    imagen: prod.querySelector('#product-image').textContent,
+  }
+  products.push(product);
+})
 
 // Función para obtener los productos
 function getFeaturedProducts() {

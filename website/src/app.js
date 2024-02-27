@@ -39,11 +39,17 @@ app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la 
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users'); // Rutas /account
+const cartsAPIRouter = require('./routes/apis/carts');
+const productsAPIRouter = require('./routes/apis/products');
+const usersAPIRouter = require('./routes/apis/users');
 const { ENUM } = require('sequelize');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/account', usersRouter);
+app.use('/api/carts', cartsAPIRouter);
+app.use('/api/products', productsAPIRouter);
+app.use('/api/users', usersAPIRouter);
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************

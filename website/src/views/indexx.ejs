@@ -226,6 +226,16 @@
       </div>
       <!-- /Ofertas -->
     </section>
+    <section style="display: none">
+      <% products.forEach(({id,nombre,precio,descuento,images}) => { %>
+      <div id="product-info" product-id="<%= id %>">
+        <p id="product-title"><%= nombre %></p>
+        <p id="product-price"><%= toThousand(+precio) %></p>
+        <p id="product-discount"><%= descuento %></p>
+        <p id="product-image"><%= images[0].file %></p>
+      </div>
+      <% }); %>
+    </section>
     <section class="section-banners-home position-relative" data-store="banner-home-categories">
       <div class="container">
         <div class="row">
@@ -300,7 +310,6 @@
     <!-- /todos los productos -->
     <%- include('./partials/footer') %>
     <script src="/js/header.js"></script>
-    <script src="/js/scripts.js"></script>
     <script src="/js/carrito.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>

@@ -27,12 +27,15 @@ const controller = {
 			include : ['images']
 		})
 			.then(product => {
+				if (!product) {
+					return res.status(404).send('Producto no encontrado');
+				}
 				return res.render('products/detail',{
 					product,
 					toThousand
 				})
 			})
-			.catch(error => console.log(error))
+			.catch(error => console.log(error));
 	},
 
 	// Create - Form to create
@@ -89,7 +92,6 @@ const controller = {
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		let images = db.Type.findAll().filter((image) => image.productId === req.params.id)
 		let product = db.Product.findByPk(req.params.id,{
 			include : ['images']
 		})
@@ -97,9 +99,11 @@ const controller = {
 
 		Promise.all([product,categories])
 			.then(([product,categories]) => {
+				if (!product) {
+					return res.status(404).send('Producto no encontrado');
+				}
 				return res.render('products/edit',{
 					product,
-          images,
 					categories
 				})
 			})

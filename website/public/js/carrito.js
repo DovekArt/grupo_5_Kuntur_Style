@@ -1,4 +1,7 @@
 console.log("carrito.js success");
+const qs = (element) => document.querySelector(element);
+const qsa = (element) => document.querySelectorAll(element);
+const $ = (element) => document.getElementById(element);
 let query = new URLSearchParams(location.search);
 
 const getCarts = async () => {
@@ -67,18 +70,20 @@ const removeItemFull = async (id) => {
 
 const showCart = (carts) => {
   if(carts.length > 0){
+    $('exampleModal').classList.add = 'show';
+    $('exampleModal').style.display = 'block';
     $('cart-box').hidden = false;
     $('btn-buy').hidden = false;
     $('msg-empty').hidden = true;
     $("cart-items").innerHTML = null;
     carts.forEach(({ id:idItem, product, quantity }) => {
-      let { id, title, price, discount, images } = product;
+      let { id, nombre, precio, descuento, images } = product;
       $("cart-items").innerHTML += `
           <tr>
-          <td><img style="width: 100px" src="/images/products/${
+          <td><img style="width: 100px" src="/img/productos/${
             images[0].file
           }" alt=""></td>
-          <td>${title}</td>
+          <td>${nombre}</td>
           <td>
               <div class="d-flex">
                   <button class="btn btn-sm btn-danger" onclick="removeItem(${id})"><i class="fas fa-minus"></i></button>
@@ -86,14 +91,16 @@ const showCart = (carts) => {
                   <button class="btn btn-sm btn-success" onclick="addItem(${id})"><i class="fas fa-plus"></i></button>
               </div>
           </td>
-          <td>${price - (price * discount) / 100}</td>
-          <td>${(price - (price * discount) / 100) * quantity}</td>
+          <td>${precio - (precio * descuento) / 100}</td>
+          <td>${(precio - (precio * descuento) / 100) * quantity}</td>
           <td>
           <button class="btn btn-sm btn-danger" onclick="removeItemFull(${idItem})"><i class="fas fa-trash"></i></button>
           </td>
         </tr>`;
     });
   }else{
+    $('exampleModal').classList.remove = 'show';
+    $('exampleModal').style.display = 'none';
     $('cart-box').hidden = true;
     $('msg-empty').hidden = false;
     $('btn-buy').hidden = true;
@@ -102,10 +109,20 @@ const showCart = (carts) => {
 };
 
 $("btn-cart") &&
-  $("btn-cart").addEventListener("click", async () => {
+  $("btn-cart").addEventListener("click", async (event) => {
     let { order, carts } = await getCarts();
-
+    event.preventDefault();
     showCart(carts);
+  });
+
+qs(".btn-close") &&
+  qs(".btn-close").addEventListener("click", async (event) => {
+    event.preventDefault();
+    $('exampleModal').classList.remove = 'show';
+    $('exampleModal').style.display = 'none';
+    $('cart-box').hidden = true;
+    $('msg-empty').hidden = false;
+    $('btn-buy').hidden = true;
   });
 
 $("btn-cart-add") &&
