@@ -27,8 +27,7 @@ module.exports = {
       },
       telefono: {
         type: Sequelize.STRING,
-        allowNull : true,
-        unique : true
+        allowNull : true
       },
       image: {
         type: Sequelize.STRING,
